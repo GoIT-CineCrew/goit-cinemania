@@ -1,19 +1,35 @@
 <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
+  <div class="header-container">
+    <nav class="header-nav">
+      <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
+        <svg class="nav-logo-icon" width="45" height="36">
+          <use href="../img/sprite.svg#logo"></use>
         </svg>
+        Cinemania
       </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
-      </ul>
+      <div class="header-nav-items">
+        <ul class="header-nav-list">
+          <li class="header-nav-item">
+            <a class="header-nav-link {=$highlight-act}" href="../home.html"
+              >HOME</a
+            >
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link {=$highlight-curr}" href="../catalog.html"
+              >CATALOG</a
+            >
+          </li>
+          <li class="header-nav-item">
+            <a
+              class="header-nav-link {=$highlight-curr}"
+              href="../myLibrary.html"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+
+        <button>Theme</button>
+      </div>
     </nav>
   </div>
 </header>

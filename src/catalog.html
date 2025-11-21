@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <load
+      src="./partials/header.html"
+      icon-path="./img/sprite.svg#logo"
+      highlight-curr="active"
+    />
+    <load src="./partials/hero.html" />
+
+    <main>
+      <div class="catalog-container">
+        <div class="catalog-content">
+          <div class="catalog-search">
+            <input type="text" placeholder="Search movies..." />
+            <button type="submit">Search</button>
+          </div>
+          <div class="catalog-movie-list">
+            <ul class="catalog-movie-items">
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+            </ul>
+          </div>
+          <div class="catalog-pages">
+            <button type="button" class="catalog-page-btn">1</button>
+            <button type="button" class="catalog-page-btn">2</button>
+            <button type="button" class="catalog-page-btn">3</button>
+            <button type="button" class="catalog-page-btn">4</button>
+            <button type="button" class="catalog-page-btn">5</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <load src="./partials/footer.html" />
+  </body>
+</html>
