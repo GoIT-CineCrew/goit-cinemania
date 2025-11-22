@@ -1,0 +1,48 @@
+/* Hero Container Relative */
+.hero-container {
+  position: relative;
+  width: 320px;
+  height: 380px;
+}
+
+/* Hero Img Full Size */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  /left: 16px;
+  transform: translateY(-50%);
+  gap: 10px;
+  max-width: 200px;
+  text-align: left;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Title */
+.hero-title {
+  margin: 0;
+  font-size: 20px;
+  max-width: 199px;
+}
+
+/* Hero Info Paragraph */
+.hero-info {
+  font-size: 12px;
+  max-width: 166px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+/* Button */
+.hero-default-button-container {
+  margin-top: 10px;
+  text-align: right;
+}
