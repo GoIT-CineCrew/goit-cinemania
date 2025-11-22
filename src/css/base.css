@@ -1,9 +1,27 @@
 :root {
   /*  Colors  */
   --color-bg: #111;
+  --color-bg-white: #ffffff;
   --color-text: #fff;
+  --color-btn-text: #111;
   --color-accent: #f87719;
-  --border-default: var(--color-white);
+  --border-black: #111;
+  --border-orange: #f87719;
+  --primary-gradient-color: linear-gradient(
+    to right bottom,
+    #ffc226 0%,
+    #f84119 100%
+  );
+  --secondary-gradient-color: linear-gradient(
+    to top left,
+    #f84119 0%,
+    #ffc226 100%
+  );
+  --grey-gradient-color: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0) 90%
+  );
 
   /*  Fonts  */
   --font-family: 'Roboto', sans-serif;
@@ -13,6 +31,35 @@
   --fw-bold: 700;
   --font-base-size: clamp(12px, 1vw + 1rem, 16px);
 
+  /* Text Styles */
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: var(--fw-medium);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: var(--fw-medium);
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: var(--fw-regular);
+  }
+
+  .small-text {
+    font-size: 12px;
+    font-weight: var(--fw-regular);
+  }
+
+  .error-text {
+    font-size: 20px;
+    font-weight: var(--fw-regular);
+  }
   /*  Shadows  */
   --shadow-primary: 0 5px 10px rgba(47, 46, 46, 0.25);
 
@@ -44,19 +91,67 @@ body {
 
 /**  Buttons  **/
 .btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  font-family: var(--font-family);
-  font-weight: var(--fw-bold);
-  border: 1px solid var(--border-default);
-  border-radius: 50px;
-  padding: 12px 24px;
+  background: var(--primary-gradient-color);
+  color: var(--color-btn-text);
+  border: none;
+  border-radius: 74px;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  height: 38px;
+  width: 110px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-bg);
-  color: var(--color-accent);
+  background-color: var(--color-bg-white);
+  color: var(--color-text);
+  border: 1px solid var(--primary-gradient-color);
+}
+
+.btn-secondary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 40px;
+  gap: 10px;
+  background-color: transparent; /* içi boş */
+  color: var(--color-text);
+  border: none; /* gerçek border kaldırıldı */
+  border-radius: 74px;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  line-height: 1.56;
+  letter-spacing: 0;
+  cursor: pointer;
+  overflow: hidden; /* pseudo-element taşmasın */
+  z-index: 0;
+  transition: all 0.2s;
+}
+
+/* Gradient border için pseudo-element */
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px; /* border kalınlığı */
+  border-radius: 74px;
+  background: var(--primary-gradient-color); /* gradient border */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude; /* iç transparan */
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-btn-text);
+  border: 1px solid var(--text-color);
 }
 
 /* Cards */
