@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <load
+      src="./partials/header.html"
+      icon-path="./img/sprite.svg#logo"
+      highlight-curr="active"
+    />
+    <load src="./partials/hero.html" />
+
+    <main>
+      <div class="library-container">
+        <div class="library-content">
+          <div class="library-dropdown-filter">
+            <select name="movie-genre" id="movie-genres">
+              <option value="">Genre</option>
+              <option value="romance">Romance</option>
+              <option value="detective">Detective</option>
+              <option value="thriller">Thriller</option>
+              <option value="action">Action</option>
+              <option value="documentary">Documentary</option>
+              <option value="horror">Horror</option>
+            </select>
+          </div>
+          <div class="library-movie-list">
+            <ul class="library-movie-items">
+              <li class="library-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="library-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+            </ul>
+          </div>
+          <button class="library-load-button" type="button">Load more</button>
+        </div>
+        <div class="library-content-empty" style="display: none">
+          <p>
+            OOPS... We are very sorry! You don’t have any movies at your
+            library.
+          </p>
+          <button type="button">Search Movies</button>
+        </div>
+      </div>
+    </main>
+
+    <load src="./partials/footer.html" />
+  </body>
+</html>
