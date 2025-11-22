@@ -15,9 +15,10 @@ body {
 
 .catalog-search {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,0fr);
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .catalog-search:first-child {
@@ -26,14 +27,29 @@ body {
 
 .catalog-search input {
   width: 173px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 10px 100px 10px 20px;
-  margin-bottom: 12px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 40px 10px 20px;
+    margin-bottom: 12px;
 }
 
-.catalog-search button {
+.clear-button {
+  position: absolute;
+  top: 12px;
+  left: 140px;
+  width: 15px;
+  height: 15px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.clear-button svg{
+  width: 15px;
+  height: 15px;
+}
+
+.search-button{
   width: 224px;
   height: 40px;
   border: 1px solid black;
@@ -88,4 +104,37 @@ body {
   background-color: var(--color-accent);
   color: var(--color-text);
   font-weight: bold;
+}
+
+.catalog-movie-list{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-bottom: 22px;
+}
+
+.catalog-movie-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.catalog-movie-item:hover{
+  cursor: pointer;
+}
+
+.search-icon{
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.search-icon svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 9px;
+  margin-top: 9px;
 }
