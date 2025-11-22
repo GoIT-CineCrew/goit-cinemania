@@ -1,0 +1,92 @@
+/* Styles for Mobile devices */
+body{
+    min-width: 320px;
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.catalog-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.catalog-search{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-search:first-child{
+    align-items: center;
+
+}
+
+.catalog-search input{
+width: 173px;
+height: 40px;
+border: 1px solid black;
+border-radius: 8px;
+padding: 10px 100px  10px 20px;
+margin-bottom: 12px;
+}
+
+.catalog-search button{
+   width: 224px;
+   height: 40px;
+   border: 1px solid black;
+   border-radius: 8px;
+   padding: 10px 142px 10px 20px;
+}
+
+.year-select {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    width: 100px;
+    /* select option oku "gpt den alıntı"*/
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' width='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><polygon points='2,4 6,8 10,4'/></svg>");
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.year-select:focus {
+    outline: none;
+    border-color: #999;
+}
+
+/* seçili yıl vurgulu olsun */
+.year-select option:checked {
+    color:var(--color-accent);
+    font-weight: var(--fw-bold);
+}
+
+.catalog-pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.catalog-pages button{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.catalog-pages button:active{
+    background-color: var(--color-accent);
+    color:var(--color-text);
+    font-weight: bold;
+}
