@@ -5,6 +5,7 @@
   |============================
 */
 /* Common styles */
+@import url('./card.css');
 @import url('./catalog.css');
 @import url('./reset.css');
 @import url('./base.css');
