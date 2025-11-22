@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/catalog.css" />
   </head>
   <body>
     <load
@@ -19,7 +20,21 @@
       <div class="catalog-container">
         <div class="catalog-content">
           <div class="catalog-search">
-            <input type="text" placeholder="Search movies..." />
+            <input type="text" placeholder="Search" />
+            <select class="year-select">
+              <option style="display: none">Year</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+            </select>
             <button type="submit">Search</button>
           </div>
           <div class="catalog-movie-list">
@@ -39,11 +54,11 @@
             </ul>
           </div>
           <div class="catalog-pages">
-            <button type="button" class="catalog-page-btn">1</button>
-            <button type="button" class="catalog-page-btn">2</button>
-            <button type="button" class="catalog-page-btn">3</button>
-            <button type="button" class="catalog-page-btn">4</button>
-            <button type="button" class="catalog-page-btn">5</button>
+            <button type="button" class="catalog-page-btn">01</button>
+            <button type="button" class="catalog-page-btn">02</button>
+            <button type="button" class="catalog-page-btn">03</button>
+            <button type="button" class="catalog-page-btn">04</button>
+            <button type="button" class="catalog-page-btn">05</button>
           </div>
         </div>
       </div>
