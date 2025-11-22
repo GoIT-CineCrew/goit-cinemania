@@ -424,4 +424,69 @@
         </linearGradient>
       </defs>
     </symbol>
+
+    <!-- Search Icon -->
+    <symbol id="search" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M17.5 17.5L13.875 13.875" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <!-- Close Icon -->
+    <symbol id="close" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.5 4.5L4.5 13.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M4.5 4.5L13.5 13.5" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <!-- Full Star Icon -->
+    <symbol id="full-star" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_4619_22958)">
+        <path d="M10.7742 13.1249C10.6822 13.1253 10.5923 13.0966 10.5175 13.0429L7.0008 10.4934L3.48412 13.0429C3.40899 13.0974 3.31848 13.1266 3.22567 13.1262C3.13285 13.1259 3.04255 13.0961 2.96782 13.041C2.89309 12.986 2.83779 12.9086 2.80993 12.8201C2.78207 12.7315 2.78309 12.6364 2.81283 12.5485L4.1844 8.48606L0.62971 6.04837C0.552713 5.99562 0.4946 5.91964 0.463862 5.83152C0.433124 5.7434 0.431372 5.64775 0.458862 5.55856C0.486352 5.46938 0.541642 5.39131 0.616656 5.33579C0.69167 5.28026 0.782475 5.25017 0.875804 5.24993H5.2612L6.58463 1.17708C6.61314 1.08915 6.66877 1.0125 6.74354 0.958147C6.8183 0.90379 6.90837 0.874512 7.0008 0.874512C7.09324 0.874512 7.18331 0.90379 7.25807 0.958147C7.33284 1.0125 7.38847 1.08915 7.41698 1.17708L8.74041 5.2513H13.1258C13.2193 5.25125 13.3103 5.28113 13.3855 5.33655C13.4607 5.39197 13.5162 5.47002 13.5439 5.55928C13.5716 5.64854 13.5699 5.74431 13.5392 5.83256C13.5085 5.92082 13.4504 5.99692 13.3733 6.04973L9.81721 8.48606L11.188 12.5474C11.2102 12.6132 11.2164 12.6833 11.2062 12.7519C11.1959 12.8206 11.1695 12.8858 11.1291 12.9422C11.0887 12.9986 11.0354 13.0446 10.9737 13.0764C10.912 13.1082 10.8436 13.1248 10.7742 13.1249Z" fill="url(#paint0_linear_4619_22958)" />
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_4619_22958" x1="2.04248" y1="1.74994" x2="10.7925" y2="13.4166" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F84119" />
+          <stop offset="1" stop-color="#F89F19" stop-opacity="0.68" />
+        </linearGradient>
+        <clipPath id="clip0_4619_22958">
+          <rect width="14" height="14" fill="white" />
+        </clipPath>
+      </defs>
+    </symbol>
+
+<!-- Half-Empty Star Icon -->
+    <symbol id="half-star" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_4619_22979)">
+        <path d="M13.125 5.6875H8.42188L7 1.3125L5.57812 5.6875H0.875L4.70312 8.3125L3.22656 12.6875L7 9.95312L10.7734 12.6875L9.29688 8.3125L13.125 5.6875Z" stroke="url(#paint0_linear_4619_22979)" stroke-linejoin="round" />
+        <path d="M7 1.3125V9.95312L3.22656 12.6875L4.70312 8.3125L0.875 5.6875H5.57812L7 1.3125Z" fill="url(#paint1_linear_4619_22979)" />
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_4619_22979" x1="2.37127" y1="2.12528" x2="10.4829" y2="12.9986" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F84119" />
+          <stop offset="1" stop-color="#F89F19" stop-opacity="0.68" />
+        </linearGradient>
+        <linearGradient id="paint1_linear_4619_22979" x1="1.62313" y1="2.12528" x2="9.45046" y2="7.37137" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F84119" />
+          <stop offset="1" stop-color="#F89F19" stop-opacity="0.68" />
+        </linearGradient>
+        <clipPath id="clip0_4619_22979">
+          <rect width="14" height="14" fill="white" />
+        </clipPath>
+      </defs>
+    </symbol>
+
+    <!-- Empty Star Icon -->
+    <symbol id="empty-star" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_4619_22982)">
+        <path d="M13.125 5.6875H8.42188L7 1.3125L5.57812 5.6875H0.875L4.70312 8.3125L3.22656 12.6875L7 9.95312L10.7734 12.6875L9.29688 8.3125L13.125 5.6875Z" stroke="url(#paint0_linear_4619_22982)" stroke-linejoin="round" />
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_4619_22982" x1="2.37127" y1="2.12528" x2="10.4829" y2="12.9986" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#F84119" />
+          <stop offset="1" stop-color="#F89F19" stop-opacity="0.68" />
+        </linearGradient>
+        <clipPath id="clip0_4619_22982">
+          <rect width="14" height="14" fill="white" />
+        </clipPath>
+      </defs>
+    </symbol>
 </svg>
