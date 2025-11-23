@@ -2,8 +2,8 @@
   <div class="header-container">
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="45" height="36">
-          <use href="../img/sprite.svg#logo"></use>
+        <svg class="nav-logo-icon">
+          <use href="../img/sprite.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
@@ -28,7 +28,58 @@
           </li>
         </ul>
 
-        <button>Theme</button>
+        <button class="theme-toggle-btn">
+          <svg class="theme-icon" width="20" height="20">
+            <use href="../img/sprite.svg#sun"></use>
+          </svg>
+          <svg class="theme-circle-icon" width="20" height="20">
+            <use href="../img/sprite.svg#sun-circle"></use>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <nav class="header-sidebar">
+      <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
+        <svg class="nav-logo-mobile-icon" width="32" height="32">
+          <use href="../img/sprite.svg#nav-logo-mobile"></use>
+        </svg>
+      </a>
+      <label for="sidebar-input" class="sidebar-menu">Menu</label>
+      <button class="theme-toggle-btn">
+        <svg class="theme-circle-icon" width="14" height="14">
+          <use href="../img/sprite.svg#sun-circle"></use>
+        </svg>
+        <svg class="theme-icon" width="10" height="10">
+          <use href="../img/sprite.svg#sun"></use>
+        </svg>
+      </button>
+
+      <input type="checkbox" id="sidebar-input" />
+      <div class="sidebar-overlay"></div>
+
+      <div class="header-sidebar-items" id="sidebar">
+        <ul class="header-sidebar-list">
+          <li class="header-sidebar-item active">
+            <a class="header-sidebar-link text {=$highlight-act}" href="../home.html"
+              >HOME</a
+            >
+          </li>
+          <li class="header-sidebar-item">
+            <a
+              class="header-sidebar-link text {=$highlight-curr}"
+              href="../catalog.html"
+              >CATALOG</a
+            >
+          </li>
+          <li class="header-sidebar-item">
+            <a
+              class="header-sidebar-link text {=$highlight-curr}"
+              href="../myLibrary.html"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
       </div>
     </nav>
   </div>

@@ -16,7 +16,7 @@
 .hero-content {
   position: absolute;
   top: 50%;
-  left: 16px;
+  left: 20px;
   transform: translateY(-50%);
   gap: 10px;
   max-width: 200px;
