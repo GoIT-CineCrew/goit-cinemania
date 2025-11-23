@@ -34,6 +34,7 @@
   /* Text Styles */
   h1 {
     font-size: 32px;
+    font-weight: var(--fw-bold);
   }
 
   h2 {
@@ -122,31 +123,31 @@ body {
   width: 140px;
   height: 40px;
   gap: 10px;
-  background-color: transparent; /* içi boş */
+  background-color: transparent;
   color: var(--color-text);
-  border: none; /* gerçek border kaldırıldı */
+  border: none;
   border-radius: 74px;
   font-size: 12px;
   font-weight: var(--fw-medium);
   line-height: 1.56;
   letter-spacing: 0;
   cursor: pointer;
-  overflow: hidden; /* pseudo-element taşmasın */
+  overflow: hidden;
   z-index: 0;
   transition: all 0.2s;
 }
 
-/* Gradient border için pseudo-element */
+/* Gradient border pseudo-element */
 .btn-secondary::before {
   content: '';
   position: absolute;
   inset: 0;
-  padding: 1px; /* border kalınlığı */
+  padding: 1px;
   border-radius: 74px;
-  background: var(--primary-gradient-color); /* gradient border */
+  background: var(--primary-gradient-color);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask-composite: exclude; /* iç transparan */
+  mask-composite: exclude;
   pointer-events: none;
   z-index: -1;
 }
@@ -188,3 +189,91 @@ section {
   --color-text: #fff;
   --border-default: #fff;
 }
+
+/* Tablet Style */
+@media only screen and (min-width: 768px) {
+  body {
+    width: 768px;
+  }
+
+  section {
+    padding: 0 32px;
+    gap: 44px;
+  }
+
+  /* Fonts Style */
+  h1 {
+    font-size: 44px;
+    line-height: auto;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: auto;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: auto;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: auto;
+  }
+
+  .small-text {
+    font-size: 12px;
+    line-height: auto;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 128px;
+    height: 40px;
+  }
+
+
+/* Desktop Style */
+@media only screen and (min-width: 1280px) {
+  body {
+    font-size: 16px;
+    width: 1280px;
+  }
+
+  section {
+    gap: 60px;
+  }
+
+  /* Fonts Style */
+  h1 {
+    font-size: 64px;
+    line-height: auto;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: auto;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: auto;
+    letter-spacing: 0;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: auto;
+  }
+
+  .small-text {
+    font-size: 14px;
+    font-weight: var(--fw-regular);
+    line-height: auto;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 139px;
+    height: 48px;
+  }
