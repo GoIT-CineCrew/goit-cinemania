@@ -19,10 +19,12 @@
       <div class="catalog-container">
         <div class="catalog-content">
           <div class="catalog-search">
-            <input type="text" placeholder="Search" /> 
-            <svg>
-              <use href="../img/sprite.svg#close"></use>
-            </svg>
+            <input type="text" placeholder="Search" />
+            <button class="clear-button">
+              <svg>
+                <use href="../img/sprite.svg#close"></use>
+              </svg>
+            </button>
             <select class="year-select">
               <option style="display: none">Year</option>
               <option value="2025">2025</option>
@@ -37,7 +39,12 @@
               <option value="2016">2016</option>
               <option value="2015">2015</option>
             </select>
-            <button type="submit">Search</button>
+            <button class="search-button" type="submit">Search</button>
+            <button class="search-icon" type="submit">
+              <svg>
+                <use href="../img/sprite.svg#search"></use>
+              </svg>
+            </button>
           </div>
           <div class="catalog-movie-list">
             <ul class="catalog-movie-items">
