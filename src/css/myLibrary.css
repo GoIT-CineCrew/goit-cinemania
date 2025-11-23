@@ -1,0 +1,109 @@
+.library-load-button{
+    width: 106px;
+    height: 38px;
+    border-radius: 74px;
+    background-color:var(--border-orange);
+}
+
+.library-movie-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.library-movie-item:last-child{
+    margin-bottom: 20px;
+}
+
+.library-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.library-dropdown-filter {
+    width: 200px;
+    height: 40px;
+    position: relative;
+    color: #eee;
+    margin-top: 10px;
+}
+
+.library-dropdown-filter .selected {
+    background:inherit;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1.5px solid #666;
+    font-weight: 600;
+}
+
+.library-dropdown-filter .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #1c1c1c;
+    border-radius: 8px;
+    margin-top: 6px;
+    border: 1.5px solid #444;
+    display: none;
+    max-height: 420px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.library-dropdown-filter .option {
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.library-dropdown-filter .option:last-child {
+    border-bottom: none;
+}
+
+.library-dropdown-filter .option:hover {
+    background: #222;
+}
+
+.library-dropdown-filter .option.selected {
+    color: var(--color-accent);
+}
+
+.custom-select {
+    position: relative;
+    width: 200px;
+}
+
+.selected {
+    padding: 12px;
+    background: #000;
+    border: 1px solid #666;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: visible;
+}
+
+/*Ok İşareti */
+.arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    transition: 0.2s;
+}
+
+.custom-select.open .arrow {
+    transform: rotate(-135deg);
+    /* ▲ yukarı bakar */
+}

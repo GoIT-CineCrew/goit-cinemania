@@ -129,6 +129,7 @@ body {
   border: 1px solid var(--color-accent);
   border-radius: 50%;
   background-color: var(--color-accent);
+  margin-left: 25px;
 }
 
 .search-icon svg {

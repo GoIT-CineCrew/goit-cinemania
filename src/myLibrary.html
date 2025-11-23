@@ -18,16 +18,19 @@
     <main>
       <div class="library-container">
         <div class="library-content">
-          <div class="library-dropdown-filter">
-            <select name="movie-genre" id="movie-genres">
-              <option value="">Genre</option>
-              <option value="romance">Romance</option>
-              <option value="detective">Detective</option>
-              <option value="thriller">Thriller</option>
-              <option value="action">Action</option>
-              <option value="documentary">Documentary</option>
-              <option value="horror">Horror</option>
-            </select>
+          <div class="library-dropdown-filters">
+            <div class="library-dropdown-filter custom-select">
+              <div class="selected">Genre <span class="arrow"></span></div>
+              <div class="options">
+                <div class="option" data-value="">Genre</div>
+                <div class="option" data-value="romance">Romance</div>
+                <div class="option" data-value="detective">Detective</div>
+                <div class="option" data-value="thriller">Thriller</div>
+                <div class="option" data-value="action">Action</div>
+                <div class="option" data-value="documentary">Documentary</div>
+                <div class="option" data-value="horror">Horror</div>
+              </div>
+            </div>
           </div>
           <div class="library-movie-list">
             <ul class="library-movie-items">
@@ -39,7 +42,9 @@
               </li>
             </ul>
           </div>
-          <button class="library-load-button" type="button">Load more</button>
+          <button class="library-load-button btn-primary" type="button">
+            Load more
+          </button>
         </div>
         <div class="library-content-empty" style="display: none">
           <p>
@@ -52,5 +57,42 @@
     </main>
 
     <load src="./partials/footer.html" />
+    <script>
+      const selectBox = document.querySelector('.custom-select');
+      const selected = selectBox.querySelector('.selected');
+      const arrow = selected.querySelector('.arrow');
+      const optionsContainer = selectBox.querySelector('.options');
+      const optionsList = selectBox.querySelectorAll('.option');
+
+      // --- Dropdown aç/kapa ---
+      selected.addEventListener('click', () => {
+        const isOpen = selectBox.classList.toggle('open');
+        optionsContainer.style.display = isOpen ? 'block' : 'none';
+      });
+
+      // --- Bir seçenek seçildiğinde ---
+      optionsList.forEach(option => {
+        option.addEventListener('click', () => {
+          // sadece text'i değiştir
+          selected.childNodes[0].textContent = option.textContent;
+
+          // seçili class'ı güncelle
+          optionsList.forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+
+          // menüyü kapat
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        });
+      });
+
+      // --- Dropdown dışına tıklanınca kapanması ---
+      document.addEventListener('click', e => {
+        if (!selectBox.contains(e.target)) {
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        }
+      });
+    </script>
   </body>
 </html>

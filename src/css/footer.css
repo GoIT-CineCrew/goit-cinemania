@@ -1,21 +1,18 @@
 .footer {
   padding: 20px 0;
 }
+
 .footer-desc {
   text-align: center;
+  line-height: 25px;
 }
 .footer-link {
-  position: relative;
+ text-decoration: underline;
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+.heart-icon{
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
