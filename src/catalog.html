@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/catalog.css" />
+  </head>
+  <body>
+    <load
+      src="./partials/header.html"
+      icon-path="./img/sprite.svg#logo"
+      highlight-curr="active"
+    />
+    <load src="./partials/hero.html" />
+
+    <main>
+      <div class="catalog-container">
+        <div class="catalog-content">
+          <div class="catalog-search">
+            <input type="text" placeholder="Search" />
+            <select class="year-select">
+              <option style="display: none">Year</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+            </select>
+            <button type="submit">Search</button>
+          </div>
+          <div class="catalog-movie-list">
+            <ul class="catalog-movie-items">
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+              <li class="catalog-movie-item">
+                <load src="./partials/modal.html" />
+              </li>
+            </ul>
+          </div>
+          <div class="catalog-pages">
+            <button type="button" class="catalog-page-btn">01</button>
+            <button type="button" class="catalog-page-btn">02</button>
+            <button type="button" class="catalog-page-btn">03</button>
+            <button type="button" class="catalog-page-btn">04</button>
+            <button type="button" class="catalog-page-btn">05</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <load src="./partials/footer.html" />
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <load
+      src="./partials/header.html"
+      icon-path="./img/sprite.svg#logo"
+      highlight-act="active"
+    />
+
+    <load src="./partials/hero.html" />
+
+    <main>
+      <div class="home-container">
+        <div class="home-weekly-content">
+          <div class="home-title">
+            <h2>Weekly Trends</h2>
+            <a href="#" target="_blank" rel="noopener noreferrer">See all</a>
+          </div>
+          <ul class="home-movie-list">
+            <li class="home-movie-item">
+              <load src="./partials/modal.html" />
+            </li>
+            <li class="home-movie-item">
+              <load src="./partials/modal.html" />
+            </li>
+            <li class="home-movie-item">
+              <load src="./partials/modal.html" />
+            </li>
+          </ul>
+        </div>
+        <div class="home-monthly-content">
+          <div class="home-title">
+            <h2>Upcoming This Month</h2>
+          </div>
+          <load src="./partials/modal.html" />
+        </div>
+      </div>
+    </main>
+
+    <load src="./partials/footer.html" />
+  </body>
+</html>
