@@ -1,0 +1,37 @@
+.library-load-button{
+    width: 106px;
+    height: 38px;
+    border-radius: 74px;
+    background-color:var(--border-orange);
+}
+
+.library-movie-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.library-movie-item:last-child{
+    margin-bottom: 20px;
+}
+
+.library-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#movie-genres{
+    width: 173px;
+    height: 43px;
+    border: 1px solid var(--color-text);
+    border-radius: 8px;
+    background-color:inherit ;
+    color:white;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+

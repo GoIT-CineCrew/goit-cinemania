@@ -20,13 +20,13 @@
         <div class="library-content">
           <div class="library-dropdown-filter">
             <select name="movie-genre" id="movie-genres">
-              <option value="">Genre</option>
-              <option value="romance">Romance</option>
-              <option value="detective">Detective</option>
-              <option value="thriller">Thriller</option>
-              <option value="action">Action</option>
-              <option value="documentary">Documentary</option>
-              <option value="horror">Horror</option>
+              <option class="item" value="">Genre</option>
+              <option class="item" value="romance">Romance</option>
+              <option class="item" value="detective">Detective</option>
+              <option class="item" value="thriller">Thriller</option>
+              <option class="item" value="action">Action</option>
+              <option class="item" value="documentary">Documentary</option>
+              <option class="item" value="horror">Horror</option>
             </select>
           </div>
           <div class="library-movie-list">
@@ -39,7 +39,9 @@
               </li>
             </ul>
           </div>
-          <button class="library-load-button" type="button">Load more</button>
+          <button class="library-load-button btn-primary" type="button">
+            Load more
+          </button>
         </div>
         <div class="library-content-empty" style="display: none">
           <p>
