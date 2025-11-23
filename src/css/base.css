@@ -82,6 +82,9 @@
 
 /* Base body style */
 body {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family);
