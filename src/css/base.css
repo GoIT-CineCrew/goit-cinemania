@@ -194,9 +194,15 @@ section {
 @media only screen and (min-width: 768px) {
   body {
     width: 768px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   section {
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 0 32px;
     gap: 44px;
   }
@@ -227,53 +233,56 @@ section {
     line-height: auto;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 128px;
     height: 40px;
   }
 
+  /* Desktop Style */
+  @media only screen and (min-width: 1280px) {
+    body {
+      font-size: 16px;
+      width: 1280px;
+    }
 
-/* Desktop Style */
-@media only screen and (min-width: 1280px) {
-  body {
-    font-size: 16px;
-    width: 1280px;
-  }
+    section {
+      gap: 60px;
+    }
 
-  section {
-    gap: 60px;
-  }
+    /* Fonts Style */
+    h1 {
+      font-size: 64px;
+      line-height: auto;
+    }
 
-  /* Fonts Style */
-  h1 {
-    font-size: 64px;
-    line-height: auto;
-  }
+    h2 {
+      font-size: 32px;
+      line-height: auto;
+      letter-spacing: 0;
+    }
 
-  h2 {
-    font-size: 32px;
-    line-height: auto;
-    letter-spacing: 0;
-  }
+    h3 {
+      font-size: 28px;
+      line-height: auto;
+      letter-spacing: 0;
+    }
 
-  h3 {
-    font-size: 28px;
-    line-height: auto;
-    letter-spacing: 0;
-  }
+    .text {
+      font-size: 16px;
+      line-height: auto;
+    }
 
-  .text {
-    font-size: 16px;
-    line-height: auto;
-  }
+    .small-text {
+      font-size: 14px;
+      font-weight: var(--fw-regular);
+      line-height: auto;
+    }
 
-  .small-text {
-    font-size: 14px;
-    font-weight: var(--fw-regular);
-    line-height: auto;
+    .btn-primary,
+    .btn-secondary {
+      width: 139px;
+      height: 48px;
+    }
   }
-
-  .btn-primary, .btn-secondary {
-    width: 139px;
-    height: 48px;
-  }
+}

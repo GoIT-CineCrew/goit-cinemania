@@ -14,7 +14,7 @@ body {
 
 .catalog-search {
   display: grid;
-  grid-template-columns: repeat(2,0fr);
+  grid-template-columns: repeat(2, 0fr);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -26,11 +26,11 @@ body {
 
 .catalog-search input {
   width: 173px;
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 10px 40px 10px 20px;
-    margin-bottom: 12px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px 40px 10px 20px;
+  margin-bottom: 12px;
 }
 
 .clear-button {
@@ -43,46 +43,17 @@ body {
   cursor: pointer;
 }
 
-.clear-button svg{
+.clear-button svg {
   width: 15px;
   height: 15px;
 }
 
-.search-button{
+.search-button {
   width: 224px;
   height: 40px;
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px 142px 10px 20px;
-}
-
-.year-select {
-  margin-bottom: 12px;
-  padding: 8px 12px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  cursor: pointer;
-  width: 100px;
-  /* select option oku "gpt den alıntı"*/
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' width='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'><polygon points='2,4 6,8 10,4'/></svg>");
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
-
-.year-select:focus {
-  outline: none;
-  border-color: #999;
-}
-
-/* seçili yıl vurgulu olsun */
-.year-select option:checked {
-  color: var(--color-accent);
-  font-weight: var(--fw-bold);
 }
 
 .catalog-pages {
@@ -105,13 +76,13 @@ body {
   font-weight: bold;
 }
 
-.catalog-movie-list{
+.catalog-movie-list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   margin-bottom: 22px;
 }
 
-.catalog-movie-item{
+.catalog-movie-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,11 +90,11 @@ body {
   margin-top: 16px;
 }
 
-.catalog-movie-item:hover{
+.catalog-movie-item:hover {
   cursor: pointer;
 }
 
-.search-icon{
+.search-icon {
   width: 40px;
   height: 40px;
   border: 1px solid var(--color-accent);
@@ -137,4 +108,88 @@ body {
   height: 40px;
   margin-left: 9px;
   margin-top: 9px;
+}
+
+.catalog-dropdown-filter {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  color: #eee;
+  margin-top: 10px;
+}
+
+.catalog-dropdown-filter .selected {
+  background: inherit;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1.5px solid #666;
+  font-weight: 600;
+}
+
+.catalog-dropdown-filter .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1c1c1c;
+  border-radius: 8px;
+  margin-top: 6px;
+  border: 1.5px solid #444;
+  display: none;
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.catalog-dropdown-filter .option {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.catalog-dropdown-filter .option:last-child {
+  border-bottom: none;
+}
+
+.catalog-dropdown-filter .option:hover {
+  background: #222;
+}
+
+.catalog-dropdown-filter .option.selected {
+  color: var(--color-accent);
+}
+
+.custom-select {
+  position: relative;
+  width: 200px;
+}
+
+.selected {
+  padding: 12px;
+  background: #000;
+  border: 1px solid #666;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+}
+
+/*Ok İşareti */
+.arrow {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+  transition: 0.2s;
+}
+
+.custom-select.open .arrow {
+  transform: rotate(-135deg);
+  /* ▲ yukarı bakar */
 }
