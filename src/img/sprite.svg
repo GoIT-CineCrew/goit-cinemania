@@ -920,16 +920,52 @@
     </symbol>
 
     <!-- Heart İcon -->
-   <symbol id="heart" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M7 12.7525L6.02 11.7822C2.38 8.59406 0 6.44554 0 3.81188C0 1.66337 1.68 0 3.85 0C5.04 0 6.23 0.554455 7 1.45545C7.77 0.554455 8.96 0 10.15 0C12.32 0 14 1.66337 14 3.81188C14 6.44554 11.62 8.59406 7.98 11.7822L7 12.7525Z" fill="#F87719" />
+    <symbol id="heart" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 12.7525L6.02 11.7822C2.38 8.59406 0 6.44554 0 3.81188C0 1.66337 1.68 0 3.85 0C5.04 0 6.23 0.554455 7 1.45545C7.77 0.554455 8.96 0 10.15 0C12.32 0 14 1.66337 14 3.81188C14 6.44554 11.62 8.59406 7.98 11.7822L7 12.7525Z" fill="#F87719" />
     </symbol>
+
     <!-- Dark Mode Moon -->
-    <symbol id="moon" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.513368 5.58084C0.690553 8.09082 2.84138 10.1329 5.41549 10.245C7.23164 10.323 8.85584 9.48472 9.83036 8.16393C10.2339 7.62294 10.0174 7.26229 9.3431 7.38413C9.01334 7.44262 8.67373 7.46698 8.31936 7.45236C5.9126 7.35489 3.94387 5.36152 3.93403 3.0075C3.92911 2.37391 4.06199 1.77444 4.30316 1.22858C4.56894 0.624235 4.24902 0.336684 3.6338 0.594993C1.68476 1.40891 0.350948 3.35354 0.513368 5.58084Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+    <symbol id="moon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.518229 7.27441C0.759845 10.6211 3.6928 13.3439 7.20294 13.4933C9.67951 13.5973 11.8943 12.4796 13.2232 10.7185C13.7736 9.99721 13.4783 9.51634 12.5588 9.6788C12.1091 9.75678 11.646 9.78927 11.1628 9.76977C7.88081 9.63981 5.19619 6.98199 5.18276 3.84329C5.17605 2.99851 5.35726 2.19921 5.68613 1.4714C6.04855 0.665606 5.6123 0.282204 4.77336 0.626616C2.11558 1.71184 0.296747 4.30467 0.518229 7.27441Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
 
     <!-- Dark Mode Circle -->
-    <symbol id="moon-circle" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="moon-circle" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2.64817 2.64817C6.16958 -0.873235 11.8681 -0.884089 15.3761 2.62393C18.8841 6.13195 18.8732 11.8304 15.3518 15.3518C11.8304 18.8732 6.13195 18.8841 2.62393 15.3761C-0.884088 11.8681 -0.873235 6.16958 2.64817 2.64817Z" fill="white" />
+      <path d="M14.1765 3.57422C17.0554 6.65093 17.0446 11.6508 14.1523 14.7418" stroke="url(#paint0_linear_4641_23987)" stroke-width="1.2" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="paint0_linear_4641_23987" x1="14.4182" y1="4.37218" x2="18.2247" y2="5.2955" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFC226" />
+          <stop offset="1" stop-color="#F84119" />
+        </linearGradient>
+      </defs>
+    </symbol>
+
+    <!-- Light Mode Sun -->
+    <symbol id="sun" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.75 12.75C10.5114 12.75 12.75 10.5114 12.75 7.75C12.75 4.98858 10.5114 2.75 7.75 2.75C4.98858 2.75 2.75 4.98858 2.75 7.75C2.75 10.5114 4.98858 12.75 7.75 12.75Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12.657 2.843L12.748 2.752M2.752 12.748L2.843 12.657M7.75 0.806V0.75M7.75 14.75V14.694M0.806 7.75H0.75M14.75 7.75H14.694M2.843 2.843L2.752 2.752M12.748 12.748L12.657 12.657" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <!-- Light Mode Circle -->
+    <symbol id="sun-circle" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15.3518 2.64817C11.8304 -0.873234 6.13195 -0.884089 2.62393 2.62393C-0.884089 6.13195 -0.873236 11.8304 2.64817 15.3518C6.16958 18.8732 11.8681 18.8841 15.3761 15.3761C18.8841 11.8681 18.8732 6.16958 15.3518 2.64817Z" fill="white" />
+      <path d="M3.82352 3.57422C0.944573 6.65093 0.955378 11.6508 3.84766 14.7418" stroke="url(#paint0_linear_4641_23975)" stroke-width="1.2" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="paint0_linear_4641_23975" x1="3.58183" y1="4.37218" x2="-0.224667" y2="5.2955" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FFC226" />
+          <stop offset="1" stop-color="#F84119" />
+        </linearGradient>
+      </defs>
+    </symbol>
+
+    <!-- Dark Mode Moon Mobile -->
+    <symbol id="moon-mobile" width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.513368 5.58084C0.690553 8.09082 2.84138 10.1329 5.41549 10.245C7.23164 10.323 8.85584 9.48472 9.83036 8.16393C10.2339 7.62294 10.0174 7.26229 9.3431 7.38413C9.01334 7.44262 8.67373 7.46698 8.31936 7.45236C5.9126 7.35489 3.94387 5.36152 3.93403 3.0075C3.92911 2.37391 4.06199 1.77444 4.30316 1.22858C4.56894 0.624235 4.24902 0.336684 3.6338 0.594993C1.68476 1.40891 0.350948 3.35354 0.513368 5.58084Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Dark Mode Circle Mobile -->
+    <symbol id="moon-circle-mobile" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1.94199 1.98613C4.52436 -0.654926 8.70324 -0.663067 11.2758 1.96795C13.8483 4.59896 13.8404 8.87282 11.258 11.5139C8.67564 14.1549 4.49676 14.1631 1.92422 11.5321C-0.648332 8.90104 -0.640372 4.62718 1.94199 1.98613Z" fill="white"/>
       <path d="M10.3966 2.68066C12.5078 4.9882 12.4999 8.73811 10.3789 11.0563" stroke="url(#paint0_linear_4641_29485)" stroke-width="1.2" stroke-linecap="round"/>
       <defs>
@@ -940,14 +976,14 @@
       </defs>
     </symbol>
 
-    <!-- Light Mode Sun -->
-    <symbol id="sun" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Light Mode Sun Mobile -->
+    <symbol id="sun-mobile" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M5.13096 7.86137C6.75875 7.86137 8.07833 6.57927 8.07833 4.99773C8.07833 3.41619 6.75875 2.13409 5.13096 2.13409C3.50318 2.13409 2.18359 3.41619 2.18359 4.99773C2.18359 6.57927 3.50318 7.86137 5.13096 7.86137Z" stroke="white" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M8.37832 1.8455L8.43853 1.787M1.82463 8.213L1.88484 8.1545M5.13158 0.536V0.5M5.13158 9.5V9.464M0.537053 5H0.5M9.76316 5H9.72611M1.88484 1.8455L1.82463 1.787M8.43853 8.213L8.37832 8.1545" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
-    <!-- Light Mode Circle -->
-    <symbol id="sun-circle" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Light Mode Circle Mobile -->
+    <symbol id="sun-circle-mobile" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="6.75" cy="6.94735" rx="6.75" ry="6.94735" transform="matrix(4.52275e-08 1 -0.999948 -0.0101715 13.8945 0.14133)" fill="white"/>
       <path d="M2.89115 10.2662C0.79254 8.25907 0.794053 5.00359 2.89453 2.99486" stroke="url(#paint0_linear_4641_29474)" stroke-width="0.6" stroke-linecap="round"/>
       <defs>
