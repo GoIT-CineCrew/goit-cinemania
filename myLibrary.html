@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <script type="module" crossorigin src="/goit-cinemania/assets/hero-DBH6PBvH.js"></script>
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/hero-CpGGr4iY.css">
+  </head>
+  <body>
+    <header class="header">
+  <section class="header-container">
+    <nav class="header-nav">
+      <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
+        <svg class="nav-logo-icon">
+          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#nav-logo"></use>
+        </svg>
+        Cinemania
+      </a>
+      <div class="header-nav-items">
+        <ul class="header-nav-list">
+          <li class="header-nav-item">
+            <a class="header-nav-link {=$highlight-act}" href="./home.html"
+              >HOME</a
+            >
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link active" href="./catalog.html"
+              >CATALOG</a
+            >
+          </li>
+          <li class="header-nav-item">
+            <a
+              class="header-nav-link active"
+              href="./myLibrary.html"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+
+        <button class="theme-toggle-btn">
+          <svg class="theme-icon">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#moon"></use>
+          </svg>
+          <svg class="theme-circle-icon">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#moon-circle"></use>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <nav class="header-sidebar">
+      <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
+        <svg class="nav-logo-mobile-icon" width="32" height="32">
+          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#nav-logo-mobile"></use>
+        </svg>
+      </a>
+      <label for="sidebar-input" class="sidebar-menu">Menu</label>
+      <button class="theme-toggle-btn">
+        <svg class="theme-circle-icon" width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#sun-circle-mobile"></use>
+        </svg>
+        <svg class="theme-icon" width="10" height="10">
+          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#sun-mobile"></use>
+        </svg>
+      </button>
+
+      <input type="checkbox" id="sidebar-input" />
+      <div class="sidebar-overlay"></div>
+
+      <div class="header-sidebar-items" id="sidebar">
+        <ul class="header-sidebar-list">
+          <li class="header-sidebar-item active">
+            <a
+              class="header-sidebar-link text {=$highlight-act}"
+              href="./home.html"
+              >HOME</a
+            >
+          </li>
+          <li class="header-sidebar-item">
+            <a
+              class="header-sidebar-link text active"
+              href="./catalog.html"
+              >CATALOG</a
+            >
+          </li>
+          <li class="header-sidebar-item">
+            <a
+              class="header-sidebar-link text active"
+              href="./myLibrary.html"
+              >MY LIBRARY</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+</header>
+
+    <section id="hero-default" class="hero">
+  <div class="hero-container section">
+    <img
+      class="hero-image"
+      src="/goit-cinemania/assets/Hero-Home-Desktop-BoRXoTYc.jpg"
+      srcset="/goit-cinemania/assets/Hero-Home-Desktop@2x-SSrZjylf.jpg 2x"
+      alt="Stranger Things poster"
+      loading="lazy"
+    />
+    <div class="hero-content">
+      <h1 class="hero-title">Let’s Make Your Own Cinema</h1>
+      <p class="text hero-info">
+        Is a guide to creating a personalized movie theater experience. You'll
+        need a projector, screen, and speakers.
+      </p>
+      <div class="hero-default-button-container btn-primary">
+        <button class="hero-button btn-primary">Get Started</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+   RANDOM MOVIE HERO SECTION
+========================= -->
+
+<section id="hero-random-movie" class="hero-movie" style="display: none">
+  <div class="hero-movie-container">
+    <div class="hero-movie-content">
+      <h1 class="hero-movie-title">Movie Title</h1>
+      <div class="hero-movie-stars">★★★★★</div>
+      <p class="hero-movie-details">Movie info from API</p>
+      <div class="hero-movie-buttons">
+        <button class="hero-movie-btn btn-primary" id="watch-trailer-btn">
+          Watch trailer
+        </button>
+        <button class="hero-movie-details-btn" id="more-details-btn">
+          More details
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <main>
+      <section class="library-container">
+        <div class="library-content">
+          <div class="library-dropdown-filters">
+            <div class="library-dropdown-filter custom-select">
+              <div class="selected">Genre <span class="arrow"></span></div>
+              <div class="options">
+                <div class="option" data-value="romance">Romance</div>
+                <div class="option" data-value="detective">Detective</div>
+                <div class="option" data-value="thriller">Thriller</div>
+                <div class="option" data-value="action">Action</div>
+                <div class="option" data-value="documentary">Documentary</div>
+                <div class="option" data-value="horror">Horror</div>
+              </div>
+            </div>
+          </div>
+          <div class="library-movie-list">
+            <ul class="library-movie-items">
+              <li class="library-movie-item">
+                <section class="card">
+  <div class="card-item">
+    <img
+      class="card-image"
+      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+      alt="Movie Poster"
+      loading="lazy"
+    />
+    <div class="card-content">
+      <h2 class="card-title">Movie Title</h2>
+      <p class="card-info">Genre | Release Year</p>
+      <ul class="card-rating">
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+              </li>
+              <li class="library-movie-item">
+                <section class="card">
+  <div class="card-item">
+    <img
+      class="card-image"
+      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+      alt="Movie Poster"
+      loading="lazy"
+    />
+    <div class="card-content">
+      <h2 class="card-title">Movie Title</h2>
+      <p class="card-info">Genre | Release Year</p>
+      <ul class="card-rating">
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+              </li>
+            </ul>
+          </div>
+          <button class="library-load-button btn-primary" type="button">
+            Load more
+          </button>
+        </div>
+        <div class="library-content-empty" style="display: none">
+          <p>
+            OOPS... We are very sorry! You don’t have any movies at your
+            library.
+          </p>
+          <button type="button">Search Movies</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+  <section class="container">
+    <p class="footer-desc">
+      &#169; 2023 | All rights Reserved | <br />
+      Developed with
+      <svg class="heart-icon">
+        <use href="../img/sprite.svg#heart"></use>
+      </svg>
+      by
+      <a
+        class="footer-link"
+        href="https://goit.global/ua/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GoIT CineCrew
+      </a>
+    </p>
+  </section>
+</footer>
+
+    <script>
+      const selectBox = document.querySelector('.custom-select');
+      const selected = selectBox.querySelector('.selected');
+      const arrow = selected.querySelector('.arrow');
+      const optionsContainer = selectBox.querySelector('.options');
+      const optionsList = selectBox.querySelectorAll('.option');
+
+      // --- Dropdown aç/kapa ---
+      selected.addEventListener('click', () => {
+        const isOpen = selectBox.classList.toggle('open');
+        optionsContainer.style.display = isOpen ? 'block' : 'none';
+      });
+
+      // --- Bir seçenek seçildiğinde ---
+      optionsList.forEach(option => {
+        option.addEventListener('click', () => {
+          // sadece text'i değiştir
+          selected.childNodes[0].textContent = option.textContent;
+
+          // seçili class'ı güncelle
+          optionsList.forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+
+          // menüyü kapat
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        });
+      });
+
+      // --- Dropdown dışına tıklanınca kapanması ---
+      document.addEventListener('click', e => {
+        if (!selectBox.contains(e.target)) {
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

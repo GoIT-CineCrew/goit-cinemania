@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinemania</title>
+    <title>Home</title>
     <script type="module" crossorigin src="/goit-cinemania/assets/hero-DBH6PBvH.js"></script>
     <script type="module" crossorigin src="/goit-cinemania/assets/modal-l0sNRNKZ.js"></script>
     <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/hero-CpGGr4iY.css">
@@ -22,7 +22,7 @@
       <div class="header-nav-items">
         <ul class="header-nav-list">
           <li class="header-nav-item">
-            <a class="header-nav-link {=$highlight-act}" href="./home.html"
+            <a class="header-nav-link active" href="./home.html"
               >HOME</a
             >
           </li>
@@ -74,7 +74,7 @@
         <ul class="header-sidebar-list">
           <li class="header-sidebar-item active">
             <a
-              class="header-sidebar-link text {=$highlight-act}"
+              class="header-sidebar-link text active"
               href="./home.html"
               >HOME</a
             >
@@ -100,9 +100,7 @@
 </header>
 
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <section id="hero-default" class="hero">
+    <section id="hero-default" class="hero">
   <div class="hero-container section">
     <img
       class="hero-image"
@@ -147,7 +145,68 @@
 </section>
 
 
-      <section id="movie-modal" class="modal" style="display: none;">
+
+    <main>
+      <section class="home-container section">
+        <div class="home-weekly-content">
+          <div class="home-title">
+            <h2>Weekly Trends</h2>
+            <a href="#" target="_blank" rel="noopener noreferrer">See all</a>
+          </div>
+          <ul class="home-movie-list">
+            <li class="home-movie-item">
+              <section class="card">
+  <div class="card-item">
+    <img
+      class="card-image"
+      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+      alt="Movie Poster"
+      loading="lazy"
+    />
+    <div class="card-content">
+      <h2 class="card-title">Movie Title</h2>
+      <p class="card-info">Genre | Release Year</p>
+      <ul class="card-rating">
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
+          </svg>
+        </li>
+        <li>
+          <svg width="14" height="14">
+            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
+          </svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+            </li>
+          </ul>
+        </div>
+        <div class="home-monthly-content">
+          <div class="home-title">
+            <h2>Upcoming This Month</h2>
+          </div>
+          <ul class="home-movie-list">
+            <li class="home-movie-item">
+              <section id="movie-modal" class="modal" style="display: none;">
   <div class="modal-backdrop"></div>
 
   <div class="modal-content">
@@ -200,6 +259,63 @@
 </section>
 
 
+            </li>
+          </ul>
+          <section id="movie-modal" class="modal" style="display: none;">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-content">
+    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+
+    <div class="modal-header">
+      <img
+        class="modal-poster"
+        src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+        alt="Movie Poster"
+        id="modal-poster"
+      />
+
+      <div class="modal-info">
+        <h2 class="modal-title" id="modal-title">Movie Title</h2>
+
+        <ul class="modal-stats">
+          <li><strong>Rating:</strong> <span id="modal-rating">0.0</span></li>
+          <li>
+            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+          </li>
+          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+        </ul>
+
+        <button class="modal-library-btn btn-secondary" id="modal-library-btn">
+          Add to My Library
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overview" id="modal-overview">
+      Movie overview text will appear here.
+    </div>
+
+    <!-- Trailer -->
+    <div
+      class="modal-trailer-wrapper"
+      id="modal-trailer-wrapper"
+      style="display: none"
+    >
+      <iframe
+        id="modal-trailer-iframe"
+        class="modal-trailer"
+        src=""
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -222,7 +338,6 @@
     </p>
   </section>
 </footer>
-
 
   </body>
 </html>
