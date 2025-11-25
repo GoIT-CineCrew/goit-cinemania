@@ -224,11 +224,12 @@ section {
     line-height: auto;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 128px;
     height: 40px;
   }
-
+}
 
 /* Desktop Style */
 @media only screen and (min-width: 1280px) {
@@ -270,7 +271,9 @@ section {
     line-height: auto;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 139px;
     height: 48px;
   }
+}
