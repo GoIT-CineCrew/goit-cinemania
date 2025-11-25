@@ -19,7 +19,7 @@
       <section class="library-container">
         <div class="library-content">
           <div class="library-dropdown-filters">
-            <div class="library-dropdown-filter custom-select">
+            <div class="library-dropdown-filter">
               <div class="selected">Genre <span class="arrow"></span></div>
               <div class="options">
                 <div class="option" data-value="romance">Romance</div>
@@ -33,6 +33,9 @@
           </div>
           <div class="library-movie-list">
             <ul class="library-movie-items">
+              <li class="library-movie-item">
+                <load src="./partials/card.html" />
+              </li>
               <li class="library-movie-item">
                 <load src="./partials/card.html" />
               </li>
@@ -57,7 +60,7 @@
 
     <load src="./partials/footer.html" />
     <script>
-      const selectBox = document.querySelector('.custom-select');
+      const selectBox = document.querySelector('.library-dropdown-filter');
       const selected = selectBox.querySelector('.selected');
       const arrow = selected.querySelector('.arrow');
       const optionsContainer = selectBox.querySelector('.options');

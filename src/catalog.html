@@ -26,7 +26,7 @@
               </svg>
             </button>
             <div class="catalog-dropdown-filters">
-              <div class="catalog-dropdown-filter custom-select">
+              <div class="catalog-dropdown-filter">
                 <div class="selected">Year <span class="arrow"></span></div>
                 <div class="options">
                   <div class="option" data-value="2025">2025</div>
@@ -44,7 +44,6 @@
                 </div>
               </div>
             </div>
-            <button class="search-button" type="submit">Search</button>
             <button class="search-icon" type="submit">
               <svg>
                 <use href="./img/sprite.svg#search"></use>
@@ -80,7 +79,7 @@
 
     <load src="./partials/footer.html" />
     <script>
-      const selectBox = document.querySelector('.custom-select');
+      const selectBox = document.querySelector('.catalog-dropdown-filter');
       const selected = selectBox.querySelector('.selected');
       const arrow = selected.querySelector('.arrow');
       const optionsContainer = selectBox.querySelector('.options');
