@@ -1,5 +1,5 @@
-<section id="hero-default" class="hero">
-  <div class="hero-container section">
+<section id="hero-default" class="hero" style="display: none">
+  <div class="hero-container">
     <img
       class="hero-image"
       src="./img/Hero-Home-Desktop.jpg"
@@ -23,9 +23,14 @@
 <!-- =========================
    RANDOM MOVIE HERO SECTION
 ========================= -->
-
 <section id="hero-random-movie" class="hero-movie" style="display: none">
   <div class="hero-movie-container">
+    <img
+      id="hero-movie-poster"
+      class="hero-movie-poster"
+      alt="Movie Poster"
+      loading="lazy"
+    />
     <div class="hero-movie-content">
       <h1 class="hero-movie-title">Movie Title</h1>
       <div class="hero-movie-stars">★★★★★</div>
@@ -41,5 +46,3 @@
     </div>
   </div>
 </section>
-
-<script type="module" src="./js/hero.js"></script>
