@@ -47,6 +47,8 @@ body {
   border: 1px solid black;
   border-radius: 8px;
   padding: 10px 40px 10px 20px;
+  background-color: inherit;
+  border: 1px solid white;
 }
 
 .clear-button {
@@ -122,6 +124,14 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 16px;
+}
+
+.catalog-movie-items {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 .catalog-movie-item:hover {
@@ -255,18 +265,20 @@ body {
 
   .catalog-movie-items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 0fr);
     justify-content: center;
     align-items: center;
     margin-bottom: 22px;
     width: 768px;
     height: min-content;
-    gap:16px;
+    padding: 0;
   }
 
   .catalog-search input{
     width: 188px;
     height: 44px;
+    background-color: inherit;
+    border: 1px solid white;
   }
 
   .search-icon{
@@ -285,6 +297,7 @@ body {
   .clear-button {
     margin-top: 3px;
     margin-left: 3px;
+    background-color: inherit;
   }
 
   .footer-desc {
