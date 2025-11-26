@@ -1,8 +1,52 @@
+body{
+    width: 320px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 320px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 .library-load-button{
     width: 106px;
     height: 38px;
     border-radius: 74px;
     background-color:var(--border-orange);
+}
+
+.library-container{
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.library-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.library-movie-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: max-content;
+    padding: 0;
 }
 
 .library-movie-item{
@@ -17,19 +61,18 @@
     margin-bottom: 20px;
 }
 
-.library-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .library-dropdown-filter {
-    width: 200px;
+    width: 173px;
     height: 40px;
     position: relative;
     color: #eee;
     margin-top: 10px;
+}
+
+.library-dropdown-filters{
+    width: 280px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .library-dropdown-filter .selected {
@@ -106,4 +149,72 @@
 .custom-select.open .arrow {
     transform: rotate(-135deg);
     /* ▲ yukarı bakar */
+}
+
+.footer-desc {
+    width: 236px;
+    height: 40px;
+    font-size: 13.5px;
+}
+
+@media(min-width:768px){
+    body {
+        width: 768px;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .library-movie-list{
+        width: 768px;
+    }
+
+    .library-movie-items{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 22px;
+        width: 768px;
+        height: min-content;
+        gap: 16px;
+    }
+
+    .library-dropdown-filters{
+        width: 768px;
+    }
+
+    .footer-desc{
+        width: 482px;
+    }
+
+}
+
+@media(min-width:1280px){
+    body {
+        width: 1280px;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .library-movie-list{
+        width: 1216px;
+    }
+
+    .library-dropdown-filter{
+        width: 260px;
+    }
+
+    .library-dropdown-filters{
+        width: 1216px;
+    }
+
+    .footer-desc{
+        width: 482px;
+    }
 }
