@@ -1,0 +1,53 @@
+<section id="movie-modal" class="modal" style="display: none;">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-content">
+    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+
+    <div class="modal-header">
+      <img
+        class="modal-poster"
+        src="./img/Modal-Example.jpg"
+        alt="Movie Poster"
+        id="modal-poster"
+      />
+
+      <div class="modal-info">
+        <h2 class="modal-title" id="modal-title">Movie Title</h2>
+
+        <ul class="modal-stats">
+          <li><strong>Rating:</strong> <span id="modal-rating">0.0</span></li>
+          <li>
+            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+          </li>
+          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+        </ul>
+
+        <button class="modal-library-btn btn-secondary" id="modal-library-btn">
+          Add to My Library
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overview" id="modal-overview">
+      Movie overview text will appear here.
+    </div>
+
+    <!-- Trailer -->
+    <div
+      class="modal-trailer-wrapper"
+      id="modal-trailer-wrapper"
+      style="display: none"
+    >
+      <iframe
+        id="modal-trailer-iframe"
+        class="modal-trailer"
+        src=""
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="./js/modal.js"></script>

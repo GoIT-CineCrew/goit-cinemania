@@ -83,6 +83,9 @@
 
 /* Base body style */
 body {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family);
@@ -191,9 +194,15 @@ section {
 @media only screen and (min-width: 768px) {
   body {
     width: 768px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   section {
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 0 32px;
     gap: 44px;
   }

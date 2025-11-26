@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/catalog.css" />
   </head>
   <body>
     <load
@@ -17,39 +16,54 @@
     <load src="./partials/hero.html" />
 
     <main>
-      <div class="catalog-container">
+      <section class="catalog-container section">
         <div class="catalog-content">
           <div class="catalog-search">
             <input type="text" placeholder="Search" />
-            <select class="year-select">
-              <option style="display: none">Year</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2019">2019</option>
-              <option value="2018">2018</option>
-              <option value="2017">2017</option>
-              <option value="2016">2016</option>
-              <option value="2015">2015</option>
-            </select>
-            <button type="submit">Search</button>
+            <button class="clear-button">
+              <svg>
+                <use href="./img/sprite.svg#close"></use>
+              </svg>
+            </button>
+            <div class="catalog-dropdown-filters">
+              <div class="catalog-dropdown-filter custom-select">
+                <div class="selected">Year <span class="arrow"></span></div>
+                <div class="options">
+                  <div class="option" data-value="2025">2025</div>
+                  <div class="option" data-value="2024">2024</div>
+                  <div class="option" data-value="2023">2023</div>
+                  <div class="option" data-value="2022">2022</div>
+                  <div class="option" data-value="2021">2021</div>
+                  <div class="option" data-value="2020">2020</div>
+                  <div class="option" data-value="2019">2019</div>
+                  <div class="option" data-value="2018">2018</div>
+                  <div class="option" data-value="2017">2017</div>
+                  <div class="option" data-value="2016">2016</div>
+                  <div class="option" data-value="2015">2015</div>
+                  <div class="option" data-value="2014">2014</div>
+                </div>
+              </div>
+            </div>
+            <button class="search-button" type="submit">Search</button>
+            <button class="search-icon" type="submit">
+              <svg>
+                <use href="./img/sprite.svg#search"></use>
+              </svg>
+            </button>
           </div>
           <div class="catalog-movie-list">
             <ul class="catalog-movie-items">
               <li class="catalog-movie-item">
-                <load src="./partials/modal.html" />
+                <load src="./partials/card.html" />
               </li>
               <li class="catalog-movie-item">
-                <load src="./partials/modal.html" />
+                <load src="./partials/card.html" />
               </li>
               <li class="catalog-movie-item">
-                <load src="./partials/modal.html" />
+                <load src="./partials/card.html" />
               </li>
               <li class="catalog-movie-item">
-                <load src="./partials/modal.html" />
+                <load src="./partials/card.html" />
               </li>
             </ul>
           </div>
@@ -61,9 +75,46 @@
             <button type="button" class="catalog-page-btn">05</button>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <load src="./partials/footer.html" />
+    <script>
+      const selectBox = document.querySelector('.custom-select');
+      const selected = selectBox.querySelector('.selected');
+      const arrow = selected.querySelector('.arrow');
+      const optionsContainer = selectBox.querySelector('.options');
+      const optionsList = selectBox.querySelectorAll('.option');
+
+      // --- Dropdown aç/kapa ---
+      selected.addEventListener('click', () => {
+        const isOpen = selectBox.classList.toggle('open');
+        optionsContainer.style.display = isOpen ? 'block' : 'none';
+      });
+
+      // --- Bir seçenek seçildiğinde ---
+      optionsList.forEach(option => {
+        option.addEventListener('click', () => {
+          // sadece text'i değiştir
+          selected.childNodes[0].textContent = option.textContent;
+
+          // seçili class'ı güncelle
+          optionsList.forEach(o => o.classList.remove('selected'));
+          option.classList.add('selected');
+
+          // menüyü kapat
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        });
+      });
+
+      // --- Dropdown dışına tıklanınca kapanması ---
+      document.addEventListener('click', e => {
+        if (!selectBox.contains(e.target)) {
+          selectBox.classList.remove('open');
+          optionsContainer.style.display = 'none';
+        }
+      });
+    </script>
   </body>
 </html>

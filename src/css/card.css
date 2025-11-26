@@ -1,0 +1,79 @@
+/* KARTLAR KONTEYNERİ (kartları ortalamak için) */
+.card {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.card-item {
+  position: relative;
+  width: 280px;
+  height: 406px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* GÖRSEL */
+.card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: fill;
+  display: block;
+  
+}
+
+/* GÖRSEL ÜSTÜNE KARANLIK GRADIENT (okunabilirlik için) */
+.card-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+/* METİN İÇERİĞİ (sol–alt) */
+.card-content {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 2;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+
+  color: #fff;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-info {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* RATING (sağ–alt) */
+.card-rating {
+  position: absolute;
+  bottom: 0;
+  right: 24px;
+  z-index: 9;
+
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
