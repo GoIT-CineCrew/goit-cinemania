@@ -3,10 +3,7 @@
   display: flex;
   justify-content: center;
   padding: 0;
-}
-
-.card-item {
-  position: relative;
+   position: relative;
   width: 280px;
   height: 406px;
   border-radius: 5px;
@@ -76,4 +73,52 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 224px;
+    height: 325px;
+  }
+
+  .card-content {
+    width: 200px;
+    line-height: 1.5;
+  }
+
+  .card-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    
+  }
+
+  .card-info {
+    font-size: 12px;
+  }
+
+  .card-rating {
+    right: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    width: 394px;
+    height: 574px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .card-content {
+    width: 355px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-info {
+    font-size: 14px;
+  }
 }

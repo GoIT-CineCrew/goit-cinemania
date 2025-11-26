@@ -1,53 +1,62 @@
-<section id="movie-modal" class="modal" style="display: none;">
-  <div class="modal-backdrop"></div>
-
-  <div class="modal-content">
-    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
-
-    <div class="modal-header">
+<section id="movie-upcoming" class="upcoming">
+  <div class="upcoming-content">
+    <div class="upcoming-header">
       <img
-        class="modal-poster"
-        src="./img/Modal-Example.jpg"
+        class="upcoming-poster"
+        src="./img/Home-Upcoming.jpg"
         alt="Movie Poster"
-        id="modal-poster"
+        id="upcoming-poster"
       />
+    </div>
+    <div class="upcoming-desktop">
+      <div class="upcoming-info">
+        <h2 class="upcoming-title" id="upcoming-title">Movie Title</h2>
 
-      <div class="modal-info">
-        <h2 class="modal-title" id="modal-title">Movie Title</h2>
-
-        <ul class="modal-stats">
-          <li><strong>Rating:</strong> <span id="modal-rating">0.0</span></li>
-          <li>
-            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+        <ul class="upcoming-stats">
+          <li class="upcoming-stats-item">
+            <h3>Release date</h3>
+            <span id="upcoming-release">03.03.2023</span>
           </li>
-          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+          <li class="upcoming-stats-item">
+            <h3>Vote / Votes</h3>
+            <div class="upcoming-rating">
+              <span id="upcoming-vote">0.0 </span>
+              /
+              <span id="upcoming-votes">1260</span>
+            </div>
+          </li>
+          <li class="upcoming-stats-item">
+            <h3>Popularity:</h3>
+            <span id="upcoming-popularity">99.9</span>
+          </li>
+          <li class="upcoming-stats-item">
+            <h3>Genre</h3>
+            <span id="upcoming-genre">Comedy, action</span>
+          </li>
         </ul>
-
-        <button class="modal-library-btn btn-secondary" id="modal-library-btn">
-          Add to My Library
-        </button>
       </div>
-    </div>
 
-    <div class="modal-overview" id="modal-overview">
-      Movie overview text will appear here.
-    </div>
+      <div class="upcoming-overview" id="upcoming-overview">
+        <h3 class="upcoming-overview-title">About</h3>
+        <p class="upcoming-overview-text">
+          Reclusive author Loretta Sage writes about exotic places
+          in her popular adventure novels that feature a handsome cover model
+          named Alan. While on tour promoting her new book with Alan, Loretta
+          gets kidnapped by an eccentric billionaire who hopes she can lead him
+          to an ancient city's lost treasure from her latest story. Determined
+          to prove he can be a hero in real life and not just on the pages
+          of her books, Alan sets off to rescue her.
+        </p>
+      </div>
 
-    <!-- Trailer -->
-    <div
-      class="modal-trailer-wrapper"
-      id="modal-trailer-wrapper"
-      style="display: none"
-    >
-      <iframe
-        id="modal-trailer-iframe"
-        class="modal-trailer"
-        src=""
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+      <button
+        class="upcoming-library-btn btn-primary"
+        id="upcoming-library-btn"
+      >
+        Add to my library
+      </button>
     </div>
   </div>
 </section>
 
-<script type="module" src="./js/modal.js"></script>
+<script type="module" src="./js/upcoming.js"></script>
