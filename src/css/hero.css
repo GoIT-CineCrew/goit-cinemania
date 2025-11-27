@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.hero-container {
+  background-image: url('../img/Hero-Home-Mobile.jpg');
+  background-size: cover;
+}
+
 .hero-container,
 .hero-movie-container {
   position: relative;
@@ -29,11 +34,12 @@
 .hero-content,
 .hero-movie-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 16px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
   gap: 10px;
   max-width: 200px;
   color: #fff;
@@ -48,16 +54,17 @@
 .hero-info,
 .hero-movie-details {
   font-size: 12px;
-  line-height: 1.4;
+  width: 166px;
 }
 
 .hero-movie-stars {
   display: flex;
   gap: 4px;
 }
+.hero-default-button-container {
+  margin-top: 10px;
+}
 
-.hero-button,
-.hero-movie-btn,
 .hero-movie-details-btn {
   margin-top: 10px;
   height: 36px;
@@ -69,7 +76,6 @@
   color: #fff;
 }
 
-.hero-button:hover,
 .hero-movie-btn:hover,
 .hero-movie-details-btn:hover {
   background-color: #ff9b40;
@@ -77,26 +83,30 @@
 
 /* Tablet */
 @media (min-width: 768px) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Tablet.jpg');
+    min-height: 360px;
+    background-position: center 120%;
+    background-repeat: no-repeat;
+  }
+
   .hero-container,
   .hero-movie-container {
-    width: 600px;
-    height: 400px;
+    width: 768px;
   }
 
-  .hero-content,
-  .hero-movie-content {
-    max-width: 400px;
-    left: 32px;
+  .hero-title {
+    width: 300px;
   }
 
-  .hero-title,
-  .hero-movie-title {
-    font-size: 32px;
+  .hero-info {
+    width: 360px;
+    margin-bottom: 10px;
   }
 
-  .hero-info,
-  .hero-movie-details {
-    font-size: 14px;
+  .hero-info::after {
+    content: ' Decorate your space, choose your films, and stock up on snacks for the full experience.';
+    display: inline;
   }
 
   .hero-movie-stars {
@@ -113,10 +123,14 @@
 
 /* Desktop */
 @media (min-width: 1280px) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Desktop.jpg');
+    background-position: center 100%;
+  }
   .hero-container,
   .hero-movie-container {
-    width: 800px;
-    height: 450px;
+    width: 1280px;
+    min-height: 660px;
   }
 
   .hero-content,
@@ -124,15 +138,18 @@
     max-width: 500px;
     left: 48px;
   }
-
+  .hero-title {
+    margin-bottom: 10px;
+  }
   .hero-title,
   .hero-movie-title {
     font-size: 48px;
   }
 
-  .hero-info,
-  .hero-movie-details {
-    font-size: 16px;
+  .hero-info {
+    height: 76px;
+    width: 410px;
+    margin: 0;
   }
 
   .hero-movie-stars {
