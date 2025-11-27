@@ -6,7 +6,11 @@ body {
 }
 
 .header {
-  padding: 8px 20px;
+  min-width: 320px;
+  height: 48px;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
 }
 
 .header-nav {
@@ -20,14 +24,19 @@ body {
 }
 
 .nav-logo-icon {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
 }
 
 .header-nav-items {
   display: flex;
   align-items: center;
   gap: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-grey);
 }
 
 .header-nav-list {
@@ -86,10 +95,10 @@ body {
 }
 
 .sidebar-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 
   background: rgba(255, 255, 255, 0.2);
@@ -141,15 +150,13 @@ body {
   left: 0;
   padding: 80px 20px;
   width: 204px;
-  height: 100vh;
+  height: 428px;
   border-radius: 0 8px 8px 0;
   background: #171717;
 
   transform: translateX(-100%);
   opacity: 0;
-
   transition: transform 1.35s ease, opacity 1.35s ease;
-
   z-index: 998;
 }
 
@@ -166,6 +173,9 @@ body {
 }
 
 .header-sidebar-item {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
   color: var(--color-text);
   transition: 200ms ease-in;
 }
@@ -182,11 +192,9 @@ body {
 
 @media (min-width: 768px) {
   .header {
-    padding: 6px 32px;
-  }
-
-  .header-container {
-    max-width: 1280px;
+    min-width: 768px;
+    height: 60px;
+    padding: 12px 0;
   }
 
   .header-sidebar {
@@ -196,18 +204,34 @@ body {
   .header-nav {
     display: flex;
     justify-content: space-between;
-    min-width: 768px;
-    padding: 0 32px;
+    min-width: 704px;
   }
 
   .header-nav-logo {
     gap: 8px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  .nav-logo-icon {
+    width: 48px;
+    height: 48px;
   }
 
   .header-nav-items {
     display: flex;
     justify-content: space-between;
     width: 475px;
+    font-size: 14px;
+  }
+
+  .header-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 32px;
   }
 
   .theme-toggle-btn {
@@ -229,12 +253,13 @@ body {
 
 @media (min-width: 1280px) {
   .header {
+    max-width: 1280px;
     padding: 6px 32px;
   }
 
   .header-nav {
-    min-width: 1280px;
     padding: 0 32px;
+    min-width: 1216px;
   }
 
   .header-nav-items {
