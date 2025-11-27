@@ -14,7 +14,7 @@ export function openMovieModal(movie, genreMap) {
   const modalHTML = `
     <div class="movie-modal">
       <img src="${posterUrl}" class="modal-poster" alt="${movie.title}" />
-      <div class="modal-info">
+      <div class="moda l-info">
         <h2 class="modal-title">${movie.title}</h2>
         <p><strong>Rating:</strong> ${movie.vote_average.toFixed(1)}</p>
         <p><strong>Genres:</strong> ${genresText}</p>
@@ -26,11 +26,11 @@ export function openMovieModal(movie, genreMap) {
       ${
         movie.videos?.results?.length
           ? `<div class="modal-trailer-wrapper">
-               <iframe class="modal-trailer" 
-                       src="https://www.youtube.com/embed/${movie.videos.results[0].key}" 
-                       frameborder="0" allowfullscreen>
-               </iframe>
-             </div>`
+                <iframe class="modal-trailer" 
+                    src="https://www.youtube.com/embed/${movie.videos.results[0].key}" 
+                    frameborder="0" allowfullscreen>
+                </iframe>
+              </div>`
           : '<p>Trailer not available.</p>'
       }
     </div>

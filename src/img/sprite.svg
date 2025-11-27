@@ -866,6 +866,11 @@
       <path d="M4.5 4.5L13.5 13.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
 
+    <!-- Close Icon Mobile -->
+    <symbol id="close-mobile" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.5 11.5L4.5 4.5M11.5 4.5L4.5 11.5" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
     <!-- Full Star Icon -->
     <symbol id="full-star" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_4619_22958)">
