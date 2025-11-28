@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/hero-DBH6PBvH.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/hero-CpGGr4iY.css">
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/styles-DXMWfQMu.css">
   </head>
   <body>
     <header class="header">
@@ -14,7 +13,7 @@
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon">
-          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#nav-logo"></use>
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
@@ -41,28 +40,28 @@
 
         <button class="theme-toggle-btn">
           <svg class="theme-icon">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#moon"></use>
+            <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#moon"></use>
           </svg>
           <svg class="theme-circle-icon">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#moon-circle"></use>
+            <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#moon-circle"></use>
           </svg>
         </button>
       </div>
     </nav>
 
-    <nav class="header-sidebar">
+    <nav class="header-sidebar section">
       <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-mobile-icon" width="32" height="32">
-          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#nav-logo-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#nav-logo-mobile"></use>
         </svg>
       </a>
       <label for="sidebar-input" class="sidebar-menu">Menu</label>
       <button class="theme-toggle-btn">
         <svg class="theme-circle-icon" width="14" height="14">
-          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#sun-circle-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#sun-circle-mobile"></use>
         </svg>
         <svg class="theme-icon" width="10" height="10">
-          <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#sun-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#sun-mobile"></use>
         </svg>
       </button>
 
@@ -98,15 +97,8 @@
   </section>
 </header>
 
-    <section id="hero-default" class="hero">
-  <div class="hero-container section">
-    <img
-      class="hero-image"
-      src="/goit-cinemania/assets/Hero-Home-Desktop-BoRXoTYc.jpg"
-      srcset="/goit-cinemania/assets/Hero-Home-Desktop@2x-SSrZjylf.jpg 2x"
-      alt="Stranger Things poster"
-      loading="lazy"
-    />
+    <section id="hero-default" class="hero" style="display: none">
+  <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Let’s Make Your Own Cinema</h1>
       <p class="text hero-info">
@@ -123,9 +115,14 @@
 <!-- =========================
    RANDOM MOVIE HERO SECTION
 ========================= -->
-
 <section id="hero-random-movie" class="hero-movie" style="display: none">
   <div class="hero-movie-container">
+    <img
+      id="hero-movie-poster"
+      class="hero-movie-poster"
+      alt="Movie Poster"
+      loading="lazy"
+    />
     <div class="hero-movie-content">
       <h1 class="hero-movie-title">Movie Title</h1>
       <div class="hero-movie-stars">★★★★★</div>
@@ -142,6 +139,7 @@
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
 
     <main>
@@ -151,11 +149,11 @@
             <input type="text" placeholder="Search" />
             <button class="clear-button">
               <svg>
-                <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#close"></use>
+                <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#close"></use>
               </svg>
             </button>
             <div class="catalog-dropdown-filters">
-              <div class="catalog-dropdown-filter custom-select">
+              <div class="catalog-dropdown-filter">
                 <div class="selected">Year <span class="arrow"></span></div>
                 <div class="options">
                   <div class="option" data-value="2025">2025</div>
@@ -173,10 +171,9 @@
                 </div>
               </div>
             </div>
-            <button class="search-button" type="submit">Search</button>
             <button class="search-icon" type="submit">
               <svg>
-                <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#search"></use>
+                <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#search"></use>
               </svg>
             </button>
           </div>
@@ -184,178 +181,178 @@
             <ul class="catalog-movie-items">
               <li class="catalog-movie-item">
                 <section class="card">
-  <div class="card-item">
-    <img
-      class="card-image"
-      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-      alt="Movie Poster"
-      loading="lazy"
-    />
-    <div class="card-content">
-      <h2 class="card-title">Movie Title</h2>
-      <p class="card-info">Genre | Release Year</p>
-      <ul class="card-rating">
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
-          </svg>
-        </li>
-      </ul>
-    </div>
+  <img
+    class="card-image"
+    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+    alt="Movie Poster"
+    loading="lazy"
+  />
+  <div class="card-content">
+    <h2 class="card-title"></h2>
+    <p class="card-info"><span class="card-genre">Genre</span> | <span class="card-year">Release Year</span></p>
+    <ul class="card-rating">
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#half-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#empty-star"></use>
+        </svg>
+      </li>
+    </ul>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
               </li>
               <li class="catalog-movie-item">
                 <section class="card">
-  <div class="card-item">
-    <img
-      class="card-image"
-      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-      alt="Movie Poster"
-      loading="lazy"
-    />
-    <div class="card-content">
-      <h2 class="card-title">Movie Title</h2>
-      <p class="card-info">Genre | Release Year</p>
-      <ul class="card-rating">
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
-          </svg>
-        </li>
-      </ul>
-    </div>
+  <img
+    class="card-image"
+    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+    alt="Movie Poster"
+    loading="lazy"
+  />
+  <div class="card-content">
+    <h2 class="card-title"></h2>
+    <p class="card-info"><span class="card-genre">Genre</span> | <span class="card-year">Release Year</span></p>
+    <ul class="card-rating">
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#half-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#empty-star"></use>
+        </svg>
+      </li>
+    </ul>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
               </li>
               <li class="catalog-movie-item">
                 <section class="card">
-  <div class="card-item">
-    <img
-      class="card-image"
-      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-      alt="Movie Poster"
-      loading="lazy"
-    />
-    <div class="card-content">
-      <h2 class="card-title">Movie Title</h2>
-      <p class="card-info">Genre | Release Year</p>
-      <ul class="card-rating">
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
-          </svg>
-        </li>
-      </ul>
-    </div>
+  <img
+    class="card-image"
+    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+    alt="Movie Poster"
+    loading="lazy"
+  />
+  <div class="card-content">
+    <h2 class="card-title"></h2>
+    <p class="card-info"><span class="card-genre">Genre</span> | <span class="card-year">Release Year</span></p>
+    <ul class="card-rating">
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#half-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#empty-star"></use>
+        </svg>
+      </li>
+    </ul>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
               </li>
               <li class="catalog-movie-item">
                 <section class="card">
-  <div class="card-item">
-    <img
-      class="card-image"
-      src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-      alt="Movie Poster"
-      loading="lazy"
-    />
-    <div class="card-content">
-      <h2 class="card-title">Movie Title</h2>
-      <p class="card-info">Genre | Release Year</p>
-      <ul class="card-rating">
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#full-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#half-star"></use>
-          </svg>
-        </li>
-        <li>
-          <svg width="14" height="14">
-            <use href="/goit-cinemania/assets/sprite-CNdydZgz.svg#empty-star"></use>
-          </svg>
-        </li>
-      </ul>
-    </div>
+  <img
+    class="card-image"
+    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
+    alt="Movie Poster"
+    loading="lazy"
+  />
+  <div class="card-content">
+    <h2 class="card-title"></h2>
+    <p class="card-info"><span class="card-genre">Genre</span> | <span class="card-year">Release Year</span></p>
+    <ul class="card-rating">
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#full-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#half-star"></use>
+        </svg>
+      </li>
+      <li>
+        <svg width="14" height="14">
+          <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#empty-star"></use>
+        </svg>
+      </li>
+    </ul>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
               </li>
             </ul>
@@ -374,10 +371,9 @@
     <footer class="footer">
   <section class="container">
     <p class="footer-desc">
-      &#169; 2023 | All rights Reserved | <br />
-      Developed with
+      &#169; 2023 | All rights Reserved | Developed with
       <svg class="heart-icon">
-        <use href="../img/sprite.svg#heart"></use>
+        <use href="/goit-cinemania/assets/sprite-BDQ3BHpR.svg#heart"></use>
       </svg>
       by
       <a
@@ -392,8 +388,9 @@
   </section>
 </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
     <script>
-      const selectBox = document.querySelector('.custom-select');
+      const selectBox = document.querySelector('.catalog-dropdown-filter');
       const selected = selectBox.querySelector('.selected');
       const arrow = selected.querySelector('.arrow');
       const optionsContainer = selectBox.querySelector('.options');
