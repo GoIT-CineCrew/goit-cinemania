@@ -1,5 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import config from '../config';
 
 export function openMovieModal(movie, genreMap) {
   // Genres into String

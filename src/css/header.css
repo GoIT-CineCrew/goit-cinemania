@@ -138,6 +138,7 @@ body {
 
 .sidebar-menu {
   cursor: pointer;
+  color: var(--color-grey);
 }
 
 .header-sidebar-items {
