@@ -67,7 +67,7 @@ async function loadGenres() {
   }
 }
 
-// ---- MOVIE CARD HTML TEMPLATE ----
+// ---- film kartları html yapısında oluşturma ----
 function createMovieCard(movie) {
   const poster = movie.poster_path 
     ? `${IMAGE_BASE_URL}${movie.poster_path}`
@@ -106,6 +106,7 @@ function createMovieCard(movie) {
   `;
 }
 
+// yıldız oluşturma
 function createStarRating(vote_average) {
   const ratingOutOfFive = vote_average / 2; // 0-5 arası değer
 
@@ -128,7 +129,7 @@ function createStarRating(vote_average) {
   return starsHTML;
 }
 
-// ---- RENDER MOVIES ----
+// ---- filmleri renferla ----
 function renderMovies(movies) {
   movieList.innerHTML = "";
   movies.forEach(movie => {
@@ -137,7 +138,7 @@ function renderMovies(movies) {
   });
 }
 
-// ---- GET POPULAR MOVIES ----
+// ---- popüler filmleri getir ----
 async function getMovies(page = 1) {
   try {
     await loadGenres(); // önce türleri yükle
