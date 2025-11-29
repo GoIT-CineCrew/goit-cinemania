@@ -999,4 +999,20 @@
       </defs>
     </symbol>
 
+    <!-- Page Nums Container -->
+    <!-- Page Nums - Back Arrow Active -->
+    <symbol id="back-arrow-active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.8125 4.375L7.1875 10L12.8125 15.625" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Page Nums - Back Arrow Passive -->
+    <symbol id="back-arrow-passive" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.8125 4.375L7.1875 10L12.8125 15.625" stroke="#595959" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Page Nums - Forward Arrow Passive -->
+    <symbol id="back-arrow-passive" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.1875 4.375L12.8125 10L7.1875 15.625" stroke="#595959" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+
+
 </svg>
