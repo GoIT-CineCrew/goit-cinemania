@@ -1,6 +1,4 @@
 const genreMap = {};
-
-
 // ---- DROPDOWN ----
 const selectBox = document.querySelector('.catalog-dropdown-filter');
 const selected = selectBox.querySelector('.selected');
@@ -57,7 +55,7 @@ async function loadGenres() {
 
   try {
     const response = await axios.get(`${BASE_URL}/genre/movie/list`, {
-      params: { api_key: API_KEY, language: "tr-TR" }
+      params: { api_key: API_KEY, language: "en-US" }
     });
     response.data.genres.forEach(g => {
       genreMap[g.id] = g.name;
@@ -73,7 +71,7 @@ function createMovieCard(movie) {
     ? `${IMAGE_BASE_URL}${movie.poster_path}`
     : "./img/Modal-Example.jpg";
 
-  const year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A";
+  const year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A"; 
 
   // genre ID yi türe çevirme
   const genreNames = movie.genre_ids
@@ -143,7 +141,7 @@ async function getMovies(page = 1) {
   try {
     await loadGenres(); // önce türleri yükle
     const res = await axios.get(`${BASE_URL}/movie/popular`, {
-      params: { api_key: API_KEY, language: "tr-TR", page }
+      params: { api_key: API_KEY, language: "en-US", page }
     });
     renderMovies(res.data.results);
   } catch (err) {
@@ -156,7 +154,7 @@ async function searchMovies(query, year = null) {
   try {
     const params = {
       api_key: API_KEY,
-      language: "tr-TR",
+      language: "en-US",
       query: query,
     };
     if (year) params.primary_release_year = year;
@@ -166,29 +164,6 @@ async function searchMovies(query, year = null) {
   } catch (err) {
     console.error("Arama hatası:", err);
   }
-}
-
-
-function createStarRating(vote_average) {
-  const ratingOutOfFive = vote_average / 2; // 0-5 arası
-
-  const fullStars = Math.floor(ratingOutOfFive);
-  const halfStar = ratingOutOfFive % 1 >= 0.5 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
-
-  let starsHTML = "";
-
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
-  }
-  if (halfStar) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
-  }
-  for (let i = 0; i < emptyStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
-  }
-
-  return starsHTML;
 }
 
 function createMovieCard(movie) {
@@ -237,7 +212,7 @@ async function getMoviesByYear(year) {
     const res = await axios.get(`${BASE_URL}/discover/movie`, {
       params: {
         api_key: API_KEY,
-        language: "tr-TR",
+        language: "en-US",
         sort_by: "popularity.desc",
         primary_release_year: year,
       }
