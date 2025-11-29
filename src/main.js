@@ -4,7 +4,6 @@
 // 1. Axios zaten CDN'den geldi, hazır
 // 2. API anahtarını Vite gibi kullanıyoruz (senin .env dosyan varsa)
 import config from './config.js';
-import './js/hero.js';
 
 // main.js – en üste ekle (config import’tan sonra)
 let genreMap = {}; // {28: "Aksiyon", 12: "Macera", ...}
@@ -51,7 +50,8 @@ function createStars(rating) {
 
   let html = '';
   for (let i = 0; i < full; i++)
-    html += `<li>
+    html += 
+    `<li>
         <svg width="14" height="14">
             <use href="./img/sprite.svg#full-star"></use>
         </svg>
