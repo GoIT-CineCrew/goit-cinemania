@@ -1,55 +1,135 @@
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
-import config from '../config';
+import config from '../config.js';
 
-export function openMovieModal(movie, genreMap) {
-  // Genres into String
-  const genresText = movie.genre_ids.map(id => genreMap[id] || id).join(', ');
+console.log('YENİ MODAL.JS YÜKLENDİ - ' + new Date().toLocaleTimeString());
+let modal, closeBtn, libraryBtn;
 
-  // Poster URL
-  const posterUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : './img/placeholder.png';
+// Modal yüklendi mi diye sürekli kontrol eden fonksiyon
+function waitForModal() {
+  return new Promise(resolve => {
+    const check = () => {
+      modal = document.getElementById('movie-modal');
+      closeBtn = document.getElementById('modal-close-btn');
+      libraryBtn = document.getElementById('modal-library-btn');
 
-  // Modal HTML
-  const modalHTML = `
-    <div class="movie-modal">
-      <img src="${posterUrl}" class="modal-poster" alt="${movie.title}" />
-      <div class="moda l-info">
-        <h2 class="modal-title">${movie.title}</h2>
-        <p><strong>Rating:</strong> ${movie.vote_average.toFixed(1)}</p>
-        <p><strong>Genres:</strong> ${genresText}</p>
-        <h3>Overview</h3>
-        <p class="modal-overview">${
-          movie.overview || 'No description available.'
-        }</p>
-      </div>
-      ${
-        movie.videos?.results?.length
-          ? `<div class="modal-trailer-wrapper">
-                <iframe class="modal-trailer" 
-                    src="https://www.youtube.com/embed/${movie.videos.results[0].key}" 
-                    frameborder="0" allowfullscreen>
-                </iframe>
-              </div>`
-          : '<p>Trailer not available.</p>'
+      if (modal && closeBtn && libraryBtn) {
+        setupModalEvents();
+        resolve();
+      } else {
+        requestAnimationFrame(check); // 60fps'de sürekli kontrol et
       }
-    </div>
-  `;
-
-  // Create Modal with BasicLightbox
-  const modalInstance = basicLightbox.create(modalHTML, {
-    onShow: instance => {
-      // Close with ESC
-      function handleEsc(e) {
-        if (e.key === 'Escape') {
-          instance.close();
-          window.removeEventListener('keydown', handleEsc);
-        }
-      }
-      window.addEventListener('keydown', handleEsc);
-    },
+    };
+    check();
   });
+}
 
-  modalInstance.show();
+// Modal event’lerini bir kere kur
+function setupModalEvents() {
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target.classList.contains('modal-backdrop')) closeModal();
+  });
+}
+
+function closeModal() {
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+  const wrapper = document.getElementById('modal-trailer-wrapper');
+  const iframe = document.getElementById('modal-trailer-iframe');
+  if (wrapper) wrapper.style.display = 'none';
+  if (iframe) iframe.src = '';
+}
+
+// Ana fonksiyon – artık her yerden güvenle çağırılabilir
+export async function openMovieModal(movieId) {
+  console.log('openMovieModal çağrıldı, ID:', movieId); // ← BU LOG ÇOK ÖNEMLİ
+  await waitForModal(); // modal gelene kadar bekle
+
+  try {
+    const [movieRes, videoRes] = await Promise.all([
+      axios.get(
+        `${config.TMDB_BASE_URL}/movie/${movieId}?api_key=${config.TMDB_API_KEY}`
+      ),
+      axios.get(
+        `${config.TMDB_BASE_URL}/movie/${movieId}/videos?api_key=${config.TMDB_API_KEY}`
+      ),
+    ]);
+
+    const movie = movieRes.data;
+    const trailer = videoRes.data.results.find(
+      v => v.site === 'YouTube' && v.type === 'Trailer'
+    );
+
+    // Artık null olma ihtimali YOK
+    document.getElementById('modal-poster').src = movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : './img/no-poster.jpg';
+
+    document.getElementById('modal-title').textContent = movie.title;
+    document.getElementById(
+      'modal-rating'
+    ).textContent = `${movie.vote_average.toFixed(1)} / ${movie.vote_count}`;
+    document.getElementById('modal-popularity').textContent = Math.round(
+      movie.popularity
+    );
+    document.getElementById('modal-release').textContent = formatDate(
+      movie.release_date
+    );
+    document.getElementById('modal-overview').textContent =
+      movie.overview || 'Açıklama yok.';
+
+    // Trailer gösterimi için kullanılan yapı
+    const trailerWrapper = document.getElementById('modal-trailer-wrapper');
+    const iframe = document.getElementById('modal-trailer-iframe');
+    if (trailer && trailerWrapper && iframe) {
+      trailerWrapper.style.display = 'block';
+      iframe.src = `https://www.youtube.com/embed/${trailer.key}?autoplay=1&rel=0`;
+    } else if (trailerWrapper) {
+      trailerWrapper.style.display = 'none';
+    }
+
+    // Kütüphaneye ekle butonu - addToLibrary ile birlikte localStorage içerisine verileri ekleyebildiğimiz bir sistem oluşturuyoruz.
+    libraryBtn.textContent = 'Add to my library';
+    libraryBtn.disabled = false;
+    libraryBtn.onclick = () => addToLibrary(movie);
+
+    modal.classList.add('show'); // flex’i aç
+    document.body.style.overflow = 'hidden';
+  } catch (err) {
+    console.error('Modal hatası:', err);
+    alert('Movie details could not be loaded!');
+  }
+}
+
+function formatDate(dateString) {
+  if (!dateString) return '—';
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const d = new Date(dateString);
+  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+// Add to my library fonksiyonu - LocalStorage içerisine mevcut filmlerin verilerini json oluşturup, oraya ekleyen bir yapı kuruldu.
+function addToLibrary(movie) {
+  const library = JSON.parse(localStorage.getItem('myMovieLibrary') || '[]');
+  if (library.some(m => m.id === movie.id)) {
+    alert('This movie is already in your library!');
+    return;
+  }
+  library.push(movie);
+  localStorage.setItem('myMovieLibrary', JSON.stringify(library));
+  alert(`${movie.title} added to your library.`);
+  libraryBtn.textContent = 'Added';
+  libraryBtn.disabled = true;
 }
