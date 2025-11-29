@@ -51,20 +51,7 @@
             </button>
           </div>
           <div class="catalog-movie-list">
-            <ul class="catalog-movie-items">
-              <li class="catalog-movie-item">
-                <load src="./partials/card.html" />
-              </li>
-              <li class="catalog-movie-item">
-                <load src="./partials/card.html" />
-              </li>
-              <li class="catalog-movie-item">
-                <load src="./partials/card.html" />
-              </li>
-              <li class="catalog-movie-item">
-                <load src="./partials/card.html" />
-              </li>
-            </ul>
+            <ul class="catalog-movie-items"></ul>
           </div>
           <div class="catalog-pages">
             <button type="button" class="catalog-page-btn">01</button>
@@ -79,42 +66,6 @@
 
     <load src="./partials/footer.html" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-    <script>
-      const selectBox = document.querySelector('.catalog-dropdown-filter');
-      const selected = selectBox.querySelector('.selected');
-      const arrow = selected.querySelector('.arrow');
-      const optionsContainer = selectBox.querySelector('.options');
-      const optionsList = selectBox.querySelectorAll('.option');
-
-      // --- Dropdown aç/kapa ---
-      selected.addEventListener('click', () => {
-        const isOpen = selectBox.classList.toggle('open');
-        optionsContainer.style.display = isOpen ? 'block' : 'none';
-      });
-
-      // --- Bir seçenek seçildiğinde ---
-      optionsList.forEach(option => {
-        option.addEventListener('click', () => {
-          // sadece text'i değiştir
-          selected.childNodes[0].textContent = option.textContent;
-
-          // seçili class'ı güncelle
-          optionsList.forEach(o => o.classList.remove('selected'));
-          option.classList.add('selected');
-
-          // menüyü kapat
-          selectBox.classList.remove('open');
-          optionsContainer.style.display = 'none';
-        });
-      });
-
-      // --- Dropdown dışına tıklanınca kapanması ---
-      document.addEventListener('click', e => {
-        if (!selectBox.contains(e.target)) {
-          selectBox.classList.remove('open');
-          optionsContainer.style.display = 'none';
-        }
-      });
-    </script>
+    <script src="./catalog.js"></script>
   </body>
 </html>
