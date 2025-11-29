@@ -23,7 +23,6 @@
   height: 380px;
 }
 
-.hero-image,
 .hero-movie-poster {
   width: 100%;
   height: 100%;
@@ -31,6 +30,35 @@
   display: block;
 }
 
+#hero-random-movie {
+  position: relative;
+}
+
+/* 2. Sadece sol tarafı karartan overlay (en iyi yöntem) */
+#hero-random-movie::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    #111 0%,
+    /* sol kenar */ #111 25%,
+    /* tam %45’e kadar kapkara */ rgba(17, 17, 17, 0.7) 50%,
+    rgba(17, 17, 17, 0.3) 60%,
+    transparent 70%
+  );
+  z-index: 1; /* backdrop üstüne gelsin */
+  pointer-events: none; /* tıklama engellemesin */
+}
+
+/* 3. İçeriklerin overlay’in üstünde kalması için */
+.hero-movie-content {
+  position: relative;
+  z-index: 2;
+}
 .hero-content,
 .hero-movie-content {
   position: absolute;
@@ -45,40 +73,65 @@
   color: #fff;
 }
 
-.hero-title,
-.hero-movie-title {
-  font-size: 20px;
-  font-weight: 700;
-}
-
 .hero-info,
 .hero-movie-details {
-  font-size: 12px;
-  width: 166px;
+  font-size: 14px;
+  width: 177px;
+  margin-bottom: 10px;
 }
 
 .hero-movie-stars {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 .hero-default-button-container {
   margin-top: 10px;
 }
 
+.hero-movie-buttons {
+  gap: 8px;
+  width: 242px;
+  display: flex;
+  flex-direction: row;
+}
+.hero-movie-btn,
 .hero-movie-details-btn {
-  margin-top: 10px;
-  height: 36px;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  background-color: #f8861b;
-  color: #fff;
+  width: 117px;
+  height: 38px;
 }
 
-.hero-movie-btn:hover,
-.hero-movie-details-btn:hover {
-  background-color: #ff9b40;
+/* Hero’da açıklama taşınca ... koy */
+.hero-movie-details {
+  font-size: 12px;
+  width: 177px;
+  height: 66px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* 4 satırdan sonra kes */
+  -webkit-box-orient: vertical;
+  line-height: 1.4em; /* satır yüksekliği */
+  position: relative;
+}
+
+/* Kesildiğinde "…" ekle (isteğe bağlı ama çok şık olur) */
+.hero-movie-details.truncated::after {
+  content: '...';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(17, 17, 17, 0.8); /* hero arka planına uysun */
+  padding-left: 4px;
+  color: white;
+}
+
+.hero-movie-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star-icon {
+  width: 14px;
+  height: 14px;
 }
 
 /* Tablet */

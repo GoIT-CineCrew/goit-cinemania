@@ -4,6 +4,7 @@
 // 1. Axios zaten CDN'den geldi, hazır
 // 2. API anahtarını Vite gibi kullanıyoruz (senin .env dosyan varsa)
 import config from './config.js';
+import './js/hero.js';
 import { openMovieModal } from './js/modal.js';
 
 // en üste ekle (config import’tan sonra)
