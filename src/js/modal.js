@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import config from '../config';
+import { TMDB_API_KEY, TMDB_BASE_URL } from '../config.js';
 
 export function openMovieModal(movie, genreMap) {
   // Genres into String
