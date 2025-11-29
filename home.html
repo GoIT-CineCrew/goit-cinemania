@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/main-CPLaSqab.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/styles-oFX2UnNm.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/main-hCAAkhDf.js"></script>
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/styles-BtiIrfR5.css">
   </head>
   <body>
     <header class="header">
@@ -123,6 +123,49 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
+<div id="movie-modal" class="modal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+
+    <div class="modal-header">
+      <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
+      <div class="modal-info">
+        <h2 class="modal-title" id="modal-title">Movie Title</h2>
+        <ul class="modal-stats">
+          <li>
+            <strong>Vote / Votes:</strong> <span id="modal-rating">0.0</span>
+          </li>
+          <li>
+            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+          </li>
+          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+        </ul>
+        <button class="modal-library-btn btn-secondary" id="modal-library-btn">
+          Add to My Library
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overview" id="modal-overview">
+      Movie overview text will appear here.
+    </div>
+
+    <div
+      class="modal-trailer-wrapper"
+      id="modal-trailer-wrapper"
+      style="display: none"
+    >
+      <iframe
+        id="modal-trailer-iframe"
+        class="modal-trailer"
+        src=""
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
 
     <section id="hero-default" class="hero" style="display: none">
   <div class="hero-container">
@@ -286,9 +329,9 @@
         </ul>
       </div>
 
-      <div class="upcoming-overview" id="upcoming-overview">
+      <div class="upcoming-overview-content" id="upcoming-overview-content">
         <h3 class="upcoming-overview-title">About</h3>
-        <p class="upcoming-overview-text">
+        <p class="upcoming-overview">
           Reclusive author Loretta Sage writes about exotic places
           in her popular adventure novels that feature a handsome cover model
           named Alan. While on tour promoting her new book with Alan, Loretta
