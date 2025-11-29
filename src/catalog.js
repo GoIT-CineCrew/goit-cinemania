@@ -57,7 +57,7 @@ async function loadGenres() {
 
   try {
     const response = await axios.get(`${BASE_URL}/genre/movie/list`, {
-      params: { api_key: API_KEY, language: "tr-TR" }
+      params: { api_key: API_KEY }
     });
     response.data.genres.forEach(g => {
       genreMap[g.id] = g.name;
@@ -65,45 +65,6 @@ async function loadGenres() {
   } catch (err) {
     console.error("Türler yüklenemedi:", err);
   }
-}
-
-// ---- film kartları html yapısında oluşturma ----
-function createMovieCard(movie) {
-  const poster = movie.poster_path 
-    ? `${IMAGE_BASE_URL}${movie.poster_path}`
-    : "./img/Modal-Example.jpg";
-
-  const year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A";
-
-  // genre ID yi türe çevirme
-  const genreNames = movie.genre_ids
-    ? movie.genre_ids.map(id => genreMap[id]).filter(Boolean).join(", ")
-    : "Genre";
-
-  const ratingStars = createStarRating(movie.vote_average);
-
-  return `
-    <li class="catalog-movie-item">
-      <section class="card">
-        <img
-          class="card-image"
-          src="${poster}"
-          alt="${movie.title}"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h2 class="card-title">${movie.title}</h2>
-          <p class="card-info">
-            <span class="card-genre">${genreNames}</span> |
-            <span class="card-year">${year}</span>
-          </p>
-          <ul class="card-rating">
-            ${ratingStars}
-          </ul>
-        </div>
-      </section>
-    </li>
-  `;
 }
 
 // yıldız oluşturma
@@ -143,7 +104,7 @@ async function getMovies(page = 1) {
   try {
     await loadGenres(); // önce türleri yükle
     const res = await axios.get(`${BASE_URL}/movie/popular`, {
-      params: { api_key: API_KEY, language: "tr-TR", page }
+      params: { api_key: API_KEY, page }
     });
     renderMovies(res.data.results);
   } catch (err) {
@@ -168,29 +129,7 @@ async function searchMovies(query, year = null) {
   }
 }
 
-
-function createStarRating(vote_average) {
-  const ratingOutOfFive = vote_average / 2; // 0-5 arası
-
-  const fullStars = Math.floor(ratingOutOfFive);
-  const halfStar = ratingOutOfFive % 1 >= 0.5 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
-
-  let starsHTML = "";
-
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
-  }
-  if (halfStar) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
-  }
-  for (let i = 0; i < emptyStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
-  }
-
-  return starsHTML;
-}
-
+// ---- film kartları html yapısında oluşturma ----
 function createMovieCard(movie) {
   const poster = movie.poster_path 
     ? `${IMAGE_BASE_URL}${movie.poster_path}`
