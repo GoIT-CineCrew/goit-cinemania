@@ -86,7 +86,7 @@
 }
 
 /* The Overview */
-.upcoming-overview {
+.upcoming-overview-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -100,7 +100,7 @@
   color: var(--color-grey);
 }
 
-.upcoming-overview-text {
+.upcoming-overview {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
@@ -167,7 +167,7 @@
     gap: 12px 50px;
   }
 
-  .upcoming-overview-text {
+  .upcoming-overview {
     font-size: 14px;
     line-height: 1.43;
     color: var(--color-secondary-text);
