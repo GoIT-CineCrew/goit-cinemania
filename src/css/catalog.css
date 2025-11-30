@@ -14,6 +14,8 @@ body {
   gap: 5px;
 }
 
+
+
 .catalog-container {
   display: flex;
   width: 320px;
@@ -44,6 +46,12 @@ body {
 .catalog-search:first-child {
   align-items: center;
 }
+
+ /* seçili sayfanın butonu yanması */
+ .catalog-page-btn.active {
+   background-color: #ff6b08;
+   color: white;
+ }
 
 .catalog-search input {
   width: 173px;
@@ -205,7 +213,7 @@ body {
 .catalog-dropdown-filter {
   position: relative;
   width: 95px;
-  height: 40px;
+  height: 48px;
 }
 
 .catalog-dropdown-filter .selected {
@@ -215,6 +223,7 @@ body {
   cursor: pointer;
   border: 1.5px solid #666;
   font-weight: 600;
+  height: 48px;
 }
 
 .catalog-dropdown-filter .options {
@@ -311,7 +320,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 24px;
   }
 
   .card {
@@ -378,12 +387,28 @@ body {
     height: max-content;
   }
 
-  .catalog-search input {
+  .catalog-content{
+    width: 1280px;
+  }
+
+  .catalog-search input{
+
+
     width: 315px;
     height: 48px;
   }
 
-  .clear-button {
+  .catalog-pages{
+     width: min-content;
+     height: 40px;
+  }
+
+  .catalog-page-btn{
+    width: 40px;
+    height: 40px;
+  }
+
+  .clear-button{
     margin-left: 140px;
   }
 
