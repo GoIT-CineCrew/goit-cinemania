@@ -5,9 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/modal-qMZ89UAs.js"></script>
-    <script type="module" crossorigin src="/goit-cinemania/assets/home-CfwKKgun.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/modal-BziohJQa.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/header-DKkTELKW.js"></script>
+    <script type="module" crossorigin src="/goit-cinemania/assets/home-Ct-SD5Lm.js"></script>
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-qF_wBv6p.css">
   </head>
   <body>
     <!DOCTYPE html>
@@ -24,37 +24,29 @@
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon">
-          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#nav-logo"></use>
+          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
       <div class="header-nav-items">
         <ul class="header-nav-list">
           <li class="header-nav-item">
-            <a class="header-nav-link active" href="./home.html"
-              >HOME</a
-            >
+            <a class="header-nav-link" href="./home.html">HOME</a>
           </li>
           <li class="header-nav-item">
-            <a class="header-nav-link {=$highlight-curr}" href="./catalog.html"
-              >CATALOG</a
-            >
+            <a class="header-nav-link" href="./catalog.html">CATALOG</a>
           </li>
           <li class="header-nav-item">
-            <a
-              class="header-nav-link {=$highlight-curr}"
-              href="./myLibrary.html"
-              >MY LIBRARY</a
-            >
+            <a class="header-nav-link" href="./myLibrary.html">MY LIBRARY</a>
           </li>
         </ul>
 
         <button class="theme-toggle-btn">
           <svg class="theme-icon">
-            <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#moon"></use>
+            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon"></use>
           </svg>
           <svg class="theme-circle-icon">
-            <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#moon-circle"></use>
+            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon-circle"></use>
           </svg>
         </button>
       </div>
@@ -63,16 +55,16 @@
     <nav class="header-sidebar section">
       <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-mobile-icon" width="32" height="32">
-          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#nav-logo-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo-mobile"></use>
         </svg>
       </a>
       <label for="sidebar-input" class="sidebar-menu">Menu</label>
       <button class="theme-toggle-btn">
         <svg class="theme-circle-icon" width="14" height="14">
-          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#sun-circle-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-circle-mobile"></use>
         </svg>
         <svg class="theme-icon" width="10" height="10">
-          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#sun-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-mobile"></use>
         </svg>
       </button>
 
@@ -82,23 +74,15 @@
       <div class="header-sidebar-items" id="sidebar">
         <ul class="header-sidebar-list">
           <li class="header-sidebar-item active">
-            <a
-              class="header-sidebar-link text active"
-              href="./home.html"
-              >HOME</a
-            >
+            <a class="header-sidebar-link text" href="./home.html">HOME</a>
           </li>
           <li class="header-sidebar-item">
-            <a
-              class="header-sidebar-link text {=$highlight-curr}"
-              href="./catalog.html"
+            <a class="header-sidebar-link text" href="./catalog.html"
               >CATALOG</a
             >
           </li>
           <li class="header-sidebar-item">
-            <a
-              class="header-sidebar-link text {=$highlight-curr}"
-              href="./myLibrary.html"
+            <a class="header-sidebar-link text" href="./myLibrary.html"
               >MY LIBRARY</a
             >
           </li>
@@ -113,7 +97,7 @@
   <div class="trailer-content">
     <button class="trailer-close-btn" type="button">
       <svg>
-        <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#close-mobile"></use>
+        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#close-mobile"></use>
       </svg>
     </button>
 
@@ -133,7 +117,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
 
-<div id="movie-modal" class="modal">
+    <div id="movie-modal" class="modal">
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <button class="modal-close-btn" id="modal-close-btn">&times;</button>
@@ -149,7 +133,7 @@
           <li>
             <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
           </li>
-          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+          <li><strong>Genre:</strong> <span id="modal-genre">—</span></li>
         </ul>
       </div>
     </div>
@@ -230,7 +214,7 @@
   <div class="trailer-content">
     <button class="trailer-close-btn" type="button">
       <svg>
-        <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#close-mobile"></use>
+        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#close-mobile"></use>
       </svg>
     </button>
     <p class="trailer-info">
@@ -253,7 +237,7 @@
         <div class="home-weekly-content">
           <div class="home-title">
             <h2>Weekly Trends</h2>
-            <a href="#" target="_blank" rel="noopener noreferrer">See all</a>
+            <a href="./catalog.html" rel="noopener noreferrer">See all</a>
           </div>
           <ul class="home-movie-list">
             <li class="home-movie-item">
@@ -331,10 +315,11 @@
   <div class="upcoming-content">
     <div class="upcoming-header">
       <img
+        id="upcoming-poster"
         class="upcoming-poster"
         src="/goit-cinemania/assets/Home-Upcoming-DZ1gKztF.jpg"
         alt="Movie Poster"
-        id="upcoming-poster"
+        loading="lazy"
       />
     </div>
     <div class="upcoming-desktop">
@@ -399,7 +384,7 @@
     <p class="footer-desc">
       &#169; 2023 | All rights Reserved | Developed with
       <svg class="heart-icon">
-        <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#heart"></use>
+        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#heart"></use>
       </svg>
       by
       <a
