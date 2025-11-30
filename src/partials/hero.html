@@ -1,4 +1,4 @@
-<section id="hero-default" class="hero" style="display: ">
+<section id="hero-default" class="hero" style="display: none">
   <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Let’s Make Your Own Cinema</h1>
@@ -43,18 +43,27 @@
   </div>
 </section>
 <svg style="display: none">
-  <symbol id="full-star" viewBox="0 0 14 14">
-    <path d="M10.7742 13.1249C10.6822 13.1253..." fill="url(#paint0_linear)" />
-  </symbol>
-
-  <symbol id="half-star" viewBox="0 0 14 14">
-    <path d="M7 1.3125V9.95312..." fill="url(#paint1_linear)" />
-  </symbol>
-
-  <symbol id="empty-star" viewBox="0 0 14 14">
-    <path d="M13.125 5.6875H8.42188..." stroke="url(#paint0_linear)" />
-  </symbol>
+  <use></use>
 </svg>
 
-<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-<script type="module" src="./js/hero.js"></script>
+<!-- TRAILER MODAL esc ve DIŞARI TIKLAYINCA KAPANIR -->
+<div class="trailer" id="trailer-modal" style="display: none">
+  <div class="trailer-content">
+    <button class="trailer-close-btn" type="button">
+      <svg>
+        <use href="./img/sprite.svg#close-mobile"></use>
+      </svg>
+    </button>
+    <p class="trailer-info">
+      OOPS... <br />
+      We are very sorry! <br />
+      But we couldn’t find the trailer.
+    </p>
+    <img
+      src="./img/Trailer-Error-Mobile.png"
+      srcset="./img/Trailer-Error-Desktop@2x.png 2x"
+      alt="Trailer not found"
+      class="trailer-image"
+    />
+  </div>
+</div>

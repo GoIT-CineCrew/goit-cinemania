@@ -13,10 +13,11 @@
       icon-path="./img/sprite.svg#logo"
       highlight-curr="active"
     />
-    <load src="./partials/hero.html" />
+    <load src="./partials/library-hero.html" />
 
     <main>
       <section class="library-container">
+        <load src="./partials/modal.html" />
         <div class="library-content">
           <div class="library-dropdown-filters">
             <div class="library-dropdown-filter">
@@ -51,6 +52,6 @@
 
     <load src="./partials/footer.html" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-    <script src="./myLibrary.js"></script>
+    <script type="module" src="./myLibrary.js"></script>
   </body>
 </html>

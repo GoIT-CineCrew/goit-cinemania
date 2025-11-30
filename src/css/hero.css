@@ -1,3 +1,30 @@
+.trailer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.trailer-content {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.trailer-content iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /* =========================
    HERO SECTION
 ========================= */
@@ -129,6 +156,11 @@
   color: white;
 }
 
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Mobile@2x.jpg');
+  }
+}
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -181,6 +213,12 @@
   }
 }
 
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Tablet@2x.jpg');
+  }
+}
+
 /* Desktop */
 @media (min-width: 1280px) {
   .hero-container {
@@ -219,5 +257,11 @@
 
   .hero-movie-container {
     margin-top: 60px;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Desktop@2x.jpg');
   }
 }

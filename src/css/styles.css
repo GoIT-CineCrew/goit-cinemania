@@ -11,7 +11,7 @@
 @import url('./container.css');
 @import url('./modal.css');
 @import url('./reset.css');
-@import url("trailer-error.css");
+@import url('trailer-error.css');
 @import url('./upcoming.css');
 
 /* Sections style */
@@ -21,4 +21,5 @@
 @import url('./header.css');
 @import url('./home.css');
 @import url('./myLibrary.css');
+@import url('./library-hero.css');
 @import url('./vite-promo.css');
