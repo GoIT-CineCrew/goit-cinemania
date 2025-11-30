@@ -55,11 +55,69 @@
             <ul class="catalog-movie-items"></ul>
           </div>
           <div class="catalog-pages">
-            <button type="button" class="catalog-page-btn">01</button>
-            <button type="button" class="catalog-page-btn">02</button>
-            <button type="button" class="catalog-page-btn">03</button>
-            <button type="button" class="catalog-page-btn">04</button>
-            <button type="button" class="catalog-page-btn">05</button>
+            <ul class="catalog-pages-list">
+              <li>
+                <button type="button" class="catalog-page-btn prev-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#back-arrow-passive-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#button-active-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#button-passive-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#button-passive-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn dots-btn">
+                  <svg>
+                    <use href="./img/sprite.svg#dots-dark-mobile"></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#button-passive-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="catalog-page-btn next-btn">
+                  <svg>
+                    <use
+                      href="./img/sprite.svg#forward-arrow-active-dark-mobile"
+                    ></use>
+                  </svg>
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -67,6 +125,6 @@
 
     <load src="./partials/footer.html" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-    <script src="./catalog.js"></script>
+    <script type="module" src="./catalog.js"></script>
   </body>
 </html>
