@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Library</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/hero-DoyYEIlO.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/hero-7h6pNf6_.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/myLibrary-Br_nx-Bc.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-cinemania/assets/modal-D8toTW-r.js">
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/modal-1T19ILYT.css">
   </head>
   <body>
     <header class="header">
@@ -14,7 +15,7 @@
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon">
-          <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#nav-logo"></use>
+          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
@@ -41,10 +42,10 @@
 
         <button class="theme-toggle-btn">
           <svg class="theme-icon">
-            <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#moon"></use>
+            <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#moon"></use>
           </svg>
           <svg class="theme-circle-icon">
-            <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#moon-circle"></use>
+            <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#moon-circle"></use>
           </svg>
         </button>
       </div>
@@ -53,16 +54,16 @@
     <nav class="header-sidebar section">
       <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-mobile-icon" width="32" height="32">
-          <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#nav-logo-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#nav-logo-mobile"></use>
         </svg>
       </a>
       <label for="sidebar-input" class="sidebar-menu">Menu</label>
       <button class="theme-toggle-btn">
         <svg class="theme-circle-icon" width="14" height="14">
-          <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#sun-circle-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#sun-circle-mobile"></use>
         </svg>
         <svg class="theme-icon" width="10" height="10">
-          <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#sun-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#sun-mobile"></use>
         </svg>
       </button>
 
@@ -98,7 +99,7 @@
   </section>
 </header>
 
-    <section id="hero-default" class="hero" style="display: ">
+    <section id="hero-default" class="hero" style="display: none">
   <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">Let’s Make Your Own Cinema</h1>
@@ -143,17 +144,7 @@
   </div>
 </section>
 <svg style="display: none">
-  <symbol id="full-star" viewBox="0 0 14 14">
-    <path d="M10.7742 13.1249C10.6822 13.1253..." fill="url(#paint0_linear)" />
-  </symbol>
-
-  <symbol id="half-star" viewBox="0 0 14 14">
-    <path d="M7 1.3125V9.95312..." fill="url(#paint1_linear)" />
-  </symbol>
-
-  <symbol id="empty-star" viewBox="0 0 14 14">
-    <path d="M13.125 5.6875H8.42188..." stroke="url(#paint0_linear)" />
-  </symbol>
+  <use></use>
 </svg>
 
 <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
@@ -161,6 +152,50 @@
 
     <main>
       <section class="library-container">
+        <div id="movie-modal" class="modal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+
+    <div class="modal-header">
+      <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
+      <div class="modal-info">
+        <h2 class="modal-title" id="modal-title">Movie Title</h2>
+        <ul class="modal-stats">
+          <li>
+            <strong>Vote / Votes:</strong> <span id="modal-rating">0.0</span>
+          </li>
+          <li>
+            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+          </li>
+          <li><strong>Release:</strong> <span id="modal-release">—</span></li>
+        </ul>
+        <button class="modal-library-btn btn-secondary" id="modal-library-btn">
+          Add to My Library
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-overview" id="modal-overview">
+      Movie overview text will appear here.
+    </div>
+
+    <div
+      class="modal-trailer-wrapper"
+      id="modal-trailer-wrapper"
+      style="display: none"
+    >
+      <iframe
+        id="modal-trailer-iframe"
+        class="modal-trailer"
+        src=""
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
         <div class="library-content">
           <div class="library-dropdown-filters">
             <div class="library-dropdown-filter">
@@ -198,7 +233,7 @@
     <p class="footer-desc">
       &#169; 2023 | All rights Reserved | Developed with
       <svg class="heart-icon">
-        <use href="/goit-cinemania/assets/sprite-CppxZSTT.svg#heart"></use>
+        <use href="/goit-cinemania/assets/sprite-5G822uWX.svg#heart"></use>
       </svg>
       by
       <a
@@ -214,6 +249,5 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-    <script src="./myLibrary.js"></script>
   </body>
 </html>
