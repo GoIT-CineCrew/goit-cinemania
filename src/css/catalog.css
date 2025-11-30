@@ -14,7 +14,13 @@ body {
   gap: 5px;
 }
 
+.catalog-page-btn{
+  color: white;
+}
 
+.catalog-page-btn svg use {
+  transition: 0.2s ease;
+}
 
 .catalog-container {
   display: flex;
