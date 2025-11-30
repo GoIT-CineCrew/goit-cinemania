@@ -1,6 +1,9 @@
+import { openMovieModal } from './modal.js';
 import config from '../config.js';
 const API_KEY = config.TMDB_API_KEY;
 const BASE_URL = config.TMDB_BASE_URL;
+
+let movie = null;
 
 async function showRandomHeroMovie() {
   try {
@@ -145,11 +148,26 @@ async function showRandomHeroMovie() {
       }
     });
 
-    // More details butonu
+    // More Details → modal açılsın ama TRAİLER GELMESİN
+    // More Details → modal açılsın ama TRAİLER KESİNLİKLE GELMESİN
     document.getElementById('more-details-btn').onclick = () => {
-      if (typeof deleteHeroTrendsPopup === 'function') {
-        deleteHeroTrendsPopup(movie);
-      }
+      if (!movie?.id) return;
+
+      // 1. Modal açılmadan önce trailer’ı zorla gizle
+      const trailerWrapper = document.getElementById('modal-trailer-wrapper');
+      const iframe = document.getElementById('modal-trailer-iframe');
+
+      if (trailerWrapper) trailerWrapper.style.display = 'none';
+      if (iframe) iframe.src = ''; // iframe’i tamamen sıfırla
+
+      // 2. Modal açıldıktan hemen sonra tekrar gizle (openMovieModal trailer’ı açıyor diye)
+      openMovieModal(movie.id);
+
+      // 3. Modal tamamen açıldıktan sonra trailer’ı tekrar kapat
+      setTimeout(() => {
+        if (trailerWrapper) trailerWrapper.style.display = 'none';
+        if (iframe) iframe.src = '';
+      }, 100); // 100ms sonra tekrar zorla kapat
     };
   } catch (err) {
     console.error('Hero yüklenemedi:', err);
