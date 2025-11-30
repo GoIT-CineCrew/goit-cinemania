@@ -148,7 +148,7 @@ function createMovieCard(movie) {
 
 // Sayfalama butonlarını dinamik olarak oluşturma ve güncelleme
 function renderPaginationButtons(total_pages, current_page) {
-    totalPages = total_pages > 24 ? 24 : total_pages; // TMDB 500 sayfa ile sınırlar
+    totalPages = total_pages > 24 ? 24 : total_pages; //  24 sayfa ile sınırlar
     currentPage = current_page;
     paginationContainer.innerHTML = ""; // Mevcut butonları temizle
 
