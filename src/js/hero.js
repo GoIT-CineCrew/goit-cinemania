@@ -1,6 +1,3 @@
-// src/js/hero.js – KESİN ÇALIŞAN SON HALİ
-
-// main.js'de zaten tanımlı olan config'i tekrar import ediyoruz (çünkü main.js'den geliyor)
 import config from '../config.js';
 
 const API_KEY = config.TMDB_API_KEY;
@@ -11,21 +8,14 @@ async function showRandomHeroMovie() {
     const res = await fetch(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`
     );
-
-    if (!res.ok) {
-      throw new Error(`API Hatası: ${res.status} ${res.statusText}`);
-    }
+    if (!res.ok) throw new Error(`API Hatası: ${res.status} ${res.statusText}`);
 
     const data = await res.json();
     const movies = data.results;
-
-    if (!movies || movies.length === 0) {
-      throw new Error('Film gelmedi');
-    }
+    if (!movies || movies.length === 0) throw new Error('Film gelmedi');
 
     const movie = movies[Math.floor(Math.random() * movies.length)];
 
-    // Trailer
     const videoRes = await fetch(
       `${BASE_URL}/movie/${movie.id}/videos?api_key=${API_KEY}`
     );
@@ -40,7 +30,7 @@ async function showRandomHeroMovie() {
     heroRandom.style.display = 'flex';
 
     if (movie.backdrop_path) {
-      heroRandom.style.backgroundImage = `ur[](https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
+      heroRandom.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
     }
 
     heroRandom.querySelector('.hero-movie-title').textContent = movie.title;
@@ -52,37 +42,27 @@ async function showRandomHeroMovie() {
       ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
       : 'https://via.placeholder.com/500x750?text=No+Image';
 
-    // Yıldız
+    // Yıldızlar
     const starsContainer = heroRandom.querySelector('.hero-movie-stars');
+    starsContainer.innerHTML = '';
 
-    starsContainer.innerHTML = ''; // önce temizle
-
-    const rating = Math.round(movie.vote_average || 0); // 0-10 arası
+    const rating = Math.round(movie.vote_average || 0);
     const fullStars = Math.floor(rating / 2);
     const halfStars = rating % 2 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
 
-    // Helper: SVG use
     function getStarSVG(type) {
       return `<svg class="star-icon" width="14" height="14"><use href="#${type}-star"></use></svg>`;
     }
 
-    // Full stars
-    for (let i = 0; i < fullStars; i++) {
+    for (let i = 0; i < fullStars; i++)
       starsContainer.innerHTML += getStarSVG('full');
-    }
-
-    // Half stars
-    for (let i = 0; i < halfStars; i++) {
+    for (let i = 0; i < halfStars; i++)
       starsContainer.innerHTML += getStarSVG('half');
-    }
-
-    // Empty stars
-    for (let i = 0; i < emptyStars; i++) {
+    for (let i = 0; i < emptyStars; i++)
       starsContainer.innerHTML += getStarSVG('empty');
-    }
 
-    // Trailer butonu
+    // Trailer
     const trailerBtn = document.getElementById('watch-trailer-btn');
     if (trailerBtn && trailer) {
       trailerBtn.onclick = () => {
@@ -90,19 +70,16 @@ async function showRandomHeroMovie() {
         overlay.className = 'movie-popup-overlay';
         overlay.innerHTML = `
           <div class="popup-video-wrapper">
-            <iframe src="https://www.youtube.com/embed/${trailer.key}?autoplay=1" 
-                    allow="autoplay" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/${trailer.key}?autoplay=1" allow="autoplay" allowfullscreen></iframe>
           </div>`;
         document.body.appendChild(overlay);
         overlay.onclick = () => overlay.remove();
       };
     }
 
-    // More details
     document.getElementById('more-details-btn').onclick = () => {
-      if (typeof deleteHeroTrendsPopup === 'function') {
+      if (typeof deleteHeroTrendsPopup === 'function')
         deleteHeroTrendsPopup(movie);
-      }
     };
   } catch (err) {
     console.error('Hero yüklenemedi:', err);

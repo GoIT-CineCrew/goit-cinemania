@@ -65,45 +65,6 @@ async function loadGenres() {
   }
 }
 
-// ---- film kartları html yapısında oluşturma ----
-function createMovieCard(movie) {
-  const poster = movie.poster_path 
-    ? `${IMAGE_BASE_URL}${movie.poster_path}`
-    : "./img/Modal-Example.jpg";
-
-  const year = movie.release_date ? movie.release_date.slice(0, 4) : "N/A"; 
-
-  // genre ID yi türe çevirme
-  const genreNames = movie.genre_ids
-    ? movie.genre_ids.map(id => genreMap[id]).filter(Boolean).join(", ")
-    : "Genre";
-
-  const ratingStars = createStarRating(movie.vote_average);
-
-  return `
-    <li class="catalog-movie-item">
-      <section class="card">
-        <img
-          class="card-image"
-          src="${poster}"
-          alt="${movie.title}"
-          loading="lazy"
-        />
-        <div class="card-content">
-          <h2 class="card-title">${movie.title}</h2>
-          <p class="card-info">
-            <span class="card-genre">${genreNames}</span> |
-            <span class="card-year">${year}</span>
-          </p>
-          <ul class="card-rating">
-            ${ratingStars}
-          </ul>
-        </div>
-      </section>
-    </li>
-  `;
-}
-
 // yıldız oluşturma
 function createStarRating(vote_average) {
   const ratingOutOfFive = vote_average / 2; // 0-5 arası değer
@@ -166,6 +127,7 @@ async function searchMovies(query, year = null) {
   }
 }
 
+// ---- film kartları html yapısında oluşturma ----
 function createMovieCard(movie) {
   const poster = movie.poster_path 
     ? `${IMAGE_BASE_URL}${movie.poster_path}`

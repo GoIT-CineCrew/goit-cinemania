@@ -4,7 +4,8 @@
 .hero {
   position: relative;
   width: 100%;
-  max-width: 1280px;
+  min-width: 320px;
+  min-height: 360px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -54,13 +55,7 @@
   pointer-events: none; /* tıklama engellemesin */
 }
 
-/* 3. İçeriklerin overlay’in üstünde kalması için */
-.hero-movie-content {
-  position: relative;
-  z-index: 2;
-}
-.hero-content,
-.hero-movie-content {
+.hero-content {
   position: absolute;
   top: 45%;
   left: 16px;
@@ -73,6 +68,20 @@
   color: #fff;
 }
 
+.hero-movie-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-movie-content {
+  padding-left: 20px;
+  position: absolute;
+  width: 177px;
+  bottom: 100px;
+  z-index: 2;
+}
+
 .hero-info,
 .hero-movie-details {
   font-size: 14px;
@@ -80,10 +89,6 @@
   margin-bottom: 10px;
 }
 
-.hero-movie-stars {
-  display: flex;
-  gap: 6px;
-}
 .hero-default-button-container {
   margin-top: 10px;
 }
@@ -124,18 +129,25 @@
   color: white;
 }
 
-.hero-movie-stars {
-  display: flex;
-  gap: 2px;
-}
-
-.star-icon {
-  width: 14px;
-  height: 14px;
-}
-
 /* Tablet */
+
 @media (min-width: 768px) {
+  .hero-movie-container {
+    width: 100%;
+    flex-shrink: 50;
+    position: relative;
+    width: 400px;
+    height: 432px;
+    gap: 20px;
+  }
+  .hero-movie-details {
+    gap: 10px;
+  }
+  .hero-movie-poster {
+    object-fit: cover;
+    object-position: 50% 50%;
+    transform: scale(0.25);
+  }
   .hero-container {
     background-image: url('../img/Hero-Home-Tablet.jpg');
     min-height: 360px;
@@ -144,7 +156,7 @@
   }
 
   .hero-container,
-  .hero-movie-container {
+  .hero-movie {
     width: 768px;
   }
 
@@ -162,10 +174,6 @@
     display: inline;
   }
 
-  .hero-movie-stars {
-    font-size: 18px;
-  }
-
   .hero-movie-btn,
   .hero-movie-details-btn {
     height: 40px;
@@ -180,7 +188,7 @@
     background-position: center 100%;
   }
   .hero-container,
-  .hero-movie-container {
+  .hero-movie {
     width: 1280px;
     min-height: 660px;
   }
@@ -193,24 +201,23 @@
   .hero-title {
     margin-bottom: 10px;
   }
-  .hero-title,
-  .hero-movie-title {
-    font-size: 48px;
-  }
 
   .hero-info {
     height: 76px;
     width: 410px;
     margin: 0;
   }
-
-  .hero-movie-stars {
-    font-size: 22px;
+  .hero-movie-details {
+    width: 367px;
+    padding-bottom: 10px;
   }
-
   .hero-movie-btn,
   .hero-movie-details-btn {
     height: 48px;
     font-size: 16px;
+  }
+
+  .hero-movie-container {
+    margin-top: 60px;
   }
 }
