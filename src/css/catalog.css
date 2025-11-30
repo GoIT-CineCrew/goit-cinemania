@@ -14,6 +14,8 @@ body {
   gap: 5px;
 }
 
+
+
 .catalog-container {
   display: flex;
   width: 320px;
@@ -336,6 +338,16 @@ body {
   .catalog-search input{
     width: 315px;
     height: 48px;
+  }
+
+  .catalog-pages{
+     width: min-content;
+     height: 40px;
+  }
+
+  .catalog-page-btn{
+    width: 40px;
+    height: 40px;
   }
 
   .clear-button{
