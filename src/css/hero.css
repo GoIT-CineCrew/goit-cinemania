@@ -156,6 +156,11 @@
   color: white;
 }
 
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Mobile@2x.jpg');
+  }
+}
 /* Tablet */
 
 @media (min-width: 768px) {
@@ -208,6 +213,12 @@
   }
 }
 
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Tablet@2x.jpg');
+  }
+}
+
 /* Desktop */
 @media (min-width: 1280px) {
   .hero-container {
@@ -246,5 +257,11 @@
 
   .hero-movie-container {
     margin-top: 60px;
+  }
+}
+
+@media (min-resolution: 2dppx) {
+  .hero-container {
+    background-image: url('../img/Hero-Home-Desktop@2x.jpg');
   }
 }
