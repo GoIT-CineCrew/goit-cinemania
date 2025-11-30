@@ -45,24 +45,34 @@ async function showRandomHeroMovie() {
       ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
       : 'https://via.placeholder.com/500x750?text=No+Image';
 
-    // Yıldızlar (aynı)
-    const starsContainer = heroRandom.querySelector('.hero-movie-stars');
-    starsContainer.innerHTML = '';
-    const rating = Math.round(movie.vote_average || 0);
-    const fullStars = Math.floor(rating / 2);
-    const halfStars = rating % 2 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStars;
+    // Tekrar Kullanılabilir, Yıldız Fonksiyonu
+    function createStarRating(vote_average) {
+      const ratingOutOfFive = vote_average / 2; // 10 → 5 yıldız sistemine çevir
+      const fullStars = Math.floor(ratingOutOfFive);
+      const hasHalfStar = vote_average % 2 >= 1; // 7.5, 8.5 gibi durumlarda yarım yıldız
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
-    function getStarSVG(type) {
-      return `<svg class="star-icon" width="14" height="14"><use href="#${type}-star"></use></svg>`;
+      let starsHTML = '';
+
+      for (let i = 0; i < fullStars; i++) {
+        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
+      }
+      if (hasHalfStar) {
+        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
+      }
+      for (let i = 0; i < emptyStars; i++) {
+        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
+      }
+
+      return starsHTML;
     }
-    for (let i = 0; i < fullStars; i++)
-      starsContainer.innerHTML += getStarSVG('full');
-    for (let i = 0; i < halfStars; i++)
-      starsContainer.innerHTML += getStarSVG('half');
-    for (let i = 0; i < emptyStars; i++)
-      starsContainer.innerHTML += getStarSVG('empty');
 
+    const starsContainer = heroRandom.querySelector('.hero-movie-stars');
+    starsContainer.innerHTML = `
+  <ul class="card-rating hero-rating">
+    ${createStarRating(movie.vote_average)}
+  </ul>
+`;
     // TRAILER
     const modal = document.getElementById('trailer-modal');
     const trailerBtn = document.getElementById('watch-trailer-btn');
@@ -102,9 +112,11 @@ async function showRandomHeroMovie() {
       We are very sorry! <br />
       But we couldn’t find the trailer.
     </p>
-    <img src="./img/Trailer-Error-Mobile.png" 
-         srcset="./img/Trailer-Error-Desktop@2x.png 2x" 
-         alt="Trailer not found" class="trailer-image">
+    <img 
+      src="./img/Trailer-Error-Mobile.png" 
+      srcset="./img/Trailer-Error-Desktop@2x.png 2x" 
+      alt="Trailer not found" class="trailer-image"
+    >
   `;
     };
 

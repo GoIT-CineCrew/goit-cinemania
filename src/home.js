@@ -151,11 +151,28 @@ async function loadUpcomingMovie() {
 
     // Rastgele bir tane seç
     const movie = futureMovies[Math.floor(Math.random() * futureMovies.length)];
+    
+    const posterPath = movie.poster_path || '';
+    // Poster – RESPONSIVE + BOZULMAYAN
+    const posterImg = document.getElementById('upcoming-poster');
+    if (posterPath) {
+      posterImg.srcset = `
+    https://image.tmdb.org/t/p/w342${posterPath} 342w,
+    https://image.tmdb.org/t/p/w500${posterPath} 500w,
+    https://image.tmdb.org/t/p/w780${posterPath} 780w,
+    https://image.tmdb.org/t/p/original${posterPath} 1280w
+  `;
+      posterImg.sizes =
+        '(max-width: 767px) 90vw, (max-width: 1279px) 704px, 805px';
+      posterImg.src = `https://image.tmdb.org/t/p/w780${posterPath}`; // fallback
+      posterImg.alt = `${movie.title} poster`;
+    } else {
+      posterImg.src = './img/no-poster.jpg';
+      posterImg.removeAttribute('srcset');
+      posterImg.removeAttribute('sizes');
+    }
 
     // Elementleri doldur
-    document.getElementById('upcoming-poster').src = movie.poster_path
-      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      : './img/no-poster.jpg';
 
     document.getElementById('upcoming-title').textContent = movie.title;
     document.getElementById('upcoming-release').textContent = movie.release_date
