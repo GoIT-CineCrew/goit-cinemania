@@ -9,6 +9,10 @@ body {
   margin: 0 auto;
   padding: 0 16px;
 }
+.pagination-button-list {
+  display: flex;
+  gap: 5px;
+}
 
 .catalog-container {
   display: flex;
