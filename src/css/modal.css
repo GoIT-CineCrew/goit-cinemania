@@ -1,15 +1,17 @@
 /* =========================
    MODAL SECTION
 ========================= */
+
 .modal {
+  width: 280px;
+  position: fixed;
+  inset: 0;
   display: none;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  transition: opacity 0.3s ease;
+  z-index: 1000; /* backdrop'un üstünde */
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .modal.show {
@@ -18,26 +20,62 @@
 }
 
 .modal-backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
+  z-index: 1; /* modal-content'ten düşük */
 }
 
 .modal-content {
-  max-width: 420px;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(248, 134, 27, 0.3);
   position: relative;
   background: var(--color-bg, #1c1c1c);
   color: #fff;
-  width: 90%;
-  z-index: 10;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 20px;
-  max-height: 90vh;
   overflow-y: auto;
+  z-index: 2;
+}
+
+.modal-header,
+.modal-info,
+.modal-overview,
+.modal-trailer-wrapper,
+.modal-library-btn {
+  align-self: stretch; /* tam genişlik alsın */
+  text-align: left; /* metinler sola dayalı */
+}
+
+.modal-content > p {
+  /* <p>ABOUT</p> için */
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  align-self: flex-start;
+  padding-left: 4px;
+  color: var(--color-secondary-text);
+}
+
+.modal-info {
+  color: var(--color-secondary-text);
+}
+.modal-title {
+  width: 191px;
+  margin-top: 22px;
+  padding-bottom: 19px;
+}
+
+#modal-rating {
+  color: black;
+  background-color: #fff;
+}
+#modal-popularity,
+#modal-release {
+  color: var(--color-text);
 }
 
 .modal-close-btn {
@@ -57,21 +95,22 @@
 
 .modal-header {
   display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
 .modal-poster {
-  width: 130px;
-  min-width: 130px;
-  height: 190px;
-  object-fit: cover;
+  margin-top: 52px;
+  width: 248px;
   border-radius: 12px;
+  object-fit: cover;
+  align-self: center;
 }
 
 .modal-info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .modal-title {
@@ -92,12 +131,52 @@
 
 .modal-library-btn {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 38px;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--color-text);
+  border: none;
+  border-radius: 74px;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s;
+  padding: 1px;
+}
+
+.modal-library-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(
+      to right bottom,
+      rgba(253, 187, 45, 1) 0%,
+      rgba(224, 45, 0, 1) 100%
+    )
+    border-box;
+  background-origin: border-box;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.modal-library-btn:hover {
+  background-color: rgb(174, 177, 180);
 }
 
 .modal-overview {
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--border-default, #ccc);
+  font-size: 12px;
+  width: 248px;
+  height: 180px;
 }
 
 .modal-trailer-wrapper {
