@@ -166,6 +166,7 @@
             <div class="library-dropdown-filter">
               <div class="selected">Genre <span class="arrow"></span></div>
               <div class="options">
+                <div class="option" data-value="all">All</div>
                 <div class="option" data-value="romance">Romance</div>
                 <div class="option" data-value="detective">Detective</div>
                 <div class="option" data-value="thriller">Thriller</div>
@@ -176,71 +177,7 @@
             </div>
           </div>
           <div class="library-movie-list">
-            <ul class="library-movie-items">
-              <li class="library-movie-item">
-                <section class="card">
-  <img
-    class="card-image"
-    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-    alt="Movie Poster"
-    loading="lazy"
-  />
-  <div class="card-content">
-    <h2 class="card-title"></h2>
-    <p class="card-info">
-      <span class="card-genre">Genre</span> |
-      <span class="card-year">Release Year</span>
-    </p>
-    <ul class="card-rating"></ul>
-  </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-
-              </li>
-              <li class="library-movie-item">
-                <section class="card">
-  <img
-    class="card-image"
-    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-    alt="Movie Poster"
-    loading="lazy"
-  />
-  <div class="card-content">
-    <h2 class="card-title"></h2>
-    <p class="card-info">
-      <span class="card-genre">Genre</span> |
-      <span class="card-year">Release Year</span>
-    </p>
-    <ul class="card-rating"></ul>
-  </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-
-              </li>
-              <li class="library-movie-item">
-                <section class="card">
-  <img
-    class="card-image"
-    src="/goit-cinemania/assets/Modal-Example-Cww_sSI6.jpg"
-    alt="Movie Poster"
-    loading="lazy"
-  />
-  <div class="card-content">
-    <h2 class="card-title"></h2>
-    <p class="card-info">
-      <span class="card-genre">Genre</span> |
-      <span class="card-year">Release Year</span>
-    </p>
-    <ul class="card-rating"></ul>
-  </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-
-              </li>
-            </ul>
+            <ul class="library-movie-items"></ul>
           </div>
           <button class="library-load-button btn-primary" type="button">
             Load more
@@ -277,42 +214,6 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
-    <script>
-      const selectBox = document.querySelector('.library-dropdown-filter');
-      const selected = selectBox.querySelector('.selected');
-      const arrow = selected.querySelector('.arrow');
-      const optionsContainer = selectBox.querySelector('.options');
-      const optionsList = selectBox.querySelectorAll('.option');
-
-      // --- Dropdown aç/kapa ---
-      selected.addEventListener('click', () => {
-        const isOpen = selectBox.classList.toggle('open');
-        optionsContainer.style.display = isOpen ? 'block' : 'none';
-      });
-
-      // --- Bir seçenek seçildiğinde ---
-      optionsList.forEach(option => {
-        option.addEventListener('click', () => {
-          // sadece text'i değiştir
-          selected.childNodes[0].textContent = option.textContent;
-
-          // seçili class'ı güncelle
-          optionsList.forEach(o => o.classList.remove('selected'));
-          option.classList.add('selected');
-
-          // menüyü kapat
-          selectBox.classList.remove('open');
-          optionsContainer.style.display = 'none';
-        });
-      });
-
-      // --- Dropdown dışına tıklanınca kapanması ---
-      document.addEventListener('click', e => {
-        if (!selectBox.contains(e.target)) {
-          selectBox.classList.remove('open');
-          optionsContainer.style.display = 'none';
-        }
-      });
-    </script>
+    <script src="./myLibrary.js"></script>
   </body>
 </html>
