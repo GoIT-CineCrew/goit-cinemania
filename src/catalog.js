@@ -1,6 +1,4 @@
 const genreMap = {};
-
-
 // ---- DROPDOWN ----
 const selectBox = document.querySelector('.catalog-dropdown-filter');
 const selected = selectBox.querySelector('.selected');
@@ -57,7 +55,7 @@ async function loadGenres() {
 
   try {
     const response = await axios.get(`${BASE_URL}/genre/movie/list`, {
-      params: { api_key: API_KEY }
+      params: { api_key: API_KEY, language: "en-US" }
     });
     response.data.genres.forEach(g => {
       genreMap[g.id] = g.name;
@@ -104,7 +102,7 @@ async function getMovies(page = 1) {
   try {
     await loadGenres(); // önce türleri yükle
     const res = await axios.get(`${BASE_URL}/movie/popular`, {
-      params: { api_key: API_KEY, page }
+      params: { api_key: API_KEY, language: "en-US", page }
     });
     renderMovies(res.data.results);
   } catch (err) {
@@ -117,7 +115,7 @@ async function searchMovies(query, year = null) {
   try {
     const params = {
       api_key: API_KEY,
-      language: "tr-TR",
+      language: "en-US",
       query: query,
     };
     if (year) params.primary_release_year = year;
@@ -176,7 +174,7 @@ async function getMoviesByYear(year) {
     const res = await axios.get(`${BASE_URL}/discover/movie`, {
       params: {
         api_key: API_KEY,
-        language: "tr-TR",
+        language: "en-US",
         sort_by: "popularity.desc",
         primary_release_year: year,
       }
