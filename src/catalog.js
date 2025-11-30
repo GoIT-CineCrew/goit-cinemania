@@ -287,5 +287,4 @@ document.addEventListener('click', e => {
     }
 });
 
-//  SAYFA AÇILDIĞINDA POPÜLER FİLMLER (1. Sayfa)
 handleMovieRequest(1);
