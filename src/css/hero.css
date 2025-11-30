@@ -78,10 +78,11 @@
   bottom: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 30%,
-    rgba(0, 0, 0, 0.3) 60%,
-    transparent 100%
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0.1) 80%,
+    rgba(0, 0, 0, 0.02) 89%,
+    transparent 90%
   );
   z-index: 1;
   pointer-events: none;
@@ -123,6 +124,15 @@
   text-overflow: ellipsis;
   margin-bottom: 20px;
 }
+.hero-title,
+.hero-movie-title {
+  font-size: 32px;
+}
+
+.hero-movie-details,
+.hero-info {
+  font-size: 14px;
+}
 
 @media (min-resolution: 2dppx) {
   .hero-container {
@@ -138,6 +148,7 @@
     height: 432px;
     gap: 20px;
     width: 100vw;
+    width: 100%;
     height: 600px;
   }
   .hero-movie-details {
@@ -164,8 +175,10 @@
     width: 768px;
   }
 
-  .hero-title {
-    width: 300px;
+  .hero-title,
+  .hero-movie-title {
+    font-size: 44px;
+    width: 445px;
   }
 
   .hero-info {
@@ -212,6 +225,19 @@
     margin-bottom: 10px;
   }
 
+  .hero-title,
+  .hero-movie-title {
+    font-size: 64px;
+  }
+
+  .hero-movie-title {
+    width: 670px;
+  }
+
+  .hero-movie-details,
+  .hero-info {
+    font-size: 16px;
+  }
   .hero-info {
     height: 76px;
     width: 410px;
