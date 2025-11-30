@@ -20,7 +20,7 @@
 .upcoming-poster {
   display: block;
   min-width: 280px;
-  min-height: 402px;
+  max-height: 402px;
   object-fit: unset;
   border-radius: 5px;
 }
@@ -150,7 +150,9 @@
 
   .upcoming-poster {
     min-width: 704px;
-    min-height: 484px;
+    aspect-ratio: 2 / 3;
+    max-width: 100%;
+    height: auto;
   }
 
   .upcoming-info {
@@ -190,8 +192,9 @@
   }
 
   .upcoming-poster {
-    min-width: 805px;
-    min-height: 458px;
+    max-width: 805px; /* desktop için */
+    aspect-ratio: 2 / 3; /* TMDB posterlerin gerçek oranı */
+    object-fit: cover;
   }
 
   .upcoming-title {

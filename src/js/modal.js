@@ -71,9 +71,16 @@ export async function openMovieModal(movieId) {
     document.getElementById('modal-popularity').textContent = Math.round(
       movie.popularity
     );
-    document.getElementById('modal-release').textContent = formatDate(
-      movie.release_date
-    );
+
+    // API'den gelen gerçek tür isimleri
+    const genreElement = document.getElementById('modal-genre');
+    if (movie.genres && movie.genres.length > 0) {
+      const genreNames = movie.genres.map(g => g.name).join(', ');
+      genreElement.textContent = genreNames;
+    } else {
+      genreElement.textContent = '—';
+    }
+
     document.getElementById('modal-overview').textContent =
       movie.overview || 'Açıklama yok.';
 

@@ -58,6 +58,18 @@
   display: block;
 }
 
+.hero-movie-stars .card-rating {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+.hero-movie-stars .card-rating li {
+  line-height: 1;
+}
+
 #hero-random-movie {
   position: relative;
 }
