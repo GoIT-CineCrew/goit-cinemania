@@ -198,9 +198,6 @@ optionsList.forEach(option => {
         optionsContainer.style.display = 'none';
 
         selectedYear = option.dataset.value;
-        
-        // Yıl seçimi yapıldığında otomatik arama yap
-        handleMovieRequest(1); 
     });
 });
 
