@@ -42,25 +42,24 @@ async function getWeeklyTrends() {
 }
 
 // Bu fonksiyonda rating için gerekli olan içleri boş, yarı-dolu ve tam-dolu olan yıldız svg'lerimizi formüllere göre kullanıyoruz.
-function createStars(rating) {
-  const score = rating / 2; // 10 üzerinden → 5 yıldız
-  const full = Math.floor(score);
-  const half = score - full >= 0.5 ? 1 : 0;
-  const empty = 5 - full - half;
+function createStarRating(vote_average, isHero = false) {
+  const rating = vote_average / 2;
+  const full = Math.floor(rating);
+  const hasHalf = rating - full >= 0.5;
+  const empty = 5 - full - (hasHalf ? 1 : 0);
 
   let html = '';
-  for (let i = 0; i < full; i++)
-    html += `<li>
-        <svg width="14" height="14">
-            <use href="./img/sprite.svg#full-star"></use>
-        </svg>
-    </li>`;
-  if (half)
-    html +=
-      '<li><svg width="14" height="14"><use href="./img/sprite.svg#half-star"></use></svg></li>';
-  for (let i = 0; i < empty; i++)
-    html +=
-      '<li><svg width="14" height="14"><use href="./img/sprite.svg#empty-star"></use></svg></li>';
+
+  for (let i = 0; i < full; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
+  }
+  if (hasHalf) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
+  }
+  for (let i = 0; i < empty; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
+  }
+
   return html;
 }
 
@@ -117,7 +116,7 @@ async function initHomePage() {
     // Rating (yıldızlar) - Öncelikle createStars fonksiyonunda rating hesaplaması mantığını kuruyoruz ve eğer .card-rating class'ına sahip bir eleman var ise, bu elemanın içine, API'deki haftanın trendlerinde yer alan her filmin rating bilgisini atıyoruz.
     const ratingEl = card.querySelector('.card-rating');
     if (ratingEl) {
-      ratingEl.innerHTML = createStars(movie.vote_average);
+      ratingEl.innerHTML = createStarRating(movie.vote_average); // normal kart
     }
     card.style.cursor = 'pointer';
     card.addEventListener('click', e => {
@@ -151,7 +150,7 @@ async function loadUpcomingMovie() {
 
     // Rastgele bir tane seç
     const movie = futureMovies[Math.floor(Math.random() * futureMovies.length)];
-    
+
     const posterPath = movie.poster_path || '';
     // Poster – RESPONSIVE + BOZULMAYAN
     const posterImg = document.getElementById('upcoming-poster');

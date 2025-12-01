@@ -47,7 +47,7 @@
   list-style: none;
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-bg-white);
+  color: var(--color-white);
   text-transform: uppercase;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #upcoming-release {
-  color: var(--color-accent);
+  color: var(--color-orange);
 }
 
 .upcoming-rating {
@@ -73,10 +73,10 @@
 
 #upcoming-vote,
 #upcoming-votes {
-  background: var(--color-bg-white);
+  background: var(--color-white);
   border-radius: 5px;
   padding: 1px 8px;
-  color: var(--color-bg);
+  color: var(--color-black);
   font-weight: 500;
   font-size: 14px;
   text-align: center;
@@ -105,7 +105,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.43;
-  color: var(--color-secondary-text);
+  color: var(--color-secondary-white);
 }
 
 /* Add to My Library Button */
@@ -116,7 +116,7 @@
   font-weight: 500;
   font-size: 12px;
   text-align: center;
-  color: var(--color-bg);
+  color: var(--color-black);
   margin-top: 40px;
 }
 
@@ -173,7 +173,7 @@
   .upcoming-overview {
     font-size: 14px;
     line-height: 1.43;
-    color: var(--color-secondary-text);
+    color: var(--color-secondary-white);
   }
 
   .upcoming-library-btn {
@@ -209,7 +209,8 @@
 
   .upcoming-stats {
     display: flex;
-    width: 260px;
+    justify-content: space-between;
+    max-width: 300px;
   }
 
   .upcoming-library-btn {

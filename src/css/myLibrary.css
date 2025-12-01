@@ -19,7 +19,7 @@ main{
     width: 106px;
     height: 38px;
     border-radius: 74px;
-    background-color:var(--border-orange);
+    background-color:var(--color-orange);
 }
 
 .library-container{
@@ -111,7 +111,7 @@ main{
 }
 
 .library-dropdown-filter .option.selected {
-    color: var(--color-accent);
+    color: var(--color-orange);
 }
 
 .custom-select {

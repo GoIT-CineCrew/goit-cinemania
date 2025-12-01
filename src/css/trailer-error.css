@@ -14,8 +14,8 @@
   border-radius: 20px;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   position: fixed;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--color-black);
+  color: var(--color-white);
   z-index: 10;
   gap: 20px;
   overflow: hidden;
@@ -29,11 +29,11 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--color-text, #fff);
+  color: var(--color-white, #fff);
 }
 
 .trailer-close-btn:hover {
-  color: var(--color-accent, #f8861b);
+  color: var(--color-orange, #f8861b);
 }
 
 .trailer-close-btn svg {
