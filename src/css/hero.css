@@ -124,24 +124,22 @@
 
 .hero-movie-buttons {
   gap: 8px;
-  width: 242px;
   display: flex;
   flex-direction: row;
   color: var(--color-secondary-black);
 }
 .hero-movie-btn {
+  padding: 12px 24px;
   color: var(--color-secondary-black);
 }
 .hero-movie-details-btn {
-  width: 117px;
-  height: 38px;
+  padding: 12px 24px;
   color: var(--color-secondary-grey);
   border: 1px solid var(--color-secondary-black);
 }
 
 .hero-movie-details {
   width: 177px;
-  max-height: 66px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -257,7 +255,7 @@
 
   .hero-movie-btn,
   .hero-movie-details-btn {
-    height: 40px;
+    padding: 10px 24px;
     font-size: 14px;
   }
 }
@@ -313,7 +311,7 @@
   }
   .hero-movie-btn,
   .hero-movie-details-btn {
-    height: 48px;
+    padding: 12px 24px;
     font-size: 16px;
   }
 
