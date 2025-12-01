@@ -11,7 +11,7 @@ body {
   padding: 8px 0;
   display: flex;
   align-items: center;
-  background: #000;
+  background: var(--color-black);
   z-index: 1000;
 }
 
@@ -27,6 +27,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: var(--color-white);
 }
 
 .nav-logo-icon {
@@ -105,6 +106,10 @@ body {
   padding: 3px;
 }
 
+.theme-toggle-btn:hover {
+  opacity: 0.9;
+}
+
 .theme-icon {
   width: 10px;
   height: 10px;
@@ -125,6 +130,10 @@ body {
   transition: opacity 0.35s ease;
 
   z-index: 10;
+}
+
+[data-theme='light'] .sidebar-overlay {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 #sidebar-input:checked ~ .sidebar-overlay {
@@ -164,12 +173,12 @@ body {
   cursor: pointer;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1px;
   padding: 80px 20px;
   width: 204px;
   height: 428px;
   border-radius: 0 8px 8px 0;
-  background: #171717;
+  background: var(--color-black);
 
   transform: translateX(-100%);
   opacity: 0;
@@ -229,7 +238,6 @@ body {
     font-size: 24px;
     font-weight: 400;
     text-align: center;
-    color: var(--color-white);
   }
 
   .nav-logo-icon {

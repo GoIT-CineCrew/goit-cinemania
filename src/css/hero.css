@@ -127,11 +127,16 @@
   width: 242px;
   display: flex;
   flex-direction: row;
+  color: var(--color-secondary-black);
 }
-.hero-movie-btn,
+.hero-movie-btn {
+  color: var(--color-secondary-black);
+}
 .hero-movie-details-btn {
   width: 117px;
   height: 38px;
+  color: var(--color-secondary-grey);
+  border: 1px solid var(--color-secondary-black);
 }
 
 .hero-movie-details {
@@ -147,12 +152,13 @@
 .hero-movie-title {
   width: 242px;
   font-size: 32px;
+  color: #fff;
 }
 
 .hero-movie-details,
 .hero-info {
   font-size: 14px;
-  color: var(--color-secondary-white);
+  color: var(--color-secondary-grey);
 }
 
 @media (min-resolution: 2dppx) {
