@@ -110,9 +110,21 @@ export async function openMovieModal(movieId) {
     }
 
     // Kütüphaneye ekle butonu - addToLibrary ile birlikte localStorage içerisine verileri ekleyebildiğimiz bir sistem oluşturuyoruz.
+    // Filmin kütüphanede olup olmadığını kontrol et
+  const isInLibrary = isMovieInLibrary(movie);
+
+  if (isInLibrary) {
+    // Kütüphanedeyse: "Kaldır" butonu ayarları
+    libraryBtn.textContent = 'Remove from library';
+    libraryBtn.disabled = false;
+    libraryBtn.onclick = () => removeFromLibrary(movie);
+    
+  } else {
+    // Kütüphanede değilse: "Ekle" butonu ayarları
     libraryBtn.textContent = 'Add to my library';
     libraryBtn.disabled = false;
     libraryBtn.onclick = () => addToLibrary(movie);
+  }
 
     modal.classList.add('show'); // flex’i aç
     document.body.style.overflow = 'hidden';
@@ -145,13 +157,55 @@ function formatDate(dateString) {
 // Add to my library fonksiyonu - LocalStorage içerisine mevcut filmlerin verilerini json oluşturup, oraya ekleyen bir yapı kuruldu.
 function addToLibrary(movie) {
   const library = JSON.parse(localStorage.getItem('myMovieLibrary') || '[]');
+
   if (library.some(m => m.id === movie.id)) {
     alert('This movie is already in your library!');
     return;
   }
+  
   library.push(movie);
-  localStorage.setItem('myMovieLibrary', JSON.stringify(library));
-  alert(`${movie.title} added to your library.`);
-  libraryBtn.textContent = 'Added';
-  libraryBtn.disabled = true;
+
+  try {
+    localStorage.setItem('myMovieLibrary', JSON.stringify(library));
+    
+    alert(`${movie.title} added to your library.`);
+    
+    //  Başarılı ekleme sonrası butonu "Kaldır" moduna geçir
+    libraryBtn.textContent = 'Remove from library';
+    libraryBtn.disabled = false;
+    libraryBtn.onclick = () => removeFromLibrary(movie); // Kaldırma fonksiyonunu bağla
+    
+  } catch (error) {
+    console.error("Local storage'a kaydetme hatası:", error);
+    alert('Filmi eklerken bir sorun oluştu.');
+  }
+}
+
+// Kütüphanede olup olmadığını kontrol eden fonksiyon
+function isMovieInLibrary(movie) {
+  const library = JSON.parse(localStorage.getItem('myMovieLibrary') || '[]');
+  // Filmin ID'sini kontrol et
+  return library.some(m => m.id === movie.id);
+}
+
+function removeFromLibrary(movie) {
+  let library = JSON.parse(localStorage.getItem('myMovieLibrary') || '[]');
+  
+  // Kaldırılmak istenen filme ait olmayanları filtrele
+  const updatedLibrary = library.filter(m => m.id !== movie.id);
+
+  try {
+    localStorage.setItem('myMovieLibrary', JSON.stringify(updatedLibrary));
+
+    alert(`${movie.title} kütüphanenizden kaldırıldı.`);
+    
+    // İşlem sonrası butonu "Ekle" moduna geri geçir (Anlık güncelleme)
+    libraryBtn.textContent = 'Add to my library';
+    libraryBtn.disabled = false;
+    libraryBtn.onclick = () => addToLibrary(movie);
+
+  } catch (error) {
+    console.error("Local storage'dan silme hatası:", error);
+    alert('Kaldırılırken bir sorun oluştu.');
+  }
 }
