@@ -6,6 +6,10 @@ const setTheme = theme => {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem('theme', theme);
 
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.style.transform = 'scale(0.9)';
+    setTimeout(() => (btn.style.transform = ''), 200);
+  });
   // Tüm tema butonlarının ikonunu güncelle
   themeToggleButtons.forEach(btn => {
     const moon = btn.querySelector('[href$="moon"]');
