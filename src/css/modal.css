@@ -3,13 +3,12 @@
 ========================= */
 
 .modal {
-  width: 280px;
   position: fixed;
   inset: 0;
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* backdrop'un üstünde */
+  z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -23,22 +22,23 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 1; /* modal-content'ten düşük */
+  z-index: 1;
 }
 
 .modal-content {
-  padding: 20px;
+  width: 280px; /* width'ı buraya taşı */
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(248, 134, 27, 0.3);
   position: relative;
   background: var(--color-bg, #1c1c1c);
   color: #fff;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-direction: column;
-  overflow-y: auto;
+  align-items: flex-start;
+  max-height: 90vh;
+  text-align: left;
   z-index: 2;
+  padding: 20px;
 }
 
 .modal-header,
@@ -46,17 +46,19 @@
 .modal-overview,
 .modal-trailer-wrapper,
 .modal-library-btn {
-  align-self: stretch; /* tam genişlik alsın */
+  width: 100%;
+  align-self: flex-start; /* tam genişlik alsın */
   text-align: left; /* metinler sola dayalı */
 }
 
 .modal-content > p {
   /* <p>ABOUT</p> için */
-  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 12px;
   font-weight: 700;
   font-size: 14px;
-  align-self: flex-start;
-  padding-left: 4px;
+  align-items: flex-start;
+  text-align: left;
   color: var(--color-secondary-text);
 }
 
@@ -72,10 +74,27 @@
 #modal-rating {
   color: black;
   background-color: #fff;
+  padding: 1px;
+  border-radius: 5px;
 }
+
 #modal-popularity,
 #modal-release {
   color: var(--color-text);
+}
+.modal-stats li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-stats li span:first-child {
+  /* Label'lar sola */
+}
+
+.modal-stats li span:last-child {
+  /* Değerler sağa */
+  margin-left: auto;
 }
 
 .modal-close-btn {
@@ -100,11 +119,11 @@
 }
 
 .modal-poster {
-  margin-top: 52px;
-  width: 248px;
+  width: 260px;
   border-radius: 12px;
   object-fit: cover;
   align-self: center;
+  flex-shrink: 0;
 }
 
 .modal-info {
@@ -126,7 +145,7 @@
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .modal-library-btn {
@@ -175,8 +194,9 @@
 
 .modal-overview {
   font-size: 12px;
-  width: 248px;
-  height: 180px;
+  width: 250px;
+  line-height: 1.67;
+  margin-bottom: 12px;
 }
 
 .modal-trailer-wrapper {
@@ -195,41 +215,71 @@
 /* Tablet */
 @media (min-width: 768px) {
   .modal-content {
-    max-width: 600px;
-    padding: 30px;
+    width: 654px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 240px 1fr; /* 1. kolon poster, 2. kolon içerik */
+    grid-template-rows: auto auto auto auto auto; /* Satırlar */
+    gap: 12px 20px;
+    align-items: start;
   }
 
+  /* Kapatma butonu üstte tam genişlik */
+  .modal-close-btn {
+    grid-column: 1 / -1; /* Tüm genişlik */
+    grid-row: 1;
+    justify-self: end;
+    margin-bottom: 0;
+  }
+
+  /* Poster sol üstte */
   .modal-poster {
-    width: 150px;
-    height: 220px;
+    grid-column: 1;
+    grid-row: 2 / span 4; /* 2-5. satırları kaplasın */
+    margin-top: 0;
+    width: 240px;
+    height: 360px;
+    align-self: start;
   }
 
-  .modal-title {
-    font-size: 28px;
+  /* Başlık ve istatistikler sağ üstte */
+  .modal-header {
+    grid-column: 2;
+    grid-row: 2;
+    display: block;
+    margin-bottom: 0;
   }
 
+  /* ABOUT sağda, başlığın altında */
+  .modal-content > p {
+    grid-column: 2;
+    grid-row: 3;
+    margin: 0;
+    align-self: end;
+  }
+
+  /* Overview sağda, ABOUT'un altında */
   .modal-overview {
-    font-size: 16px;
-  }
-}
-
-/* Desktop */
-@media (min-width: 1280px) {
-  .modal-content {
-    max-width: 700px;
-    padding: 40px;
+    grid-column: 2;
+    grid-row: 4;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    line-height: 1.4;
   }
 
-  .modal-poster {
-    width: 180px;
-    height: 260px;
+  /* Buton sağda, overview'un altında */
+  .modal-library-btn {
+    grid-column: 2;
+    grid-row: 5;
+    justify-self: start;
+    margin-top: 0;
   }
 
-  .modal-title {
-    font-size: 32px;
-  }
-
-  .modal-overview {
-    font-size: 18px;
+  /* Trailer altta tam genişlik */
+  .modal-trailer-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    margin-top: 16px;
   }
 }
