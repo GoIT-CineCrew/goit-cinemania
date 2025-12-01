@@ -1,7 +1,6 @@
 /*Mobile Styles*/
 .library-hero {
   height: 380px;
-  margin-bottom: 40px;
 }
 .library-hero-bg {
   background-image: url('../img/Hero-My-Library-Mobile.jpg');
@@ -57,14 +56,14 @@
 @media only screen and (min-width: 768px) {
   .library-hero {
     width: 768px;
+    padding: 0;
+    margin: 0;
+    height: 432px;
   }
 
   .library-hero-bg {
     background-image: url('../img/Hero-My-Library-Tablet.jpg');
     position: relative;
-    height: 432px;
-    gap: 20px;
-    width: 100vw;
     width: 100%;
   }
 
