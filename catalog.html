@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/catalog-BB8VAFrq.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-cinemania/assets/header-D6LvLOOn.js">
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-Cd86HI3I.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/catalog-_Hgqx6GV.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-cinemania/assets/header-DS8D8H-8.js">
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-Ccm6YVz0.css">
   </head>
   <body>
     <header class="header">
@@ -15,7 +15,7 @@
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
@@ -34,10 +34,10 @@
 
         <button class="theme-toggle-btn">
           <svg class="theme-icon">
-            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon"></use>
+            <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#moon"></use>
           </svg>
           <svg class="theme-circle-icon">
-            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon-circle"></use>
+            <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#moon-circle"></use>
           </svg>
         </button>
       </div>
@@ -46,16 +46,16 @@
     <nav class="header-sidebar section">
       <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-mobile-icon" width="32" height="32">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#nav-logo-mobile"></use>
         </svg>
       </a>
       <label for="sidebar-input" class="sidebar-menu">Menu</label>
       <button class="theme-toggle-btn">
         <svg class="theme-circle-icon" width="14" height="14">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-circle-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#sun-circle-mobile"></use>
         </svg>
         <svg class="theme-icon" width="10" height="10">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#sun-mobile"></use>
         </svg>
       </button>
 
@@ -87,7 +87,7 @@
   <div class="trailer-content">
     <button class="trailer-close-btn" type="button">
       <svg>
-        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#close-mobile"></use>
+        <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#close-mobile"></use>
       </svg>
     </button>
 
@@ -125,17 +125,17 @@
 <!-- =========================
    RANDOM MOVIE HERO SECTION
 ========================= -->
-<section id="hero-random-movie" class="hero-movie" style="display: none">
+<section id="hero-random-movie" class="hero-movie">
   <div class="hero-movie-container">
-    <img
-      id="hero-movie-poster"
-      class="hero-movie-poster"
-      alt="Movie Poster"
-      loading="lazy"
-    />
+    <!-- Poster artık background-image olarak gelecek -->
+    <div class="hero-movie-poster-crop">
+      <!-- Boş div, sadece crop alanı -->
+    </div>
     <div class="hero-movie-content">
-      <h4 class="hero-movie-title">Movie Title</h4>
-      <div class="hero-movie-stars"></div>
+      <div>
+        <h4 class="hero-movie-title">Movie Title</h4>
+        <div class="hero-movie-stars"></div>
+      </div>
       <p class="hero-movie-details">Movie info from API</p>
       <div class="hero-movie-buttons">
         <button class="hero-movie-btn btn-primary" id="watch-trailer-btn">
@@ -149,6 +149,9 @@
         </button>
       </div>
     </div>
+
+    <!-- %10 opaklıkta -104° gradient overlay (sadece içerik üzerine!) -->
+    <div class="hero-movie-overlay"></div>
   </div>
 </section>
 <svg style="display: none">
@@ -160,7 +163,7 @@
   <div class="trailer-content">
     <button class="trailer-close-btn" type="button">
       <svg>
-        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#close-mobile"></use>
+        <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#close-mobile"></use>
       </svg>
     </button>
     <p class="trailer-info">
@@ -191,12 +194,21 @@
         <h2 class="modal-title" id="modal-title">Movie Title</h2>
         <ul class="modal-stats">
           <li>
-            <strong>Vote / Votes:</strong> <span id="modal-rating">0.0</span>
+            <h3>Vote / Votes</h3>
+            <div class="modal-rating">
+              <span id="modal-vote">0.0 </span>
+              /
+              <span id="modal-votes">1260</span>
+            </div>
           </li>
           <li>
-            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+            <h3>Popularity</h3>
+            <span id="modal-popularity">0.0</span>
           </li>
-          <li><strong>Genre:</strong> <span id="modal-genre">—</span></li>
+          <li>
+            <h3>Genre</h3>
+            <span id="modal-genre">—</span>
+          </li>
         </ul>
         <div class="modal-about-section">
           <h2 class="modal-about">ABOUT</h2>
@@ -217,7 +229,7 @@
             <input type="text" placeholder="Search" />
             <button class="clear-button">
               <svg>
-                <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#close"></use>
+                <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#close"></use>
               </svg>
             </button>
             <div class="catalog-dropdown-filters">
@@ -241,7 +253,7 @@
             </div>
             <button class="search-icon" type="submit">
               <svg>
-                <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#search"></use>
+                <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#search"></use>
               </svg>
             </button>
           </div>
@@ -254,7 +266,7 @@
                 <button type="button" class="catalog-page-btn prev-btn">
                   <svg>
                     <use
-                      href="/goit-cinemania/assets/sprite-DwNN75J-.svg#back-arrow-passive-dark-mobile"
+                      href="/goit-cinemania/assets/sprite-DbtHLECV.svg#back-arrow-passive-dark-mobile"
                     ></use>
                   </svg>
                 </button>
@@ -262,7 +274,7 @@
               <li>
                 <button type="button" class="catalog-page-btn">
                   <svg>
-                    <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#button-active-dark-mobile">
+                    <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#button-active-dark-mobile">
                       01
                     </use>
                   </svg>
@@ -271,7 +283,7 @@
               <li>
                 <button type="button" class="catalog-page-btn">
                   <svg>
-                    <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#button-passive-dark-mobile">
+                    <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#button-passive-dark-mobile">
                       02
                     </use>
                   </svg>
@@ -280,7 +292,7 @@
               <li>
                 <button type="button" class="catalog-page-btn">
                   <svg>
-                    <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#button-passive-dark-mobile">
+                    <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#button-passive-dark-mobile">
                       03
                     </use>
                   </svg>
@@ -289,14 +301,14 @@
               <li>
                 <button type="button" class="catalog-page-btn dots-btn">
                   <svg>
-                    <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#dots-dark-mobile"></use>
+                    <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#dots-dark-mobile"></use>
                   </svg>
                 </button>
               </li>
               <li>
                 <button type="button" class="catalog-page-btn">
                   <svg>
-                    <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#button-passive-dark-mobile">
+                    <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#button-passive-dark-mobile">
                       24
                     </use>
                   </svg>
@@ -306,7 +318,7 @@
                 <button type="button" class="catalog-page-btn next-btn">
                   <svg>
                     <use
-                      href="/goit-cinemania/assets/sprite-DwNN75J-.svg#forward-arrow-active-dark-mobile"
+                      href="/goit-cinemania/assets/sprite-DbtHLECV.svg#forward-arrow-active-dark-mobile"
                     ></use>
                   </svg>
                 </button>
@@ -322,7 +334,7 @@
     <p class="footer-desc">
       &#169; 2023 | All rights Reserved | Developed with
       <svg class="heart-icon">
-        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#heart"></use>
+        <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#heart"></use>
       </svg>
       by
       <a

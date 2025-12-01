@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Library</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/myLibrary-DmuTJTvM.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-cinemania/assets/header-D6LvLOOn.js">
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-Cd86HI3I.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/myLibrary-DkoiYO1f.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-cinemania/assets/header-DS8D8H-8.js">
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-Ccm6YVz0.css">
   </head>
   <body>
     <header class="header">
@@ -15,7 +15,7 @@
     <nav class="header-nav">
       <a class="header-nav-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-icon">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#nav-logo"></use>
         </svg>
         Cinemania
       </a>
@@ -34,10 +34,10 @@
 
         <button class="theme-toggle-btn">
           <svg class="theme-icon">
-            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon"></use>
+            <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#moon"></use>
           </svg>
           <svg class="theme-circle-icon">
-            <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#moon-circle"></use>
+            <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#moon-circle"></use>
           </svg>
         </button>
       </div>
@@ -46,16 +46,16 @@
     <nav class="header-sidebar section">
       <a class="header-sidebar-logo" href="./index.html" aria-label="Site logo">
         <svg class="nav-logo-mobile-icon" width="32" height="32">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#nav-logo-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#nav-logo-mobile"></use>
         </svg>
       </a>
       <label for="sidebar-input" class="sidebar-menu">Menu</label>
       <button class="theme-toggle-btn">
         <svg class="theme-circle-icon" width="14" height="14">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-circle-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#sun-circle-mobile"></use>
         </svg>
         <svg class="theme-icon" width="10" height="10">
-          <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#sun-mobile"></use>
+          <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#sun-mobile"></use>
         </svg>
       </button>
 
@@ -83,21 +83,78 @@
   </section>
 </header>
 
-    <section class="library-hero" id="library-hero">
-  <div class="library-hero-bg">
-    <div class="library-hero-bg-overlay">
-      <div class="library-hero-content">
-        <h4 class="library-hero-title">Create Your Dream Cinema</h4>
-        <p class="library-hero-subtitle">
-          Is a guide to designing a personalized movie theater experience with
-          the right equipment, customized decor, and favorite films. This guide
-          helps you bring the cinema experience into your own home with cozy
-          seating, dim lighting, and movie theater snacks.
-        </p>
+    <section id="hero-default" class="hero" style="display: none">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h4 class="hero-title">Let’s Make Your Own Cinema</h4>
+      <p class="hero-info">
+        Is a guide to creating a personalized movie theater experience. You'll
+        need a projector, screen, and speakers.
+      </p>
+      <div class="hero-default-button-container btn-primary">
+        <button class="hero-button btn-primary">Get Started</button>
       </div>
     </div>
   </div>
 </section>
+
+<!-- =========================
+   RANDOM MOVIE HERO SECTION
+========================= -->
+<section id="hero-random-movie" class="hero-movie">
+  <div class="hero-movie-container">
+    <!-- Poster artık background-image olarak gelecek -->
+    <div class="hero-movie-poster-crop">
+      <!-- Boş div, sadece crop alanı -->
+    </div>
+    <div class="hero-movie-content">
+      <div>
+        <h4 class="hero-movie-title">Movie Title</h4>
+        <div class="hero-movie-stars"></div>
+      </div>
+      <p class="hero-movie-details">Movie info from API</p>
+      <div class="hero-movie-buttons">
+        <button class="hero-movie-btn btn-primary" id="watch-trailer-btn">
+          Watch trailer
+        </button>
+        <button
+          class="hero-movie-details-btn btn-secondary"
+          id="more-details-btn"
+        >
+          More details
+        </button>
+      </div>
+    </div>
+
+    <!-- %10 opaklıkta -104° gradient overlay (sadece içerik üzerine!) -->
+    <div class="hero-movie-overlay"></div>
+  </div>
+</section>
+<svg style="display: none">
+  <use></use>
+</svg>
+
+<!-- TRAILER MODAL esc ve DIŞARI TIKLAYINCA KAPANIR -->
+<div class="trailer" id="trailer-modal" style="display: none">
+  <div class="trailer-content">
+    <button class="trailer-close-btn" type="button">
+      <svg>
+        <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#close-mobile"></use>
+      </svg>
+    </button>
+    <p class="trailer-info">
+      OOPS... <br />
+      We are very sorry! <br />
+      But we couldn’t find the trailer.
+    </p>
+    <img
+      src="/goit-cinemania/assets/Trailer-Error-Mobile-D5vd91V2.png"
+      srcset="/goit-cinemania/assets/Trailer-Error-Desktop@2x-ByaZDRhs.png 2x"
+      alt="Trailer not found"
+      class="trailer-image"
+    />
+  </div>
+</div>
 
 
     <main>
@@ -113,12 +170,21 @@
         <h2 class="modal-title" id="modal-title">Movie Title</h2>
         <ul class="modal-stats">
           <li>
-            <strong>Vote / Votes:</strong> <span id="modal-rating">0.0</span>
+            <h3>Vote / Votes</h3>
+            <div class="modal-rating">
+              <span id="modal-vote">0.0 </span>
+              /
+              <span id="modal-votes">1260</span>
+            </div>
           </li>
           <li>
-            <strong>Popularity:</strong> <span id="modal-popularity">0.0</span>
+            <h3>Popularity</h3>
+            <span id="modal-popularity">0.0</span>
           </li>
-          <li><strong>Genre:</strong> <span id="modal-genre">—</span></li>
+          <li>
+            <h3>Genre</h3>
+            <span id="modal-genre">—</span>
+          </li>
         </ul>
         <div class="modal-about-section">
           <h2 class="modal-about">ABOUT</h2>
@@ -171,7 +237,7 @@
     <p class="footer-desc">
       &#169; 2023 | All rights Reserved | Developed with
       <svg class="heart-icon">
-        <use href="/goit-cinemania/assets/sprite-DwNN75J-.svg#heart"></use>
+        <use href="/goit-cinemania/assets/sprite-DbtHLECV.svg#heart"></use>
       </svg>
       by
       <a
@@ -187,5 +253,6 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
+
   </body>
 </html>
