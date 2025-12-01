@@ -76,9 +76,51 @@
 
 /* Light theme override */
 [data-theme='light'] {
-  --color-bg: #fff;
-  --color-white: #111;
-  --border-default: #ccc;
+  /* LIGHT THEME */
+  --color-black: #ffffff;
+  --color-white: #111111;
+  --color-grey: #595959;
+  --color-orange: #f87719;
+  --color-secondary-white: #282828;
+  --color-secondary-black: #f8f8f8;
+  --color-secondary-grey: #b7b7b7;
+  --color-gradient-primary: linear-gradient(
+    to right bottom,
+    #ffc226 35%,
+    #f84119 100%
+  );
+  --color-gradient-secondary: linear-gradient(
+    to top left,
+    #f84119 0%,
+    #ffc226 100%
+  );
+  --shadow-primary: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  transition: background-color 0.4s ease, color 0.4s ease,
+    border-color 0.3s ease, fill 0.3s ease;
+}
+
+.theme-toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-orange);
 }
 
 /* Base body style */
@@ -162,7 +204,6 @@ body {
 .card {
   background-color: var(--color-black);
   color: var(--color-white);
-  border: 1px solid var(--border-default);
   border-radius: 16px;
   padding: 20px;
   box-shadow: var(--shadow-primary);
