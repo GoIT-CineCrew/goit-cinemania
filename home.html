@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <script type="module" crossorigin src="/goit-cinemania/assets/header-DB9nP7BN.js"></script>
-    <script type="module" crossorigin src="/goit-cinemania/assets/home-N9PKnMZH.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-DtATMJbJ.css">
+    <script type="module" crossorigin src="/goit-cinemania/assets/header-D6LvLOOn.js"></script>
+    <script type="module" crossorigin src="/goit-cinemania/assets/home-DtqUTwNi.js"></script>
+    <link rel="stylesheet" crossorigin href="/goit-cinemania/assets/header-Cd86HI3I.css">
   </head>
   <body>
     <header class="header">
@@ -112,9 +112,9 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+    <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
 
     <div class="modal-header">
-      <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
       <div class="modal-info">
         <h2 class="modal-title" id="modal-title">Movie Title</h2>
         <ul class="modal-stats">
@@ -126,28 +126,16 @@
           </li>
           <li><strong>Genre:</strong> <span id="modal-genre">—</span></li>
         </ul>
+        <div class="modal-about-section">
+          <h2 class="modal-about">ABOUT</h2>
+          <p class="modal-overview" id="modal-overview">
+            Movie overview text will appear here.
+          </p>
+          <button class="modal-library-btn" id="modal-library-btn">
+            Add to My Library
+          </button>
+        </div>
       </div>
-    </div>
-    <p>ABOUT</p>
-    <div class="modal-overview" id="modal-overview">
-      Movie overview text will appear here.
-    </div>
-    <button class="modal-library-btn" id="modal-library-btn">
-      Add to My Library
-    </button>
-
-    <div
-      class="modal-trailer-wrapper"
-      id="modal-trailer-wrapper"
-      style="display: none"
-    >
-      <iframe
-        id="modal-trailer-iframe"
-        class="modal-trailer"
-        src=""
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
     </div>
   </div>
 </div>
