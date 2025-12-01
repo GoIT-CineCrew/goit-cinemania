@@ -16,17 +16,17 @@
 <!-- =========================
    RANDOM MOVIE HERO SECTION
 ========================= -->
-<section id="hero-random-movie" class="hero-movie" style="display: none">
+<section id="hero-random-movie" class="hero-movie">
   <div class="hero-movie-container">
-    <img
-      id="hero-movie-poster"
-      class="hero-movie-poster"
-      alt="Movie Poster"
-      loading="lazy"
-    />
+    <!-- Poster artık background-image olarak gelecek -->
+    <div class="hero-movie-poster-crop">
+      <!-- Boş div, sadece crop alanı -->
+    </div>
     <div class="hero-movie-content">
-      <h4 class="hero-movie-title">Movie Title</h4>
-      <div class="hero-movie-stars"></div>
+      <div>
+        <h4 class="hero-movie-title">Movie Title</h4>
+        <div class="hero-movie-stars"></div>
+      </div>
       <p class="hero-movie-details">Movie info from API</p>
       <div class="hero-movie-buttons">
         <button class="hero-movie-btn btn-primary" id="watch-trailer-btn">
@@ -40,6 +40,9 @@
         </button>
       </div>
     </div>
+
+    <!-- %10 opaklıkta -104° gradient overlay (sadece içerik üzerine!) -->
+    <div class="hero-movie-overlay"></div>
   </div>
 </section>
 <svg style="display: none">

@@ -26,19 +26,25 @@
 }
 
 .modal-content {
-  width: 280px; /* width'ı buraya taşı */
-  border-radius: 20px;
+  width: 280px;
+  max-height: 847px;
+  border-radius: 16px;
   box-shadow: 0 0 30px rgba(248, 134, 27, 0.3);
   position: relative;
-  background: var(--color-bg, #1c1c1c);
-  color: #fff;
+  background: var(--color-black, #1c1c1c);
+  color: var(--color-white);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  max-height: 90vh;
   text-align: left;
+  gap: 22px;
   z-index: 2;
-  padding: 20px;
+  padding: 16px;
+}
+
+.modal-poster {
+  width: 248px;
+  height: 315px;
+  margin-top: 36px;
 }
 
 .modal-header,
@@ -47,8 +53,8 @@
 .modal-trailer-wrapper,
 .modal-library-btn {
   width: 100%;
-  align-self: flex-start; /* tam genişlik alsın */
-  text-align: left; /* metinler sola dayalı */
+  align-self: flex-start;
+  text-align: left;
 }
 
 .modal-content > p {
@@ -59,42 +65,50 @@
   font-size: 14px;
   align-items: flex-start;
   text-align: left;
-  color: var(--color-secondary-text);
+  color: var(--color-secondary-white);
 }
 
 .modal-info {
-  color: var(--color-secondary-text);
+  color: var(--color-secondary-white);
 }
 .modal-title {
   width: 191px;
-  margin-top: 22px;
-  padding-bottom: 19px;
+  margin-bottom: 19px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.modal-about {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-secondary-white);
+  margin: 12px 0;
 }
 
 #modal-rating {
-  color: black;
-  background-color: #fff;
-  padding: 1px;
+  display: flex;
+  gap: 4px;
+}
+
+#modal-vote,
+#modal-votes {
+  background: var(--color-white);
   border-radius: 5px;
+  padding: 1px 8px;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
 }
 
 #modal-popularity,
 #modal-release {
-  color: var(--color-text);
+  color: var(--color-white);
 }
 .modal-stats li {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.modal-stats li span:first-child {
-  /* Label'lar sola */
-}
-
-.modal-stats li span:last-child {
-  /* Değerler sağa */
-  margin-left: auto;
 }
 
 .modal-close-btn {
@@ -105,11 +119,11 @@
   border: none;
   font-size: 28px;
   cursor: pointer;
-  color: var(--color-text, #fff);
+  color: var(--color-white);
 }
 
 .modal-close-btn:hover {
-  color: var(--color-accent, #f8861b);
+  color: var(--color-orange, #f8861b);
 }
 
 .modal-header {
@@ -132,12 +146,6 @@
   gap: 12px;
 }
 
-.modal-title {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-}
-
 .modal-stats {
   list-style: none;
   padding: 0;
@@ -153,11 +161,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 16px 0;
   width: 140px;
   height: 38px;
   gap: 10px;
   background-color: transparent;
-  color: var(--color-text);
+  color: var(--color-white);
   border: none;
   border-radius: 74px;
   font-size: 12px;
@@ -165,7 +174,6 @@
   cursor: pointer;
   overflow: hidden;
   transition: all 0.2s;
-  padding: 1px;
 }
 
 .modal-library-btn::before {
@@ -215,8 +223,10 @@
 /* Tablet */
 @media (min-width: 768px) {
   .modal-content {
-    width: 654px;
+    width: 704px;
+    height: 488px;
     padding: 20px;
+    border-radius: 16px;
     display: grid;
     grid-template-columns: 240px 1fr; /* 1. kolon poster, 2. kolon içerik */
     grid-template-rows: auto auto auto auto auto; /* Satırlar */
@@ -224,19 +234,33 @@
     align-items: start;
   }
 
+  .modal-header {
+    min-height: 382px;
+  }
+
+  .modal-info {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-right: 50px;
+  }
+
+  .modal-title {
+    margin-top: 30px;
+  }
+
   /* Kapatma butonu üstte tam genişlik */
   .modal-close-btn {
     grid-column: 1 / -1; /* Tüm genişlik */
     grid-row: 1;
     justify-self: end;
-    margin-bottom: 0;
   }
 
   /* Poster sol üstte */
   .modal-poster {
     grid-column: 1;
     grid-row: 2 / span 4; /* 2-5. satırları kaplasın */
-    margin-top: 0;
+    margin: auto 0;
     width: 240px;
     height: 360px;
     align-self: start;
@@ -273,7 +297,6 @@
     grid-column: 2;
     grid-row: 5;
     justify-self: start;
-    margin-top: 0;
   }
 
   /* Trailer altta tam genişlik */
@@ -291,10 +314,10 @@
     padding: 10px !important;
     border-radius: 20px !important;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42) !important;
-    background: var(--color-bg, #1c1c1c);
+    background: var(--color-black, #1c1c1c);
     display: flex !important;
     flex-direction: row;
-    gap: 40px;               /* poster ile içerik arası boşluk */
+    gap: 40px; /* poster ile içerik arası boşluk */
     align-items: flex-start;
     overflow: hidden;
   }
@@ -314,7 +337,7 @@
     border-radius: 16px;
     object-fit: cover;
     flex-shrink: 0;
-    margin: 40px 0 0 30px; /* ortalamak için üstten ve soldan boşluk */
+    margin: 60px 0 0 60px; /* ortalamak için üstten ve soldan boşluk */
   }
 
   /* ==== SAĞ TARAF - İÇERİKLER ==== */
@@ -330,10 +353,10 @@
 
   /* 1. Movie Title */
   .modal-title {
-    margin: 0;
     font-size: 28px;
     font-weight: 700;
     line-height: 1.2;
+    margin-top: 0;
   }
 
   /* 2. 3 adet istatistik (ul) */
@@ -353,7 +376,7 @@
   }
 
   .modal-stats strong {
-    color: var(--color-secondary-text, #aaa);
+    color: var(--color-secondary-white, #aaa);
   }
 
   #modal-rating {
@@ -375,7 +398,7 @@
     margin: 0;
     font-size: 16px;
     font-weight: 700;
-    color: var(--color-secondary-text, #aaa);
+    color: var(--color-secondary-white, #aaa);
   }
 
   .modal-overview {

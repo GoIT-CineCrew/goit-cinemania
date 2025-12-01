@@ -39,6 +39,25 @@
   align-items: center;
 }
 
+.hero-movie {
+  padding: 0;
+}
+
+/* Posterı crop eden kutu */
+.hero-movie-poster-crop {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .hero-container {
   background-image: url('../img/Hero-Home-Mobile.jpg');
   background-size: 90% auto;
@@ -46,35 +65,19 @@
   background-position: 120%;
   background-color: black;
   width: 320px;
-  height: 600px;
   position: relative;
 }
 
 .hero-container,
 .hero-movie-container {
-  position: relative;
   width: 320px;
   height: 380px;
 }
 
-.hero-movie-poster {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .hero-movie-stars {
   position: relative;
-  padding: 40px;
-}
-
-.hero-movie-stars .card-rating {
-  position: absolute;
-  gap: 6px;
-  list-style: none;
-  padding: 0;
-  margin: 8px 0;
+  width: 124px;
+  padding: 12px 0 20px 0;
 }
 
 .hero-movie-stars .card-rating li {
@@ -107,14 +110,15 @@
 
 .hero-movie-container {
   display: flex;
-  align-items: center;
-  position: relative;
+  padding: 40px 20px;
+  object-fit: none;
 }
 
 .hero-movie-content {
-  padding-left: 20px;
-  position: absolute;
-  width: 177px;
+  display: flex;
+  flex-direction: column;
+  min-height: 210px;
+  gap: 20px;
   z-index: 2;
 }
 
@@ -131,24 +135,24 @@
 }
 
 .hero-movie-details {
-  font-size: 12px;
   width: 177px;
-  height: 66px;
+  max-height: 66px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  margin-bottom: 20px;
 }
 .hero-title,
 .hero-movie-title {
+  width: 242px;
   font-size: 32px;
 }
 
 .hero-movie-details,
 .hero-info {
   font-size: 14px;
+  color: var(--color-secondary-white);
 }
 
 @media (min-resolution: 2dppx) {
@@ -159,25 +163,54 @@
 /* Tablet */
 
 @media (min-width: 768px) {
+  .hero-movie {
+    min-width: 768px;
+    max-height: 372px;
+  }
   .hero-movie-container {
     position: relative;
-    width: 400px;
-    height: 432px;
-    gap: 20px;
-    width: 100vw;
     width: 100%;
-    height: 600px;
+    overflow: hidden;
+    gap: 20px;
+    padding: 0;
   }
-  .hero-movie-details {
-    gap: 10px;
+
+  /* Posterı crop eden kutu */
+  .hero-movie-poster-crop {
+    width: 482px;
+    height: 432px;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
-  .hero-movie-poster {
-    object-fit: cover;
+
+  /* İçerik sol tarafta */
+  .hero-movie-content {
+    padding: 36px 0 0 32px;
+    z-index: 3;
   }
+
+  /* Sadece içerik üzerine gelen -104° açıyla %10 opaklıkta gradient */
+  .hero-movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      -104deg,
+      rgba(17, 17, 17, 0.1) 10%,
+      rgba(17, 17, 17, 0.2) 20%,
+      rgba(17, 17, 17, 1) 55%,
+      rgba(17, 17, 17, 1) 100%,
+      transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
   .hero-container {
     background-image: url('../img/Hero-Home-Tablet.jpg');
     width: 100vw;
-    height: 600px;
     background-size: cover;
     background-position: -300px center;
     background-repeat: no-repeat;
@@ -195,7 +228,7 @@
   .hero-title,
   .hero-movie-title {
     font-size: 44px;
-    width: 445px;
+    width: 295px;
   }
 
   .hero-info {
@@ -206,6 +239,14 @@
   .hero-info::after {
     content: ' Decorate your space, choose your films, and stock up on snacks for the full experience.';
     display: inline;
+  }
+
+  .hero-movie-details {
+    width: 295px;
+    min-height: 65px;
+    gap: 10px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+    font-size: 14px;
   }
 
   .hero-movie-btn,
@@ -233,11 +274,6 @@
     min-height: 660px;
   }
 
-  .hero-content,
-  .hero-movie-content {
-    max-width: 500px;
-    left: 48px;
-  }
   .hero-title {
     margin-bottom: 10px;
   }
@@ -248,7 +284,11 @@
   }
 
   .hero-movie-title {
-    width: 670px;
+    width: 500px;
+  }
+
+  .hero-movie-stars {
+    padding: 16px 0 28px 0;
   }
 
   .hero-movie-details,
@@ -262,7 +302,8 @@
   }
   .hero-movie-details {
     width: 367px;
-    padding-bottom: 10px;
+    min-height: 72px;
+    margin-bottom: 16px;
   }
   .hero-movie-btn,
   .hero-movie-details-btn {
@@ -271,7 +312,29 @@
   }
 
   .hero-movie-container {
-    margin-top: 60px;
+    height: 660px;
+  }
+
+  .hero-movie-poster-crop {
+    width: 802px;
+    height: 720px;
+  }
+
+  .hero-movie-content {
+    padding: 118px 0 0 134px;
+  }
+
+  .hero-movie-overlay {
+    background: linear-gradient(
+      -104deg,
+      rgba(17, 17, 17, 0.1) 10%,
+      rgba(17, 17, 17, 0.2) 40%,
+      rgba(17, 17, 17, 1) 55%,
+      rgba(17, 17, 17, 1) 100%,
+      transparent 100%
+    );
+    z-index: 2;
+    pointer-events: none;
   }
 }
 

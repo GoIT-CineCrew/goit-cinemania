@@ -83,24 +83,25 @@ async function loadGenres() {
 }
 
 // yıldız oluşturma
-function createStarRating(vote_average) {
-  const ratingOutOfFive = vote_average / 2; // 0-5 arası değer
-  const fullStars = Math.floor(ratingOutOfFive);
-  const halfStar = ratingOutOfFive % 1 >= 0.5 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
-  let starsHTML = '';
+function createStarRating(vote_average, isHero = false) {
+  const rating = vote_average / 2;
+  const full = Math.floor(rating);
+  const hasHalf = rating - full >= 0.5;
+  const empty = 5 - full - (hasHalf ? 1 : 0);
 
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
+  let html = '';
+
+  for (let i = 0; i < full; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
   }
-  if (halfStar) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
+  if (hasHalf) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
   }
-  for (let i = 0; i < emptyStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
+  for (let i = 0; i < empty; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
   }
 
-  return starsHTML;
+  return html;
 }
 
 // ---- filmleri renderla
@@ -131,8 +132,8 @@ function createMovieCard(movie) {
           .join(', ')
       : 'Genre not Found';
 
-  const ratingStars = createStarRating(movie.vote_average);
-
+  const ratingStars = createStarRating(movie.vote_average); // normal kart
+  
   return `
       <li class="catalog-movie-item" data-movie-id="${movie.id}">
         <section class="card" style="cursor: pointer;">

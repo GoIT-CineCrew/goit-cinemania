@@ -14,7 +14,7 @@ body {
   gap: 5px;
 }
 
-.catalog-page-btn{
+.catalog-page-btn {
   color: white;
 }
 
@@ -53,11 +53,11 @@ body {
   align-items: center;
 }
 
- /* seçili sayfanın butonu yanması */
- .catalog-page-btn.active {
-   background-color: #ff6b08;
-   color: white;
- }
+/* seçili sayfanın butonu yanması */
+.catalog-page-btn.active {
+  background-color: #ff6b08;
+  color: white;
+}
 
 .catalog-search input {
   width: 173px;
@@ -96,9 +96,9 @@ body {
 .search-icon {
   width: 40px;
   height: 40px;
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-orange);
   border-radius: 50%;
-  background-color: var(--color-accent);
+  background-color: var(--color-orange);
 }
 
 .search-icon svg {
@@ -131,8 +131,8 @@ body {
 }
 
 .catalog-pages button:active {
-  background-color: var(--color-accent);
-  color: var(--color-text);
+  background-color: var(--color-orange);
+  color: var(--color-white);
   font-weight: bold;
 }
 
@@ -262,7 +262,7 @@ body {
 }
 
 .catalog-dropdown-filter .option.selected {
-  color: var(--color-accent);
+  color: var(--color-orange);
 }
 
 .selected {
@@ -393,28 +393,26 @@ body {
     height: max-content;
   }
 
-  .catalog-content{
+  .catalog-content {
     width: 1280px;
   }
 
-  .catalog-search input{
-
-
+  .catalog-search input {
     width: 315px;
     height: 48px;
   }
 
-  .catalog-pages{
-     width: min-content;
-     height: 40px;
+  .catalog-pages {
+    width: min-content;
+    height: 40px;
   }
 
-  .catalog-page-btn{
+  .catalog-page-btn {
     width: 40px;
     height: 40px;
   }
 
-  .clear-button{
+  .clear-button {
     margin-left: 140px;
   }
 

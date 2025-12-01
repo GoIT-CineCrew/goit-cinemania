@@ -4,7 +4,7 @@ const genreMap = {};
 const API_KEY = 'aaf24ac7ab7c5211361a71263e777bb9';
 let selectedGenre = null; // Seçilen tür ID'si (Number veya null)
 
-// LOAD MORE  SAYFALAMA DEĞİŞKENLERİ 
+// LOAD MORE  SAYFALAMA DEĞİŞKENLERİ
 const MOVIES_PER_PAGE = 20; // Bir sayfada gösterilecek maksimum film sayısı
 let currentLibraryPage = 1; // Başlangıç sayfası
 let allFilteredMovies = []; // Filtreleme sonrası tüm filmlerin geçici olarak tutulduğu dizi
@@ -30,7 +30,7 @@ document.addEventListener('click', e => {
   }
 });
 
-// TMDB apisinden genre çekme ve mapleme(genreMap) 
+// TMDB apisinden genre çekme ve mapleme(genreMap)
 async function loadGenres() {
   const cachedGenresJson = localStorage.getItem('tmdbGenresIdToName');
 
@@ -59,7 +59,7 @@ async function loadGenres() {
   }
 }
 
-// Kütüphanedeki filmlerden benzersiz tür ID'lerini toplar ve Dinamik dropdown oluşturur 
+// Kütüphanedeki filmlerden benzersiz tür ID'lerini toplar ve Dinamik dropdown oluşturur
 function getGenresFromLibrary() {
   // ... (Mevcut getGenresFromLibrary içeriği) ...
   const libraryJson = localStorage.getItem('myMovieLibrary');
@@ -85,18 +85,18 @@ function getGenresFromLibrary() {
   return Array.from(uniqueGenreIds);
 }
 
-// Kütüphane türlerini kullanarak dropdown'ı oluşturur 
+// Kütüphane türlerini kullanarak dropdown'ı oluşturur
 function renderLibraryGenreDropdown() {
   // ... (Mevcut renderLibraryGenreDropdown içeriği) ...
   const requiredGenreIds = getGenresFromLibrary();
 
-  optionsContainer.innerHTML = ''; 
+  optionsContainer.innerHTML = '';
   const defaultOption = document.createElement('div');
   defaultOption.classList.add('option', 'selected');
   defaultOption.textContent = 'All Film';
-  defaultOption.dataset.value = ''; 
+  defaultOption.dataset.value = '';
   optionsContainer.appendChild(defaultOption);
-  
+
   requiredGenreIds.forEach(id => {
     const genreName = genreMap[id];
 
@@ -104,7 +104,7 @@ function renderLibraryGenreDropdown() {
       const option = document.createElement('div');
       option.classList.add('option');
       option.textContent = genreName;
-      option.dataset.value = id; 
+      option.dataset.value = id;
       optionsContainer.appendChild(option);
     }
   });
@@ -124,23 +124,23 @@ function updateDropdownListeners() {
       option.classList.add('selected');
       selectBox.classList.remove('open');
       optionsContainer.style.display = 'none';
-      
+
       const genreId = option.dataset.value
         ? Number(option.dataset.value)
         : null;
       selectedGenre = genreId;
 
       // Filtre değiştiğinde 1. sayfadan başlamalı ve listeyi TEMİZLEMELİYİZ.
-      currentLibraryPage = 1; 
+      currentLibraryPage = 1;
       loadLibrary(true); // true = reset the list
     });
   });
 }
 
-// myLibrary'i localden çekme 
+// myLibrary'i localden çekme
 document.addEventListener('DOMContentLoaded', async () => {
-  await loadGenres(); 
-  renderLibraryGenreDropdown(); 
+  await loadGenres();
+  renderLibraryGenreDropdown();
   loadLibrary(true); // Başlangıçta listeyi temizleyerek yükle
 });
 
@@ -190,7 +190,7 @@ function loadLibrary(resetList = false) {
     loadMoreBtn.style.display = 'none';
     return;
   }
-  
+
   // 3. Filmleri renderla (listeye ekle)
   moviesToRender.forEach(movie => {
     const title = movie.title || 'Unknown';
@@ -211,11 +211,11 @@ function loadLibrary(resetList = false) {
       .map(id => genreMap[id])
       .filter(Boolean)
       .join(', ');
-      
+
     const li = document.createElement('li');
     li.classList.add('library-movie-item');
-    li.dataset.movieId = movie.id; 
-    li.style.cursor = 'pointer'; 
+    li.dataset.movieId = movie.id;
+    li.style.cursor = 'pointer';
 
     li.innerHTML = `
         <section class="card">
@@ -239,7 +239,7 @@ function loadLibrary(resetList = false) {
         `;
     listEl.appendChild(li);
   });
-  
+
   // 4. Load More Butonunu Yönet
   // Toplam filtrelenmiş film sayısı, şu ana kadar gösterilen film sayısından fazlaysa butonu göster
   if (allFilteredMovies.length > endIndex) {
@@ -249,26 +249,28 @@ function loadLibrary(resetList = false) {
   }
 }
 
+function createStarRating(vote_average, isHero = false) {
+  const rating = vote_average / 2;
+  const full = Math.floor(rating);
+  const hasHalf = rating - full >= 0.5;
+  const empty = 5 - full - (hasHalf ? 1 : 0);
 
-function createStarRating(vote_average) {
-  const ratingOutOfFive = vote_average / 2;
-  const fullStars = Math.floor(ratingOutOfFive);
-  const halfStar = ratingOutOfFive % 1 >= 0.5 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
-  let starsHTML = '';
-  for (let i = 0; i < fullStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
+  let html = '';
+
+  for (let i = 0; i < full; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
   }
-  if (halfStar) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
+  if (hasHalf) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
   }
-  for (let i = 0; i < emptyStars; i++) {
-    starsHTML += `<li><svg width="14" height="14"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
+  for (let i = 0; i < empty; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
   }
-  return starsHTML;
+
+  return html;
 }
 
-// Kart tıklama - MODAL AÇILMASI İÇİN 
+// Kart tıklama - MODAL AÇILMASI İÇİN
 document.addEventListener('click', e => {
   const card = e.target.closest('.library-movie-item');
   if (card?.dataset.movieId) {
@@ -276,9 +278,8 @@ document.addEventListener('click', e => {
   }
 });
 
-
- //LOAD MORE BUTONU 
+//LOAD MORE BUTONU
 loadMoreBtn.addEventListener('click', () => {
-    currentLibraryPage += 1; // Sayfa numarasını artır
-    loadLibrary(false); // Listeyi temizlemeden yükle
+  currentLibraryPage += 1; // Sayfa numarasını artır
+  loadLibrary(false); // Listeyi temizlemeden yükle
 });

@@ -1,191 +1,179 @@
+// js/hero-core.js
 import { openMovieModal } from './modal.js';
 import config from '../config.js';
+
 const API_KEY = config.TMDB_API_KEY;
 const BASE_URL = config.TMDB_BASE_URL;
 
-let movie = null;
+function createStarRating(vote_average) {
+  const rating = vote_average / 2;
+  const full = Math.floor(rating);
+  const hasHalf = rating - full >= 0.5;
+  const empty = 5 - full - (hasHalf ? 1 : 0);
 
-async function showRandomHeroMovie() {
+  let html = '';
+  for (let i = 0; i < full; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
+  }
+  if (hasHalf) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
+  }
+  for (let i = 0; i < empty; i++) {
+    html += `<li><svg class="star-svg"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
+  }
+  return html;
+}
+
+async function getMovieFromLibrary() {
   try {
+    const raw = localStorage.getItem('myMovieLibrary');
+    if (!raw) return null;
+
+    const library = JSON.parse(raw);
+    if (!Array.isArray(library) || library.length === 0) return null;
+
+    const randomItem = library[Math.floor(Math.random() * library.length)];
+    const movieId = typeof randomItem === 'number' ? randomItem : randomItem.id;
+
+    if (!movieId) return null;
+
     const res = await fetch(
-      `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`
+      `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&append_to_response=videos`
     );
-    if (!res.ok) throw new Error(`API Hatası: ${res.status} ${res.statusText}`);
-    const data = await res.json();
-    const movies = data.results;
-    if (!movies || movies.length === 0) throw new Error('Film gelmedi');
+    if (!res.ok) return null;
 
-    const movie = movies[Math.floor(Math.random() * movies.length)];
-
-    const videoRes = await fetch(
-      `${BASE_URL}/movie/${movie.id}/videos?api_key=${API_KEY}`
-    );
-    const videoData = await videoRes.json();
-    const trailer = videoData.results?.find(
-      v =>
-        v.site === 'YouTube' &&
-        (v.type === 'Trailer' || v.type === 'Teaser' || v.type === 'Clip')
-    );
-
-    // DOM güncellemeleri (senin mevcut kodun aynı kalıyor)
-    document.getElementById('hero-default').style.display = 'none';
-    const heroRandom = document.getElementById('hero-random-movie');
-    heroRandom.style.display = 'flex';
-
-    if (movie.backdrop_path) {
-      heroRandom.style.backgroundImage = `url[](https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
-    }
-
-    heroRandom.querySelector('.hero-movie-title').textContent = movie.title;
-    heroRandom.querySelector('.hero-movie-details').textContent =
-      movie.overview || 'Açıklama yok.';
-
-    const poster = document.getElementById('hero-movie-poster');
-    poster.src = movie.poster_path
-      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      : 'https://via.placeholder.com/500x750?text=No+Image';
-
-    // Tekrar Kullanılabilir, Yıldız Fonksiyonu
-    function createStarRating(vote_average) {
-      const ratingOutOfFive = vote_average / 2; // 10 → 5 yıldız sistemine çevir
-      const fullStars = Math.floor(ratingOutOfFive);
-      const hasHalfStar = vote_average % 2 >= 1; // 7.5, 8.5 gibi durumlarda yarım yıldız
-      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
-      let starsHTML = '';
-
-      for (let i = 0; i < fullStars; i++) {
-        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#full-star"></use></svg></li>`;
-      }
-      if (hasHalfStar) {
-        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#half-star"></use></svg></li>`;
-      }
-      for (let i = 0; i < emptyStars; i++) {
-        starsHTML += `<li><svg width="16" height="16"><use href="./img/sprite.svg#empty-star"></use></svg></li>`;
-      }
-
-      return starsHTML;
-    }
-
-    const starsContainer = heroRandom.querySelector('.hero-movie-stars');
-    starsContainer.innerHTML = `
-  <ul class="card-rating hero-rating">
-    ${createStarRating(movie.vote_average)}
-  </ul>
-`;
-    // TRAILER
-    const modal = document.getElementById('trailer-modal');
-    const trailerBtn = document.getElementById('watch-trailer-btn');
-    const closeBtn = modal.querySelector('.trailer-close-btn');
-    const trailerContent = modal.querySelector('.trailer-content');
-
-    // Trailer varsa video, yoksa hata ekranı (zaten var)
-    const openTrailerModal = () => {
-      if (trailer) {
-        // Trailer varsa → YouTube videosu koy
-        trailerContent.innerHTML = `
-      <button class="trailer-close-btn" type="button">
-        <svg><use href="./img/sprite.svg#close-mobile"></use></svg>
-      </button>
-      <iframe 
-        src="https://www.youtube.com/embed/${trailer.key}?autoplay=1&rel=0&modestbranding=1"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        allowfullscreen
-        style="position:absolute; top:0; left:0; width:100%; height:100%;">
-      </iframe>
-    `;
-      }
-      // Her durumda modal'ı aç
-      modal.style.display = 'block';
-    };
-
-    // Kapatma
-    const closeTrailerModal = () => {
-      modal.style.display = 'none';
-      trailerContent.innerHTML = `
-    <button class="trailer-close-btn" type="button">
-      <svg><use href="./img/sprite.svg#close-mobile"></use></svg>
-    </button>
-    <p class="trailer-info">
-      OOPS... <br />
-      We are very sorry! <br />
-      But we couldn’t find the trailer.
-    </p>
-    <img 
-      src="./img/Trailer-Error-Mobile.png" 
-      srcset="./img/Trailer-Error-Desktop@2x.png 2x" 
-      alt="Trailer not found" class="trailer-image"
-    >
-  `;
-    };
-
-    // Olaylar
-    trailerBtn.onclick = openTrailerModal;
-    closeBtn.onclick = closeTrailerModal;
-
-    // Dışarı tıklayınca kapan
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeTrailerModal();
-    });
-
-    // ESC tuşu
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeTrailerModal();
-      }
-    });
-
-    // Buton tıklama
-    if (trailerBtn && trailer) {
-      trailerBtn.style.cursor = 'pointer';
-      trailerBtn.disabled = false;
-      trailerBtn.onclick = openTrailerModal;
-    } else if (trailerBtn) {
-      trailerBtn.disabled = true;
-      trailerBtn.style.cursor = 'not-allowed';
-      trailerBtn.title = 'Bu film için fragman bulunamadı';
-    }
-
-    // Kapatma olayları
-    if (closeBtn) closeBtn.onclick = closeTrailerModal;
-    modal.addEventListener('click', e => {
-      if (e.target === modal) closeTrailerModal();
-    });
-
-    // ESC tuşu ile kapatma (ekstra güzel dokunuş)
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && modal.style.display === 'flex') {
-        closeTrailerModal();
-      }
-    });
-
-    // More Details → modal açılsın ama TRAİLER GELMESİN
-    // More Details → modal açılsın ama TRAİLER KESİNLİKLE GELMESİN
-    document.getElementById('more-details-btn').onclick = () => {
-      if (!movie?.id) return;
-
-      // 1. Modal açılmadan önce trailer’ı zorla gizle
-      const trailerWrapper = document.getElementById('modal-trailer-wrapper');
-      const iframe = document.getElementById('modal-trailer-iframe');
-
-      if (trailerWrapper) trailerWrapper.style.display = 'none';
-      if (iframe) iframe.src = ''; // iframe’i tamamen sıfırla
-
-      // 2. Modal açıldıktan hemen sonra tekrar gizle (openMovieModal trailer’ı açıyor diye)
-      openMovieModal(movie.id);
-
-      // 3. Modal tamamen açıldıktan sonra trailer’ı tekrar kapat
-      setTimeout(() => {
-        if (trailerWrapper) trailerWrapper.style.display = 'none';
-        if (iframe) iframe.src = '';
-      }, 100); // 100ms sonra tekrar zorla kapat
-    };
+    return await res.json();
   } catch (err) {
-    console.error('Hero yüklenemedi:', err);
-    document.getElementById('hero-default').style.display = 'block';
-    document.getElementById('hero-random-movie').style.display = 'none';
+    console.error('Kütüphaneden film çekilemedi:', err);
+    return null;
   }
 }
 
-document.addEventListener('DOMContentLoaded', showRandomHeroMovie);
+function truncateText(text, maxWords = 20) {
+  const words = text.trim().split(/\s+/);
+  if (words.length <= maxWords) return text;
+  return words.slice(0, maxWords).join(' ') + '...';
+}
+
+export async function loadHeroSection() {
+  const heroDefault = document.getElementById('hero-default');
+  const heroRandom = document.getElementById('hero-random-movie');
+
+  if (!heroRandom || heroRandom.dataset.heroLoaded === 'true') return;
+
+  let movie = null;
+  let trailer = null;
+
+  try {
+    // MY LIBRARY MODU MU?
+    const isLibraryMode = document.querySelector('[data-hero-mode="library"]');
+
+    if (isLibraryMode) {
+      // Kütüphaneden film çek
+      movie = await getMovieFromLibrary();
+      if (!movie) {
+        console.log('Kütüphane boş veya hata → trending film kullanılıyor');
+      }
+    }
+
+    // Kütüphane boşsa veya hata varsa → trending film
+    if (!movie) {
+      const res = await fetch(
+        `${BASE_URL}/trending/movie/week?api_key=${API_KEY}`
+      );
+      if (!res.ok) throw new Error('API Hatası');
+      const data = await res.json();
+      movie = data.results[Math.floor(Math.random() * data.results.length)];
+    }
+
+    // Trailer bul (videos zaten append_to_response ile geldi, yoksa ayrı çek)
+    if (movie.videos?.results) {
+      trailer = movie.videos.results.find(
+        v =>
+          v.site === 'YouTube' && ['Trailer', 'Teaser', 'Clip'].includes(v.type)
+      );
+    } else {
+      const videoRes = await fetch(
+        `${BASE_URL}/movie/${movie.id}/videos?api_key=${API_KEY}`
+      );
+      const videoData = await videoRes.json();
+      trailer = videoData.results?.find(
+        v =>
+          v.site === 'YouTube' && ['Trailer', 'Teaser', 'Clip'].includes(v.type)
+      );
+    }
+    // DOM Güncelleme
+    heroDefault.style.display = 'none';
+    heroRandom.style.display = 'flex';
+
+    heroRandom.querySelector('.hero-movie-title').textContent = movie.title;
+
+    const detailsEl = heroRandom.querySelector('.hero-movie-details');
+    const fullText = movie.overview || 'Açıklama yok.';
+    detailsEl.textContent = truncateText(fullText, 20);
+    if (fullText.split(/\s+/).length > 20) detailsEl.title = fullText;
+
+    heroRandom.querySelector('.hero-movie-stars').innerHTML = `
+      <ul class="card-rating hero-rating">${createStarRating(
+        movie.vote_average
+      )}</ul>
+    `;
+
+    const posterCrop = heroRandom.querySelector('.hero-movie-poster-crop');
+    const imageUrl = movie.backdrop_path
+      ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+      : movie.poster_path
+      ? `https://image.tmdb.org/t/p/w1280${movie.poster_path}`
+      : './img/no-poster.jpg';
+    posterCrop.style.backgroundImage = `url(${imageUrl})`;
+
+    // Trailer Modal
+    const modal = document.getElementById('trailer-modal');
+    const trailerBtn = document.getElementById('watch-trailer-btn');
+    const trailerContent = modal.querySelector('.trailer-content');
+
+    const openTrailer = () => {
+      if (trailer) {
+        trailerContent.innerHTML = `
+          <button class="trailer-close-btn" type="button">
+            <svg><use href="./img/sprite.svg#close-mobile"></use></svg>
+          </button>
+          <iframe src="https://www.youtube.com/embed/${trailer.key}?autoplay=1&rel=0" 
+                  allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        `;
+      }
+      modal.style.display = 'block';
+    };
+
+    const closeTrailer = () => {
+      modal.style.display = 'none';
+      trailerContent.innerHTML = `
+        <button class="trailer-close-btn" type="button">
+          <svg><use href="./img/sprite.svg#close-mobile"></use></svg>
+        </button>
+        <p class="trailer-info">OOPS...<br>We are very sorry!<br>But we couldn’t find the trailer.</p>
+        <img src="./img/Trailer-Error-Mobile.png" srcset="./img/Trailer-Error-Desktop@2x.png 2x" alt="Trailer not found" class="trailer-image">
+      `;
+    };
+
+    trailerBtn.onclick = openTrailer;
+    modal.querySelector('.trailer-close-btn').onclick = closeTrailer;
+    modal.onclick = e => e.target === modal && closeTrailer();
+    document.addEventListener(
+      'keydown',
+      e =>
+        e.key === 'Escape' && modal.style.display === 'block' && closeTrailer()
+    );
+
+    // More Details
+    document.getElementById('more-details-btn').onclick = async () => {
+      await openMovieModal(movie.id);
+    };
+
+    heroRandom.dataset.heroLoaded = 'true';
+  } catch (err) {
+    console.error('Hero yüklenemedi:', err);
+    heroDefault.style.display = 'block';
+    heroRandom.style.display = 'none';
+  }
+}

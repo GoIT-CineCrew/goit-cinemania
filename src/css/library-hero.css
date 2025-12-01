@@ -44,7 +44,7 @@
 .library-hero-subtitle {
   width: 249px;
   font-size: 14px;
-  color: var(--color-secondary-text);
+  color: var(--color-secondary-white);
 }
 
 @media (min-resolution: 2dppx) {

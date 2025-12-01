@@ -65,18 +65,33 @@ export async function openMovieModal(movieId) {
       : './img/no-poster.jpg';
 
     document.getElementById('modal-title').textContent = movie.title;
-    document.getElementById(
-      'modal-rating'
-    ).textContent = `${movie.vote_average.toFixed(1)} / ${movie.vote_count}`;
+    document.getElementById('modal-vote').textContent =
+      movie.vote_average.toFixed(1);
+    document.getElementById('modal-votes').textContent = movie.vote_count;
     document.getElementById('modal-popularity').textContent = Math.round(
       movie.popularity
     );
 
     // API'den gelen gerçek tür isimleri
     const genreElement = document.getElementById('modal-genre');
+
     if (movie.genres && movie.genres.length > 0) {
-      const genreNames = movie.genres.map(g => g.name).join(', ');
-      genreElement.textContent = genreNames;
+      const genres = movie.genres.map(g => g.name);
+
+      // Mobil için: maksimum 2 tür + "..."
+      // Tablet & Desktop: maksimum 3 tür + "..."
+      const isMobile = window.innerWidth < 768;
+      const maxGenres = isMobile ? 2 : 3;
+
+      if (genres.length <= maxGenres) {
+        genreElement.textContent = genres.join(', ');
+      } else {
+        const visible = genres.slice(0, maxGenres).join(', ');
+        const remaining = genres.length - maxGenres;
+        genreElement.textContent = `${visible} +${remaining}`;
+        // Bonus: hover’da tüm türleri göster (çok şık olur)
+        genreElement.title = genres.join(', ');
+      }
     } else {
       genreElement.textContent = '—';
     }
