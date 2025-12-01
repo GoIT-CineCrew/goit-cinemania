@@ -64,8 +64,13 @@
   display: block;
 }
 
+.hero-movie-stars {
+  position: relative;
+  padding: 40px;
+}
+
 .hero-movie-stars .card-rating {
-  display: flex;
+  position: absolute;
   gap: 6px;
   list-style: none;
   padding: 0;

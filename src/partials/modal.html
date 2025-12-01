@@ -2,9 +2,9 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+    <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
 
     <div class="modal-header">
-      <img class="modal-poster" src="" alt="Movie Poster" id="modal-poster" />
       <div class="modal-info">
         <h2 class="modal-title" id="modal-title">Movie Title</h2>
         <ul class="modal-stats">
@@ -16,28 +16,16 @@
           </li>
           <li><strong>Genre:</strong> <span id="modal-genre">—</span></li>
         </ul>
+        <div class="modal-about-section">
+          <h2 class="modal-about">ABOUT</h2>
+          <p class="modal-overview" id="modal-overview">
+            Movie overview text will appear here.
+          </p>
+          <button class="modal-library-btn" id="modal-library-btn">
+            Add to My Library
+          </button>
+        </div>
       </div>
-    </div>
-    <p>ABOUT</p>
-    <div class="modal-overview" id="modal-overview">
-      Movie overview text will appear here.
-    </div>
-    <button class="modal-library-btn" id="modal-library-btn">
-      Add to My Library
-    </button>
-
-    <div
-      class="modal-trailer-wrapper"
-      id="modal-trailer-wrapper"
-      style="display: none"
-    >
-      <iframe
-        id="modal-trailer-iframe"
-        class="modal-trailer"
-        src=""
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
     </div>
   </div>
 </div>
