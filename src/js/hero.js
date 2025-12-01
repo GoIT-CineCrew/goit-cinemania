@@ -71,9 +71,6 @@ export async function loadHeroSection() {
     if (isLibraryMode) {
       // Kütüphaneden film çek
       movie = await getMovieFromLibrary();
-      if (!movie) {
-        console.log('Kütüphane boş veya hata → trending film kullanılıyor');
-      }
     }
 
     // Kütüphane boşsa veya hata varsa → trending film

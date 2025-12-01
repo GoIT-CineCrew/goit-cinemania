@@ -22,7 +22,6 @@ async function loadGenres() {
     response.data.genres.forEach(g => {
       genreMap[g.id] = g.name;
     });
-    console.log('Genres loaded:', genreMap);
   } catch (err) {
     console.error("Genres couldn't loaded:", err);
   }
@@ -64,12 +63,10 @@ function createStarRating(vote_average, isHero = false) {
 }
 
 async function initHomePage() {
-  console.log("Anasayfa yüklendi, API'den veri çekiliyor...");
 
   await loadGenres(); // önce türleri yükle
 
   const movies = await getWeeklyTrends(); // haftanın popüler filmlerini yükle ve movies değişkenine ata
-  console.log('Movies list' + JSON.stringify(movies.map(movie => movie.title)));
 
   await loadUpcomingMovie(); // upcoming this month filmlerini yükle
 
@@ -122,12 +119,9 @@ async function initHomePage() {
     card.addEventListener('click', e => {
       e.preventDefault();
       e.stopPropagation();
-      console.log('Karta tıklandı, ID:', movie.id); // ← bu logu göreceksin
       openMovieModal(movie.id);
     });
   });
-
-  console.log('3 kart başarıyla dolduruldu!');
 }
 
 // ===== UPCOMING THIS MONTH =====
@@ -144,7 +138,6 @@ async function loadUpcomingMovie() {
     );
 
     if (futureMovies.length === 0) {
-      console.log('There are no upcoming movies this month!');
       return;
     }
 
@@ -191,14 +184,12 @@ async function loadUpcomingMovie() {
       .join(', ');
     document.getElementById('upcoming-genre').textContent = genres;
 
-    console.log('Film Açıklaması' + movie.overview);
     // Overview
     document
       .getElementById('upcoming-overview-content')
       .querySelector('p').textContent =
       movie.overview || "Movie overview couldn't find!";
 
-    console.log('Upcoming movie yüklendi:', movie.title);
 
     // Butona film bilgisini ekleyelim (sonraki adımda kullanacağız)
     const btn = document.getElementById('upcoming-library-btn');

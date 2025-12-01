@@ -1,6 +1,5 @@
 import config from '../config.js';
 
-console.log('YENİ MODAL.JS YÜKLENDİ - ' + new Date().toLocaleTimeString());
 let modal, closeBtn, libraryBtn;
 
 // Modal yüklendi mi diye sürekli kontrol eden fonksiyon
@@ -41,7 +40,6 @@ function closeModal() {
 
 // Ana fonksiyon – artık her yerden güvenle çağırılabilir
 export async function openMovieModal(movieId) {
-  console.log('openMovieModal çağrıldı, ID:', movieId); // ← BU LOG ÇOK ÖNEMLİ
   await waitForModal(); // modal gelene kadar bekle
 
   try {
@@ -111,20 +109,19 @@ export async function openMovieModal(movieId) {
 
     // Kütüphaneye ekle butonu - addToLibrary ile birlikte localStorage içerisine verileri ekleyebildiğimiz bir sistem oluşturuyoruz.
     // Filmin kütüphanede olup olmadığını kontrol et
-  const isInLibrary = isMovieInLibrary(movie);
+    const isInLibrary = isMovieInLibrary(movie);
 
-  if (isInLibrary) {
-    // Kütüphanedeyse: "Kaldır" butonu ayarları
-    libraryBtn.textContent = 'Remove from library';
-    libraryBtn.disabled = false;
-    libraryBtn.onclick = () => removeFromLibrary(movie);
-    
-  } else {
-    // Kütüphanede değilse: "Ekle" butonu ayarları
-    libraryBtn.textContent = 'Add to my library';
-    libraryBtn.disabled = false;
-    libraryBtn.onclick = () => addToLibrary(movie);
-  }
+    if (isInLibrary) {
+      // Kütüphanedeyse: "Kaldır" butonu ayarları
+      libraryBtn.textContent = 'Remove from library';
+      libraryBtn.disabled = false;
+      libraryBtn.onclick = () => removeFromLibrary(movie);
+    } else {
+      // Kütüphanede değilse: "Ekle" butonu ayarları
+      libraryBtn.textContent = 'Add to my library';
+      libraryBtn.disabled = false;
+      libraryBtn.onclick = () => addToLibrary(movie);
+    }
 
     modal.classList.add('show'); // flex’i aç
     document.body.style.overflow = 'hidden';
@@ -162,19 +159,18 @@ function addToLibrary(movie) {
     alert('This movie is already in your library!');
     return;
   }
-  
+
   library.push(movie);
 
   try {
     localStorage.setItem('myMovieLibrary', JSON.stringify(library));
-    
+
     alert(`${movie.title} added to your library.`);
-    
+
     //  Başarılı ekleme sonrası butonu "Kaldır" moduna geçir
     libraryBtn.textContent = 'Remove from library';
     libraryBtn.disabled = false;
     libraryBtn.onclick = () => removeFromLibrary(movie); // Kaldırma fonksiyonunu bağla
-    
   } catch (error) {
     console.error("Local storage'a kaydetme hatası:", error);
     alert('Filmi eklerken bir sorun oluştu.');
@@ -190,7 +186,7 @@ function isMovieInLibrary(movie) {
 
 function removeFromLibrary(movie) {
   let library = JSON.parse(localStorage.getItem('myMovieLibrary') || '[]');
-  
+
   // Kaldırılmak istenen filme ait olmayanları filtrele
   const updatedLibrary = library.filter(m => m.id !== movie.id);
 
@@ -198,12 +194,11 @@ function removeFromLibrary(movie) {
     localStorage.setItem('myMovieLibrary', JSON.stringify(updatedLibrary));
 
     alert(`${movie.title} kütüphanenizden kaldırıldı.`);
-    
+
     // İşlem sonrası butonu "Ekle" moduna geri geçir (Anlık güncelleme)
     libraryBtn.textContent = 'Add to my library';
     libraryBtn.disabled = false;
     libraryBtn.onclick = () => addToLibrary(movie);
-
   } catch (error) {
     console.error("Local storage'dan silme hatası:", error);
     alert('Kaldırılırken bir sorun oluştu.');
